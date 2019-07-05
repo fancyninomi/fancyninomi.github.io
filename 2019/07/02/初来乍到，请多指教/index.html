@@ -88,8 +88,10 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://fancyninomi.github.io/2019/07/02/初来乍到，请多指教/标题实况.png">
 <meta property="og:image" content="https://fancyninomi.github.io/2019/07/02/初来乍到，请多指教/引用实况.png">
-<meta property="og:image" content="https://fancyninomi.github.io/2019/07/02/初来乍到，请多指教/列表.png">
-<meta property="og:updated_time" content="2019-07-04T17:24:29.865Z">
+<meta property="og:image" content="https://fancyninomi.github.io/2019/07/02/初来乍到，请多指教/列表new.png">
+<meta property="og:image" content="https://fancyninomi.github.io/2019/07/02/初来乍到，请多指教/表格.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/honjun/hexo-tag-emojis-byhj/emojis/people/face-with-tears-of-joy.png">
+<meta property="og:updated_time" content="2019-07-05T03:56:55.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Markdown写好一篇hexo博客">
 <meta name="twitter:description" content="Markdown基础语法">
@@ -372,18 +374,45 @@
 <hr>
 <h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>格式：[对链接的描述](链接)</p>
 <hr>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>每行缩进四个空格或一个制表符即可</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>代码块上下分别用三个`符号包裹起来(`符号在Esc键的下面)，然后每行缩进四个空格或一个制表符即可</p>
 <hr>
 <h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>格式：&gt;引用的内容<br>(引用可以嵌套，前面可以根据需要添加n个&gt;)<br>例如：<br>&gt;哈喽<br>&gt;&gt;哈喽<br>&gt;&gt;&gt;哈喽</p>
 <img src="/2019/07/02/初来乍到，请多指教/引用实况.png">
 
 <hr>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p><strong>无序列表</strong>(以下三种都可以，符号与内容之间要有一个空格！)：<br>- 列表内容<br>+ 列表内容<br>* 列表内容</p>
-<img src="/2019/07/02/初来乍到，请多指教/列表.png">
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p><strong>无序列表</strong>(以下二种都可以，符号与内容之间要有一个空格！)：<br>- 列表内容<br>+ 列表内容</p>
+<img src="/2019/07/02/初来乍到，请多指教/列表new.png">
 
 <p><strong>有序列表</strong><br>1.列表内容<br>2.列表内容<br>3.列表内容</p>
-<p><strong>列表嵌套</strong><br>(未完待续…)</p>
+<p><strong>列表嵌套</strong><br>格式：下一级每行缩进三个空格即可<br>例如：</p>
+<ul>
+<li>动物<ul>
+<li>猪猪</li>
+<li>二哈</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>语法：第二行分割表头和内容，-符号可以随便加几个，表格内文字默认居左<br>(-两边加：表示文字居中)<br>(-右边加：表示文字居右)<br>    表头|表头|表头<br>    —-|—-|—-<br>    内容|内容|内容<br>    内容|内容|内容<br>效果如下：</p>
+<img src="/2019/07/02/初来乍到，请多指教/表格.png">
 
+<hr>
+<h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/honjun/hexo-tag-emojis-byhj/css/emoji.css">
+建议用别的软件画吧<img class="emoji-hj" src="https://cdn.jsdelivr.net/gh/honjun/hexo-tag-emojis-byhj/emojis/people/face-with-tears-of-joy.png">
+
+<hr>
+<h2 id="表情包的使用"><a href="#表情包的使用" class="headerlink" title="表情包的使用"></a>表情包的使用</h2><p>1.首先安装插件npm i hexo-tag-emojis-byhj --save<br>2.可以在文章内引入css样式控制一下图片大小之类的，请自由发挥<br>例如:</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link <span class="attribute">rel</span>=<span class="string">"stylesheet"</span> <span class="attribute">href</span>=<span class="string">"https://cdn.jsdelivr.net/gh/honjun/hexo-tag-emojis-byhj/css/emoji.css"</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>3.使用emoji语法如下(举个例子)</p>
+
+{% emoji_hj people/face-with-tears-of-joy %}
+
+
+<p><strong>这里引用作者 hojun 2019-04-05制作的表情包页面</strong><a href="https://www.hojun.cn/2019/04/05/hexo-tag-emojis-byhj插件目前所有的表情/" target="_blank" rel="noopener">目前所有的表情</a><br>在这个页面直接点击表情就能复制相应的代码，粘贴到自己文章中，耍起来就很方便了。</p>
+<hr>
+<h1 id="某些问题"><a href="#某些问题" class="headerlink" title="某些问题"></a>某些问题</h1><p>如果某些内容导致文章中的处理问题，可以用raw标签包裹它<br>例如：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;%<span class="built_in"> raw </span>%&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -595,7 +624,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Markdown基础语法"><span class="nav-number">1.</span> <span class="nav-text">Markdown基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标题"><span class="nav-number">1.1.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入图片的问题"><span class="nav-number">1.2.</span> <span class="nav-text">插入图片的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体"><span class="nav-number">1.3.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-number">1.4.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.5.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">1.6.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">1.7.</span> <span class="nav-text">列表</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Markdown基础语法"><span class="nav-number">1.</span> <span class="nav-text">Markdown基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标题"><span class="nav-number">1.1.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入图片的问题"><span class="nav-number">1.2.</span> <span class="nav-text">插入图片的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体"><span class="nav-number">1.3.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-number">1.4.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.5.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">1.6.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">1.7.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">1.8.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程图"><span class="nav-number">1.9.</span> <span class="nav-text">流程图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表情包的使用"><span class="nav-number">1.10.</span> <span class="nav-text">表情包的使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#某些问题"><span class="nav-number">2.</span> <span class="nav-text">某些问题</span></a></li></ol></div>
             
 
           </div>
