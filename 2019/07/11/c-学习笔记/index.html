@@ -87,7 +87,7 @@
 <meta property="og:description" content="good good studyday day up">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://fancyninomi.github.io/2019/07/11/c-学习笔记/随机数产生.png">
-<meta property="og:updated_time" content="2019-07-12T14:41:54.978Z">
+<meta property="og:updated_time" content="2019-07-26T09:11:15.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c++学习笔记">
 <meta name="twitter:description" content="good good studyday day up">
@@ -322,7 +322,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  335
+                  1.1k
                 </span>
               
 
@@ -338,7 +338,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -372,6 +372,146 @@
 <p>(<strong>注</strong>：srand一定要放在循环的外面)</p>
 <h2 id="产生一定范围内的随机数通用表达式"><a href="#产生一定范围内的随机数通用表达式" class="headerlink" title="产生一定范围内的随机数通用表达式"></a>产生一定范围内的随机数通用表达式</h2><p>a+rand()%n    (其中a是起始值，n是整数的范围)</p>
 <hr>
+<h1 id="vector的用法"><a href="#vector的用法" class="headerlink" title="vector的用法"></a>vector的用法</h1><p>  vector是一种动态数组，其内部定义了很多基本操作，使用它时需要包含头文件<code>#include&lt;vector&gt;</code></p>
+<h2 id="vector的初始化"><a href="#vector的初始化" class="headerlink" title="vector的初始化"></a>vector的初始化</h2><table>
+<thead>
+<tr>
+<th>形式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>vector&lt;int&gt; a;</td>
+<td>声明一个int型向量a(尖括号中为元素类型名。它可以是任何合法的数据类型)</td>
+</tr>
+<tr>
+<td>vector&lt;int&gt; a(10);</td>
+<td>声明一个初始大小为10的向量，没有给定初值，其值不确定</td>
+</tr>
+<tr>
+<td>vector&lt;int&gt; a(10, 1);</td>
+<td>声明一个初始大小为10且初值都为1的向量</td>
+</tr>
+<tr>
+<td>vector&lt;int&gt; b(a);</td>
+<td>用向量a初始化向量b，整体复制性赋值</td>
+</tr>
+<tr>
+<td>vector&lt;int&gt; b(a.begin(), a.begin()+3);</td>
+<td>向量a中从第0个到第2个(共3个)为b向量赋初值</td>
+</tr>
+</tbody></table>
+<p>除此之外，还可以用数组初始化vector</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int b[]=&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="type">vector</span>&lt;int&gt; a(b, b+<span class="number">5</span>);		<span class="comment">//将数组b的前五个元素作为向量a的初值</span></span><br><span class="line"><span class="type">vector</span>&lt;int&gt; a(&amp;b[<span class="number">0</span>], &amp;b[<span class="number">4</span>]);	<span class="comment">//同理</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="vector的操作方法"><a href="#vector的操作方法" class="headerlink" title="vector的操作方法"></a>vector的操作方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a.assign(b.begin(), b.end())</td>
+<td>将begin到end区间内的数据赋值给a</td>
+</tr>
+<tr>
+<td>a.assign(n, elem)</td>
+<td>向量a含n个元素，每个元素值为elem</td>
+</tr>
+<tr>
+<td>a.at(ai)</td>
+<td>传回索引ai所指向的数据，如果ai越界，抛出out_of_range异常</td>
+</tr>
+<tr>
+<td>a.back()</td>
+<td>传回最后一个数据，不检查这个数据是否存在</td>
+</tr>
+<tr>
+<td>a.begin()</td>
+<td>返回一个迭代器，它指向容器a的第一个元素</td>
+</tr>
+<tr>
+<td>a.capacity()</td>
+<td>返回容器中数据个数</td>
+</tr>
+<tr>
+<td>a.clear()</td>
+<td>清空容器中所有数据</td>
+</tr>
+<tr>
+<td>a.empty()</td>
+<td>判断容器是否为空</td>
+</tr>
+<tr>
+<td>a.end()</td>
+<td>返回一个迭代器，它指向容器c的最后一个元素的下一个位置</td>
+</tr>
+<tr>
+<td>a.erase(pos)</td>
+<td>删除pos位置的数据，传回下一个数据的位置</td>
+</tr>
+<tr>
+<td>a.erase(beg, end)</td>
+<td>删除[beg, end)位置的数据，传回下一个数据的位置</td>
+</tr>
+<tr>
+<td>a.front()</td>
+<td>传回第一个数据</td>
+</tr>
+<tr>
+<td>a.insert(pos, elem)</td>
+<td>在pos位置插入elem元素，传回新数据位置</td>
+</tr>
+<tr>
+<td>a.insert(pos, n, elem)</td>
+<td>在pos位置插入n个elem元素，无返回值</td>
+</tr>
+<tr>
+<td>a.insert(pos, beg, end)</td>
+<td>在pos位置插入[beg, end)区间的数据，无返回值</td>
+</tr>
+<tr>
+<td>a.max_size()</td>
+<td>返回容器中最大数据的数量</td>
+</tr>
+<tr>
+<td>a.pop_back()</td>
+<td>删除最后一个数据</td>
+</tr>
+<tr>
+<td>a.push_back(elem)</td>
+<td>在尾部加入一个elem数据</td>
+</tr>
+<tr>
+<td>a.rbegin()</td>
+<td>返回一个逆序迭代器，它指向容器c的最后一个元素</td>
+</tr>
+<tr>
+<td>a.rend()</td>
+<td>返回一个逆序迭代器，它指向容器c的第一个元素前面的位置</td>
+</tr>
+<tr>
+<td>a.reserve()</td>
+<td>保留适当的容量，可以避免多次内存扩充操作(当a的容量不足时电脑会自动扩容，这样会降低性能)</td>
+</tr>
+<tr>
+<td>a.resize(num)</td>
+<td>将容器a现有的元素个数调整至num个，多则删少则补(补的值随机)</td>
+</tr>
+<tr>
+<td>a.resize(num, elem)</td>
+<td>将容器a现有的元素个数调整至num个，多则删少则补(补值为elem)</td>
+</tr>
+<tr>
+<td>a.size()</td>
+<td>返回容器中实际数据的数量</td>
+</tr>
+<tr>
+<td>a.swap(b)</td>
+<td>容器a,b中的元素进行整体性交换</td>
+</tr>
+</tbody></table>
 <p>(未完待续…)</p>
 
       
@@ -585,7 +725,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#批量注释"><span class="nav-number">1.</span> <span class="nav-text">批量注释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#随机函数rand-和srand-用法"><span class="nav-number">2.</span> <span class="nav-text">随机函数rand()和srand()用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rand"><span class="nav-number">2.1.</span> <span class="nav-text">rand()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#srand"><span class="nav-number">2.2.</span> <span class="nav-text">srand()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#产生一定范围内的随机数通用表达式"><span class="nav-number">2.3.</span> <span class="nav-text">产生一定范围内的随机数通用表达式</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#批量注释"><span class="nav-number">1.</span> <span class="nav-text">批量注释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#随机函数rand-和srand-用法"><span class="nav-number">2.</span> <span class="nav-text">随机函数rand()和srand()用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rand"><span class="nav-number">2.1.</span> <span class="nav-text">rand()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#srand"><span class="nav-number">2.2.</span> <span class="nav-text">srand()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#产生一定范围内的随机数通用表达式"><span class="nav-number">2.3.</span> <span class="nav-text">产生一定范围内的随机数通用表达式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vector的用法"><span class="nav-number">3.</span> <span class="nav-text">vector的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vector的初始化"><span class="nav-number">3.1.</span> <span class="nav-text">vector的初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vector的操作方法"><span class="nav-number">3.2.</span> <span class="nav-text">vector的操作方法</span></a></li></ol></li></ol></div>
             
 
           </div>
