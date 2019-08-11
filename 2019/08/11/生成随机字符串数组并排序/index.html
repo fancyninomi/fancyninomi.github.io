@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="good good studyday day up">
+<meta name="description" content="使用冒泡排序法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="c++学习笔记">
-<meta property="og:url" content="https://fancyninomi.github.io/2019/07/11/c-学习笔记/index.html">
+<meta property="og:title" content="生成随机字符串数组并排序">
+<meta property="og:url" content="https://fancyninomi.github.io/2019/08/11/生成随机字符串数组并排序/index.html">
 <meta property="og:site_name" content="Nino">
-<meta property="og:description" content="good good studyday day up">
+<meta property="og:description" content="使用冒泡排序法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://fancyninomi.github.io/2019/07/11/c-学习笔记/随机数产生.png">
-<meta property="og:updated_time" content="2019-08-02T02:55:32.592Z">
+<meta property="og:image" content="https://fancyninomi.github.io/2019/08/11/生成随机字符串数组并排序/生成随机字符串数组and排序.png">
+<meta property="og:updated_time" content="2019-08-11T13:21:29.066Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="c++学习笔记">
-<meta name="twitter:description" content="good good studyday day up">
-<meta name="twitter:image" content="https://fancyninomi.github.io/2019/07/11/c-学习笔记/随机数产生.png">
+<meta name="twitter:title" content="生成随机字符串数组并排序">
+<meta name="twitter:description" content="使用冒泡排序法">
+<meta name="twitter:image" content="https://fancyninomi.github.io/2019/08/11/生成随机字符串数组并排序/生成随机字符串数组and排序.png">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://fancyninomi.github.io/2019/07/11/c-学习笔记/">
+  <link rel="canonical" href="https://fancyninomi.github.io/2019/08/11/生成随机字符串数组并排序/">
 
 
 
 
 
-  <title>c++学习笔记 | Nino</title>
+  <title>生成随机字符串数组并排序 | Nino</title>
   
 
 
@@ -254,7 +254,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fancyninomi.github.io/2019/07/11/c-学习笔记/">
+    <link itemprop="mainEntityOfPage" href="https://fancyninomi.github.io/2019/08/11/生成随机字符串数组并排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ninomi">
@@ -271,7 +271,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">c++学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">生成随机字符串数组并排序</h1>
         
 
         <div class="post-meta">
@@ -283,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-11T09:51:19+08:00">
-                2019-07-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-11T20:54:01+08:00">
+                2019-08-11
               </time>
             
 
@@ -322,7 +322,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k
+                  337
                 </span>
               
 
@@ -338,7 +338,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  1
                 </span>
               
             </div>
@@ -359,161 +359,31 @@
       
 
       
-        <p>good good study<br>day day up</p>
+        <p>使用冒泡排序法</p>
 <a id="more"></a>
-<h1 id="批量注释"><a href="#批量注释" class="headerlink" title="批量注释"></a>批量注释</h1><p>快捷键：Ctrl+k+c<br>取消注释：Ctrl+k+u</p>
-<hr>
-<h1 id="随机函数rand-和srand-用法"><a href="#随机函数rand-和srand-用法" class="headerlink" title="随机函数rand()和srand()用法"></a>随机函数rand()和srand()用法</h1><h2 id="rand"><a href="#rand" class="headerlink" title="rand()"></a>rand()</h2><p><strong>头文件</strong>：<code>#include&lt;cstdlib&gt;</code><br><strong>功能</strong>：rand返回一随机数值0~32767之间，随机数种子默认为1。相同的随机数种子产生的随机数也相同，因此rand产生的是伪随机数。<br>想要rand每次执行产生不同的随机数吗？<br>    那就用srand函数吧！</p>
-<h2 id="srand"><a href="#srand" class="headerlink" title="srand()"></a>srand()</h2><p><strong>头文件</strong>：<code>#include&lt;cstdlib&gt;</code><br><strong>功能</strong>：srand()用来设置rand()产生随机数时的随机数种子<br><strong>用法</strong>：参数seed必须是个整数，通常可以利用time(0)的返回值或NULL来当做seed。<br><em>(注意：time函数要使用time.h头文件)</em><br>程序例：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;time.h&gt;    //包含函数time的头文件</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;   //包含函数rand和srand的头文件</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	srand(time(<span class="number">0</span>));</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Ten random numbers from "</span>	<span class="comment">//产生0-99之间的随机数 </span></span><br><span class="line">		&lt;&lt; <span class="string">"0"</span> &lt;&lt; <span class="string">" to "</span> </span><br><span class="line">		&lt;&lt; <span class="string">"99"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; ++i)            <span class="comment">//产生10个随机数</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; rand() % <span class="number">98</span> &lt;&lt; <span class="string">"\t"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>冒泡排序</strong>：相邻两个数进行比较，n个数比较n-1趟，第i趟比较n-i-1次。</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Hello;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> class HelloWorld &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">String</span> randomString(<span class="built_in">int</span> length) &#123;		<span class="comment">//生成随机字符串</span></span><br><span class="line">		<span class="built_in">char</span>[] ch = <span class="keyword">new</span> <span class="built_in">char</span>[length];	</span><br><span class="line">		<span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>; i&lt;ch.length; ++i) &#123;</span><br><span class="line">			<span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">				<span class="built_in">char</span> c = (<span class="built_in">char</span>)(Math.<span class="built_in">random</span>()*<span class="number">75</span>+<span class="number">48</span>);</span><br><span class="line">				<span class="keyword">if</span>(Character.isLetter(c)||Character.isDigit(c)) &#123;</span><br><span class="line">					ch[i] = c;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">String</span>.valueOf(ch);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">		<span class="keyword">String</span>[] <span class="built_in">str</span> = <span class="keyword">new</span> <span class="keyword">String</span>[<span class="number">8</span>];	</span><br><span class="line">		<span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>; i&lt;<span class="built_in">str</span>.length; ++i) &#123;	</span><br><span class="line">			<span class="built_in">str</span>[i] = randomString(<span class="number">5</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.<span class="built_in">println</span>(<span class="string">"未排序前的数组："</span>);</span><br><span class="line">		System.out.<span class="built_in">println</span>(Arrays.toString(<span class="built_in">str</span>));</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>; i&lt;<span class="built_in">str</span>.length<span class="number">-1</span>; ++i) &#123;		<span class="comment">//冒泡排序(不区分大小写)</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>; j&lt;<span class="built_in">str</span>.length-i<span class="number">-1</span>; ++j) &#123;</span><br><span class="line">				<span class="built_in">char</span> firstch1 = <span class="built_in">str</span>[j].charAt(<span class="number">0</span>);</span><br><span class="line">				<span class="built_in">char</span> firstch2 = <span class="built_in">str</span>[j+<span class="number">1</span>].charAt(<span class="number">0</span>);</span><br><span class="line">				firstch1 = Character.toLowerCase(firstch1);</span><br><span class="line">				firstch2 = Character.toLowerCase(firstch2);</span><br><span class="line">				<span class="keyword">if</span>(firstch1&gt;firstch2) &#123;</span><br><span class="line">					<span class="keyword">String</span> temp = <span class="built_in">str</span>[j];</span><br><span class="line">					<span class="built_in">str</span>[j] = <span class="built_in">str</span>[j+<span class="number">1</span>];</span><br><span class="line">					<span class="built_in">str</span>[j+<span class="number">1</span>] = temp;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.<span class="built_in">println</span>(<span class="string">"排序后的数组："</span>);</span><br><span class="line">		System.out.<span class="built_in">println</span>(Arrays.toString(<span class="built_in">str</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>结果：</p>
-<img src="/2019/07/11/c-学习笔记/随机数产生.png">
-<p>(<strong>注</strong>：srand一定要放在循环的外面)</p>
-<h2 id="产生一定范围内的随机数通用表达式"><a href="#产生一定范围内的随机数通用表达式" class="headerlink" title="产生一定范围内的随机数通用表达式"></a>产生一定范围内的随机数通用表达式</h2><p>a+rand()%n    (其中a是起始值，n是整数的范围)</p>
-<hr>
-<h1 id="vector的用法"><a href="#vector的用法" class="headerlink" title="vector的用法"></a>vector的用法</h1><p>  vector是一种动态数组，其内部定义了很多基本操作，使用它时需要包含头文件<code>#include&lt;vector&gt;</code></p>
-<h2 id="vector的初始化"><a href="#vector的初始化" class="headerlink" title="vector的初始化"></a>vector的初始化</h2><table>
-<thead>
-<tr>
-<th>形式</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>vector&lt;int&gt; a;</td>
-<td>声明一个int型向量a(尖括号中为元素类型名。它可以是任何合法的数据类型)</td>
-</tr>
-<tr>
-<td>vector&lt;int&gt; a(10);</td>
-<td>声明一个初始大小为10的向量，没有给定初值，其值不确定</td>
-</tr>
-<tr>
-<td>vector&lt;int&gt; a(10, 1);</td>
-<td>声明一个初始大小为10且初值都为1的向量</td>
-</tr>
-<tr>
-<td>vector&lt;int&gt; b(a);</td>
-<td>用向量a初始化向量b，整体复制性赋值</td>
-</tr>
-<tr>
-<td>vector&lt;int&gt; b(a.begin(), a.begin()+3);</td>
-<td>向量a中从第0个到第2个(共3个)为b向量赋初值</td>
-</tr>
-</tbody></table>
-<p>除此之外，还可以用数组初始化vector</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int b[]=&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="type">vector</span>&lt;int&gt; a(b, b+<span class="number">5</span>);		<span class="comment">//将数组b的前五个元素作为向量a的初值</span></span><br><span class="line"><span class="type">vector</span>&lt;int&gt; a(&amp;b[<span class="number">0</span>], &amp;b[<span class="number">4</span>]);	<span class="comment">//同理</span></span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<img src="/2019/08/11/生成随机字符串数组并排序/生成随机字符串数组and排序.png">
 
-<h2 id="vector的操作方法"><a href="#vector的操作方法" class="headerlink" title="vector的操作方法"></a>vector的操作方法</h2><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>a.assign(b.begin(), b.end())</td>
-<td>将begin到end区间内的数据赋值给a</td>
-</tr>
-<tr>
-<td>a.assign(n, elem)</td>
-<td>向量a含n个元素，每个元素值为elem</td>
-</tr>
-<tr>
-<td>a.at(ai)</td>
-<td>传回索引ai所指向的数据，如果ai越界，抛出out_of_range异常</td>
-</tr>
-<tr>
-<td>a.back()</td>
-<td>传回最后一个数据，不检查这个数据是否存在</td>
-</tr>
-<tr>
-<td>a.begin()</td>
-<td>返回一个迭代器，它指向容器a的第一个元素</td>
-</tr>
-<tr>
-<td>a.capacity()</td>
-<td>返回容器中数据个数</td>
-</tr>
-<tr>
-<td>a.clear()</td>
-<td>清空容器中所有数据</td>
-</tr>
-<tr>
-<td>a.empty()</td>
-<td>判断容器是否为空</td>
-</tr>
-<tr>
-<td>a.end()</td>
-<td>返回一个迭代器，它指向容器c的最后一个元素的下一个位置</td>
-</tr>
-<tr>
-<td>a.erase(pos)</td>
-<td>删除pos位置的数据，传回下一个数据的位置</td>
-</tr>
-<tr>
-<td>a.erase(beg, end)</td>
-<td>删除[beg, end)位置的数据，传回下一个数据的位置</td>
-</tr>
-<tr>
-<td>a.front()</td>
-<td>传回第一个数据</td>
-</tr>
-<tr>
-<td>a.insert(pos, elem)</td>
-<td>在pos位置插入elem元素，传回新数据位置</td>
-</tr>
-<tr>
-<td>a.insert(pos, n, elem)</td>
-<td>在pos位置插入n个elem元素，无返回值</td>
-</tr>
-<tr>
-<td>a.insert(pos, beg, end)</td>
-<td>在pos位置插入[beg, end)区间的数据，无返回值</td>
-</tr>
-<tr>
-<td>a.max_size()</td>
-<td>返回容器中最大数据的数量</td>
-</tr>
-<tr>
-<td>a.pop_back()</td>
-<td>删除最后一个数据</td>
-</tr>
-<tr>
-<td>a.push_back(elem)</td>
-<td>在尾部加入一个elem数据</td>
-</tr>
-<tr>
-<td>a.rbegin()</td>
-<td>返回一个逆序迭代器，它指向容器c的最后一个元素</td>
-</tr>
-<tr>
-<td>a.rend()</td>
-<td>返回一个逆序迭代器，它指向容器c的第一个元素前面的位置</td>
-</tr>
-<tr>
-<td>a.reserve(num)</td>
-<td>保留适当的(num个)容量，可以避免多次内存扩充操作(当a的容量不足时电脑会自动扩容，这样会降低性能)</td>
-</tr>
-<tr>
-<td>a.resize(num)</td>
-<td>将容器a现有的元素个数调整至num个，多则删少则补(补的值随机)</td>
-</tr>
-<tr>
-<td>a.resize(num, elem)</td>
-<td>将容器a现有的元素个数调整至num个，多则删少则补(补值为elem)</td>
-</tr>
-<tr>
-<td>a.size()</td>
-<td>返回容器中实际数据的数量</td>
-</tr>
-<tr>
-<td>a.swap(b)</td>
-<td>容器a,b中的元素进行整体性交换</td>
-</tr>
-</tbody></table>
 <hr>
-<p>(未完待续…)</p>
+<p><strong>char与String的相互转换</strong></p>
+<ol>
+<li><p>String转换为char</p>
+<ul>
+<li>String.charAt(index) (返回值为char) 可以得到String中某一指定位置的char。</li>
+<li>String.toCharArray() (返回值为char[]) 可以得到包含整个String的char数组，这样就可以用下标访问Stirng中任意位置的元素。</li>
+</ul>
+</li>
+<li><p>char转换为String</p>
+<ul>
+<li>String str = String.valueOf(&#39;c&#39;);</li>
+<li>String str = Character.toString(&#39;c&#39;);</li>
+<li>String str = String valueOf(new char[] ch); </li>
+</ul>
+</li>
+</ol>
 
       
     </div>
@@ -563,7 +433,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://fancyninomi.github.io/2019/07/11/c-学习笔记/" title="c++学习笔记">https://fancyninomi.github.io/2019/07/11/c-学习笔记/</a>
+    <a href="https://fancyninomi.github.io/2019/08/11/生成随机字符串数组并排序/" title="生成随机字符串数组并排序">https://fancyninomi.github.io/2019/08/11/生成随机字符串数组并排序/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -597,8 +467,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/06/初来乍到，请多指教/" rel="next" title="使用Markdown写好一篇hexo博客">
-                <i class="fa fa-chevron-left"></i> 使用Markdown写好一篇hexo博客
+              <a href="/2019/07/11/c-学习笔记/" rel="next" title="c++学习笔记">
+                <i class="fa fa-chevron-left"></i> c++学习笔记
               </a>
             
           </div>
@@ -606,10 +476,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/11/生成随机字符串数组并排序/" rel="prev" title="生成随机字符串数组并排序">
-                生成随机字符串数组并排序 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -666,17 +532,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -720,22 +577,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#批量注释"><span class="nav-number">1.</span> <span class="nav-text">批量注释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#随机函数rand-和srand-用法"><span class="nav-number">2.</span> <span class="nav-text">随机函数rand()和srand()用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rand"><span class="nav-number">2.1.</span> <span class="nav-text">rand()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#srand"><span class="nav-number">2.2.</span> <span class="nav-text">srand()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#产生一定范围内的随机数通用表达式"><span class="nav-number">2.3.</span> <span class="nav-text">产生一定范围内的随机数通用表达式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vector的用法"><span class="nav-number">3.</span> <span class="nav-text">vector的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vector的初始化"><span class="nav-number">3.1.</span> <span class="nav-text">vector的初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vector的操作方法"><span class="nav-number">3.2.</span> <span class="nav-text">vector的操作方法</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
