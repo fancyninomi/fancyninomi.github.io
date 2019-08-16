@@ -79,19 +79,21 @@
 
 
 
-<meta name="description" content="使用冒泡排序法">
+<meta name="description" content="问题原因使用迭代器遍历的同时又增加或删除元素，就会出现异常。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="生成随机字符串数组并排序">
-<meta property="og:url" content="https://fancyninomi.github.io/2019/08/11/生成随机字符串数组并排序/index.html">
+<meta property="og:title" content="Java ConcurrentModificationException异常">
+<meta property="og:url" content="https://fancyninomi.github.io/2019/08/16/Java-ConcurrentModificationException异常/index.html">
 <meta property="og:site_name" content="Nino">
-<meta property="og:description" content="使用冒泡排序法">
+<meta property="og:description" content="问题原因使用迭代器遍历的同时又增加或删除元素，就会出现异常。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://fancyninomi.github.io/2019/08/11/生成随机字符串数组并排序/生成随机字符串数组and排序.png">
-<meta property="og:updated_time" content="2019-08-11T13:21:29.066Z">
+<meta property="og:image" content="https://fancyninomi.github.io/2019/08/16/Java-ConcurrentModificationException异常/遍历删除(异常).png">
+<meta property="og:image" content="https://fancyninomi.github.io/2019/08/16/Java-ConcurrentModificationException异常/改正.png">
+<meta property="og:image" content="https://fancyninomi.github.io/2019/08/16/Java-ConcurrentModificationException异常/运行结果.png">
+<meta property="og:updated_time" content="2019-08-16T07:30:17.200Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="生成随机字符串数组并排序">
-<meta name="twitter:description" content="使用冒泡排序法">
-<meta name="twitter:image" content="https://fancyninomi.github.io/2019/08/11/生成随机字符串数组并排序/生成随机字符串数组and排序.png">
+<meta name="twitter:title" content="Java ConcurrentModificationException异常">
+<meta name="twitter:description" content="问题原因使用迭代器遍历的同时又增加或删除元素，就会出现异常。">
+<meta name="twitter:image" content="https://fancyninomi.github.io/2019/08/16/Java-ConcurrentModificationException异常/遍历删除(异常).png">
 
 
 
@@ -121,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="https://fancyninomi.github.io/2019/08/11/生成随机字符串数组并排序/">
+  <link rel="canonical" href="https://fancyninomi.github.io/2019/08/16/Java-ConcurrentModificationException异常/">
 
 
 
 
 
-  <title>生成随机字符串数组并排序 | Nino</title>
+  <title>Java ConcurrentModificationException异常 | Nino</title>
   
 
 
@@ -254,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fancyninomi.github.io/2019/08/11/生成随机字符串数组并排序/">
+    <link itemprop="mainEntityOfPage" href="https://fancyninomi.github.io/2019/08/16/Java-ConcurrentModificationException异常/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ninomi">
@@ -271,7 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">生成随机字符串数组并排序</h1>
+          <h1 class="post-title" itemprop="name headline">Java ConcurrentModificationException异常</h1>
         
 
         <div class="post-meta">
@@ -283,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-11T20:54:01+08:00">
-                2019-08-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-16T12:57:00+08:00">
+                2019-08-16
               </time>
             
 
@@ -322,7 +324,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  337
+                  269
                 </span>
               
 
@@ -359,31 +361,28 @@
       
 
       
-        <p>使用冒泡排序法</p>
+        <h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p><strong>使用迭代器遍历的同时又增加或删除元素，就会出现异常。</strong></p>
 <a id="more"></a>
-<p><strong>冒泡排序</strong>：相邻两个数进行比较，n个数比较n-1趟，第i趟比较n-i-1次。</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Hello;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> class HelloWorld &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">String</span> randomString(<span class="built_in">int</span> length) &#123;		<span class="comment">//生成随机字符串</span></span><br><span class="line">		<span class="built_in">char</span>[] ch = <span class="keyword">new</span> <span class="built_in">char</span>[length];	</span><br><span class="line">		<span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>; i&lt;ch.length; ++i) &#123;</span><br><span class="line">			<span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">				<span class="built_in">char</span> c = (<span class="built_in">char</span>)(Math.<span class="built_in">random</span>()*<span class="number">75</span>+<span class="number">48</span>);</span><br><span class="line">				<span class="keyword">if</span>(Character.isLetter(c)||Character.isDigit(c)) &#123;</span><br><span class="line">					ch[i] = c;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">String</span>.valueOf(ch);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">		<span class="keyword">String</span>[] <span class="built_in">str</span> = <span class="keyword">new</span> <span class="keyword">String</span>[<span class="number">8</span>];	</span><br><span class="line">		<span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>; i&lt;<span class="built_in">str</span>.length; ++i) &#123;	</span><br><span class="line">			<span class="built_in">str</span>[i] = randomString(<span class="number">5</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.<span class="built_in">println</span>(<span class="string">"未排序前的数组："</span>);</span><br><span class="line">		System.out.<span class="built_in">println</span>(Arrays.toString(<span class="built_in">str</span>));</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>; i&lt;<span class="built_in">str</span>.length<span class="number">-1</span>; ++i) &#123;		<span class="comment">//冒泡排序(不区分大小写)</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>; j&lt;<span class="built_in">str</span>.length-i<span class="number">-1</span>; ++j) &#123;</span><br><span class="line">				<span class="built_in">char</span> firstch1 = <span class="built_in">str</span>[j].charAt(<span class="number">0</span>);</span><br><span class="line">				<span class="built_in">char</span> firstch2 = <span class="built_in">str</span>[j+<span class="number">1</span>].charAt(<span class="number">0</span>);</span><br><span class="line">				firstch1 = Character.toLowerCase(firstch1);</span><br><span class="line">				firstch2 = Character.toLowerCase(firstch2);</span><br><span class="line">				<span class="keyword">if</span>(firstch1&gt;firstch2) &#123;</span><br><span class="line">					<span class="keyword">String</span> temp = <span class="built_in">str</span>[j];</span><br><span class="line">					<span class="built_in">str</span>[j] = <span class="built_in">str</span>[j+<span class="number">1</span>];</span><br><span class="line">					<span class="built_in">str</span>[j+<span class="number">1</span>] = temp;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.<span class="built_in">println</span>(<span class="string">"排序后的数组："</span>);</span><br><span class="line">		System.out.<span class="built_in">println</span>(Arrays.toString(<span class="built_in">str</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：</p>
-<img src="/2019/08/11/生成随机字符串数组并排序/生成随机字符串数组and排序.png">
-
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><u><strong>错误的代码</strong></u>:</p>
+<img src="/2019/08/16/Java-ConcurrentModificationException异常/遍历删除(异常).png">
+<p>该代码首先初始化一个Hero集合，里面放100个Hero对象，然后通过遍历的手段删除名字编号是8的倍数的对象。<br><strong>解决方法：</strong><br>使用<u>ListIterator</u>就ok了。<br>如图：</p>
+<img src="/2019/08/16/Java-ConcurrentModificationException异常/改正.png">
 <hr>
-<p><strong>char与String的相互转换</strong></p>
-<ol>
-<li><p>String转换为char</p>
-<ul>
-<li>String.charAt(index) (返回值为char) 可以得到String中某一指定位置的char。</li>
-<li>String.toCharArray() (返回值为char[]) 可以得到包含整个String的char数组，这样就可以用下标访问Stirng中任意位置的元素。</li>
-</ul>
-</li>
-<li><p>char转换为String</p>
-<ul>
-<li>String str = String.valueOf(&#39;c&#39;);</li>
-<li>String str = Character.toString(&#39;c&#39;);</li>
-<li>String str = String valueOf(new char[] ch); </li>
-</ul>
-</li>
-</ol>
+<p><strong>补充一些知识点：</strong><br>1.substring()方法：返回字符串的子字符串。</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">String</span> substring(<span class="keyword">int</span> beginIndex)</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">String</span> substring(<span class="keyword">int</span> beginIndex, <span class="keyword">int</span> endIndex)</span><br><span class="line"><span class="comment">//beginIndex--起始索引(包括)，索引从0开始。</span></span><br><span class="line"><span class="comment">//endIndex--结束索引(不包括)。</span></span><br></pre></td></tr></table></figure>
+
+<p>2.parseInt()方法：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="keyword">String</span> str);	<span class="comment">//返回用十进制参数表示的整数值</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="keyword">String</span> str, <span class="keyword">int</span> i);	<span class="comment">//使用指定基数的字符串参数表示的整数(基数可以是2,8,10,16等进制数)</span></span><br><span class="line"><span class="comment">//str--十进制表示的字符串，i--指定的基数</span></span><br><span class="line"><span class="comment">/**********例子**********/</span></span><br><span class="line"><span class="keyword">public</span> class Test&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args)&#123;</span><br><span class="line">		<span class="keyword">int</span> x =Integer.<span class="built_in">parseInt</span>(<span class="string">"8"</span>);</span><br><span class="line">		<span class="keyword">double</span> y = Double.parseDouble(<span class="string">"8"</span>);</span><br><span class="line">		<span class="keyword">int</span> z = Integer.<span class="built_in">parseInt</span>(<span class="string">"88"</span>,<span class="number">16</span>);</span><br><span class="line"></span><br><span class="line">		System.out.<span class="built_in">println</span>(x);</span><br><span class="line">		System.out.<span class="built_in">println</span>(y);</span><br><span class="line">		System.out.<span class="built_in">println</span>(z);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上例子的输出结果：</p>
+<img src="/2019/08/16/Java-ConcurrentModificationException异常/运行结果.png">
+
+
+
+
+
+
+
 
       
     </div>
@@ -433,7 +432,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://fancyninomi.github.io/2019/08/11/生成随机字符串数组并排序/" title="生成随机字符串数组并排序">https://fancyninomi.github.io/2019/08/11/生成随机字符串数组并排序/</a>
+    <a href="https://fancyninomi.github.io/2019/08/16/Java-ConcurrentModificationException异常/" title="Java ConcurrentModificationException异常">https://fancyninomi.github.io/2019/08/16/Java-ConcurrentModificationException异常/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -467,8 +466,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/11/c-学习笔记/" rel="next" title="c++学习笔记">
-                <i class="fa fa-chevron-left"></i> c++学习笔记
+              <a href="/2019/08/11/生成随机字符串数组并排序/" rel="next" title="生成随机字符串数组并排序">
+                <i class="fa fa-chevron-left"></i> 生成随机字符串数组并排序
               </a>
             
           </div>
@@ -476,10 +475,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/16/Java-ConcurrentModificationException异常/" rel="prev" title="Java ConcurrentModificationException异常">
-                Java ConcurrentModificationException异常 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -536,8 +531,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -581,6 +585,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题原因"><span class="nav-number">1.</span> <span class="nav-text">问题原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法"><span class="nav-number">2.</span> <span class="nav-text">解决办法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
