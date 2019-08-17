@@ -89,7 +89,7 @@
 <meta property="og:image" content="https://fancyninomi.github.io/2019/08/16/Java-ConcurrentModificationException异常/遍历删除(异常).png">
 <meta property="og:image" content="https://fancyninomi.github.io/2019/08/16/Java-ConcurrentModificationException异常/改正.png">
 <meta property="og:image" content="https://fancyninomi.github.io/2019/08/16/Java-ConcurrentModificationException异常/运行结果.png">
-<meta property="og:updated_time" content="2019-08-16T07:30:17.200Z">
+<meta property="og:updated_time" content="2019-08-17T01:21:28.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java ConcurrentModificationException异常">
 <meta name="twitter:description" content="问题原因使用迭代器遍历的同时又增加或删除元素，就会出现异常。">
@@ -296,6 +296,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -361,9 +383,9 @@
       
 
       
-        <h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p><strong>使用迭代器遍历的同时又增加或删除元素，就会出现异常。</strong></p>
+        <h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>使用迭代器遍历的同时又增加或删除元素，就会出现异常。</p>
 <a id="more"></a>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><u><strong>错误的代码</strong></u>:</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><u>错误的代码</u>:</p>
 <img src="/2019/08/16/Java-ConcurrentModificationException异常/遍历删除(异常).png">
 <p>该代码首先初始化一个Hero集合，里面放100个Hero对象，然后通过遍历的手段删除名字编号是8的倍数的对象。<br><strong>解决方法：</strong><br>使用<u>ListIterator</u>就ok了。<br>如图：</p>
 <img src="/2019/08/16/Java-ConcurrentModificationException异常/改正.png">
