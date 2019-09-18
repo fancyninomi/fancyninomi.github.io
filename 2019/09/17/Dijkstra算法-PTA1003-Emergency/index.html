@@ -79,19 +79,20 @@
 
 
 
-<meta name="description" content="good good studyday day up">
+<meta name="description" content="(▔＾▔)/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="c++学习笔记">
-<meta property="og:url" content="https://fancyninomi.github.io/2019/07/11/c-学习笔记/index.html">
+<meta property="og:title" content="Dijkstra算法 &amp; PTA1003 Emergency">
+<meta property="og:url" content="https://fancyninomi.github.io/2019/09/17/Dijkstra算法-PTA1003-Emergency/index.html">
 <meta property="og:site_name" content="Nino">
-<meta property="og:description" content="good good studyday day up">
+<meta property="og:description" content="(▔＾▔)/">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://fancyninomi.github.io/2019/07/11/c-学习笔记/随机数产生.png">
-<meta property="og:updated_time" content="2019-08-02T02:55:32.592Z">
+<meta property="og:image" content="https://fancyninomi.github.io/2019/09/17/Dijkstra算法-PTA1003-Emergency/更新最短路径.png">
+<meta property="og:image" content="https://fancyninomi.github.io/2019/09/17/Dijkstra算法-PTA1003-Emergency/一个小栗子.png">
+<meta property="og:updated_time" content="2019-09-18T08:31:39.944Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="c++学习笔记">
-<meta name="twitter:description" content="good good studyday day up">
-<meta name="twitter:image" content="https://fancyninomi.github.io/2019/07/11/c-学习笔记/随机数产生.png">
+<meta name="twitter:title" content="Dijkstra算法 &amp; PTA1003 Emergency">
+<meta name="twitter:description" content="(▔＾▔)/">
+<meta name="twitter:image" content="https://fancyninomi.github.io/2019/09/17/Dijkstra算法-PTA1003-Emergency/更新最短路径.png">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://fancyninomi.github.io/2019/07/11/c-学习笔记/">
+  <link rel="canonical" href="https://fancyninomi.github.io/2019/09/17/Dijkstra算法-PTA1003-Emergency/">
 
 
 
 
 
-  <title>c++学习笔记 | Nino</title>
+  <title>Dijkstra算法 & PTA1003 Emergency | Nino</title>
   
 
 
@@ -254,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fancyninomi.github.io/2019/07/11/c-学习笔记/">
+    <link itemprop="mainEntityOfPage" href="https://fancyninomi.github.io/2019/09/17/Dijkstra算法-PTA1003-Emergency/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ninomi">
@@ -271,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">c++学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">Dijkstra算法 & PTA1003 Emergency</h1>
         
 
         <div class="post-meta">
@@ -283,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-11T09:51:19+08:00">
-                2019-07-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-17T22:44:37+08:00">
+                2019-09-17
               </time>
             
 
@@ -293,6 +294,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -359,161 +382,17 @@
       
 
       
-        <p>good good study<br>day day up</p>
+        <p>(▔＾▔)/</p>
 <a id="more"></a>
-<h1 id="批量注释"><a href="#批量注释" class="headerlink" title="批量注释"></a>批量注释</h1><p>快捷键：Ctrl+k+c<br>取消注释：Ctrl+k+u</p>
-<hr>
-<h1 id="随机函数rand-和srand-用法"><a href="#随机函数rand-和srand-用法" class="headerlink" title="随机函数rand()和srand()用法"></a>随机函数rand()和srand()用法</h1><h2 id="rand"><a href="#rand" class="headerlink" title="rand()"></a>rand()</h2><p><strong>头文件</strong>：<code>#include&lt;cstdlib&gt;</code><br><strong>功能</strong>：rand返回一随机数值0~32767之间，随机数种子默认为1。相同的随机数种子产生的随机数也相同，因此rand产生的是伪随机数。<br>想要rand每次执行产生不同的随机数吗？<br>    那就用srand函数吧！</p>
-<h2 id="srand"><a href="#srand" class="headerlink" title="srand()"></a>srand()</h2><p><strong>头文件</strong>：<code>#include&lt;cstdlib&gt;</code><br><strong>功能</strong>：srand()用来设置rand()产生随机数时的随机数种子<br><strong>用法</strong>：参数seed必须是个整数，通常可以利用time(0)的返回值或NULL来当做seed。<br><em>(注意：time函数要使用time.h头文件)</em><br>程序例：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;time.h&gt;    //包含函数time的头文件</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;   //包含函数rand和srand的头文件</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	srand(time(<span class="number">0</span>));</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Ten random numbers from "</span>	<span class="comment">//产生0-99之间的随机数 </span></span><br><span class="line">		&lt;&lt; <span class="string">"0"</span> &lt;&lt; <span class="string">" to "</span> </span><br><span class="line">		&lt;&lt; <span class="string">"99"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; ++i)            <span class="comment">//产生10个随机数</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; rand() % <span class="number">98</span> &lt;&lt; <span class="string">"\t"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Dijkstra最短路径"><a href="#Dijkstra最短路径" class="headerlink" title="Dijkstra最短路径"></a>Dijkstra最短路径</h2><p>问题：给定一个带权有向图G、源点v，求从源点v到图G中其他顶点的最短路径。<br><strong>算法的基本思想：</strong>设G=(V, E)是一个带权有向图，把图中顶点集合V分为两组，第一组为以求出最短路径的点集合S(开始时只有一个源点v，以后每求出一条最短路径v-&gt;u，就把u加入到S，直到全部顶点加入S中，算法就结束了)，第二组为未确定最短路径的顶点集合。<br><strong>特点：</strong>一个顶点一旦加入到S中后，其最短路径就不再改变<br><strong>具体步骤：</strong><br>1.定义一维数组dist[]存放最短路径长度(dist[j]表示源点v到j的最短路径长度)，除了可以直达的点赋初值外其余都初始化为INF(无穷大)。<br>  初始时，S只包含源点，dist[v]=0，集合U包含除v以外的其他点，即U={其他点}，若v与U中顶点有边，则&lt;v, u&gt;有正常权值，否则为INF<br>2.从U中选取一个距源点v最小的顶点k，加入到S中。<br>3.加入k后，更新U中各点的最短路径，若从v点到u的距离(经过k点)比原来距离(不经过k点)短，则修改u的最短路径</p>
+<img src="/2019/09/17/Dijkstra算法-PTA1003-Emergency/更新最短路径.png" title="修改最短路径">
+<p>4.重复2、3步骤，直到所有顶点都包含在S集合中。</p>
+<p>举个栗子：</p>
+<img src="/2019/09/17/Dijkstra算法-PTA1003-Emergency/一个小栗子.png" title="一个小栗子">
+<p>初始：S{0}   int dist[5]={0,1,4,INF,1}<br>加入点1后，发现1与2有边，点2的最短路径发生变化<br>S{0,1}   dist[5]={0,1,3,INF,1}<br>加入点4后，发现3与4有边，更新3的最短路径<br>S{0,1,4}   dist[5]={0,1,3,3,1}<br>加入点3后，2与3有边，但新的边更长，2最短路径无变化<br>S{0,1,3,4}   dist[5]={0,1,3,3,1}<br>加入点2，最短路径无变化<br>S{0,1,2,3,4}   dist[5]={0,1,3,3,1}<br>算法结束，最短路径求出！<br><strong>恭喜你学会了Dijkstra算法，让我们愉快的做一道题吧</strong>(╬▔▽▔)</p>
+<h2 id="PTA1003-Emergency"><a href="#PTA1003-Emergency" class="headerlink" title="PTA1003 Emergency"></a>PTA1003 Emergency</h2><p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805523835109376" target="_blank" rel="noopener">题目在这里</a><br>题目主要是说，有N个城市M条路，每个城市有救援小组，每条路的长度已知，给定起点和终点，求从起点到终点的最短路径和路径上的救援队数目，如果最短路径有多条，就输出城市救援小组数目最大的值。</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> PTAtest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> class Main &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">int</span> INF = <span class="number">32767</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">		Scanner s = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="built_in">int</span> cityNum = s.nextInt();	<span class="comment">//城市数量</span></span><br><span class="line">		<span class="built_in">int</span> roadNum = s.nextInt();	<span class="comment">//道路数量</span></span><br><span class="line">		<span class="built_in">int</span> beg = s.nextInt();	<span class="comment">//起点</span></span><br><span class="line">		<span class="built_in">int</span> end = s.nextInt();	<span class="comment">//终点</span></span><br><span class="line">		<span class="built_in">int</span>[] cityWeight = <span class="keyword">new</span> <span class="built_in">int</span>[cityNum];	<span class="comment">//各城市救援队数量</span></span><br><span class="line">		<span class="built_in">int</span>[] roadMin = <span class="keyword">new</span> <span class="built_in">int</span>[cityNum];	<span class="comment">//最短路径数目</span></span><br><span class="line">		<span class="built_in">int</span>[] weight = <span class="keyword">new</span> <span class="built_in">int</span>[cityNum];	<span class="comment">//路径上的救援队数</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>; i&lt;cityNum; ++i)</span><br><span class="line">			cityWeight[i] = s.nextInt();</span><br><span class="line">		<span class="built_in">int</span> L[][] = <span class="keyword">new</span> <span class="built_in">int</span>[cityNum][cityNum];	<span class="comment">//各道路长度</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>; i&lt;cityNum; ++i)	<span class="comment">//初始化</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>; j&lt;cityNum; ++j)</span><br><span class="line">				L[i][j] = INF;</span><br><span class="line">		<span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>; i&lt;roadNum; ++i) &#123;</span><br><span class="line">			<span class="built_in">int</span> x = s.nextInt();</span><br><span class="line">			<span class="built_in">int</span> y = s.nextInt();</span><br><span class="line">			<span class="built_in">int</span> z = s.nextInt();</span><br><span class="line">			L[x][y] = z;</span><br><span class="line">			L[y][x] = z;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">boolean</span>[] S = <span class="keyword">new</span> <span class="built_in">boolean</span>[cityNum];	<span class="comment">//判断城市是否已经在S集合中</span></span><br><span class="line">		<span class="built_in">int</span>[] <span class="built_in">dist</span> = <span class="keyword">new</span> <span class="built_in">int</span>[cityNum];	<span class="comment">//起点到各城市最短路径长度</span></span><br><span class="line">		Arrays.<span class="built_in">fill</span>(<span class="built_in">dist</span>, INF);	<span class="comment">//初始化</span></span><br><span class="line">		Arrays.<span class="built_in">fill</span>(S, <span class="keyword">false</span>);	<span class="comment">//初始化</span></span><br><span class="line">		<span class="built_in">dist</span>[beg] = <span class="number">0</span>;	<span class="comment">//初始化</span></span><br><span class="line">		weight[beg] = cityWeight[beg];	<span class="comment">//初始化</span></span><br><span class="line">		roadMin[beg] = <span class="number">1</span>;	<span class="comment">//初始化</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>; i&lt;cityNum; ++i) &#123;</span><br><span class="line">			<span class="built_in">int</span> minDis = INF; <span class="built_in">int</span> pos = <span class="number">-1</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="built_in">int</span> j=<span class="number">0</span>; j&lt;cityNum; ++j) &#123;	<span class="comment">//循环求出到源点最短的城市，加入S中</span></span><br><span class="line">				<span class="keyword">if</span>(!S[j] &amp;&amp; <span class="built_in">dist</span>[j]&lt;minDis) &#123;</span><br><span class="line">					pos = j;</span><br><span class="line">					minDis = <span class="built_in">dist</span>[j];</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(pos == <span class="number">-1</span>)</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			S[pos] = <span class="keyword">true</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="built_in">int</span> k=<span class="number">0</span>; k&lt;cityNum; ++k) &#123;	<span class="comment">//每加入一个点就要考虑未加入的点的最短路径、路径救援队数、路径条数的更新</span></span><br><span class="line">				<span class="keyword">if</span>(!S[k]) &#123;	<span class="comment">//未加入的点必须与刚加入的点有边</span></span><br><span class="line">					<span class="keyword">if</span>(L[pos][k]&lt;INF &amp;&amp; <span class="built_in">dist</span>[pos]+L[pos][k]&lt;<span class="built_in">dist</span>[k]) &#123;</span><br><span class="line">						<span class="built_in">dist</span>[k] = <span class="built_in">dist</span>[pos]+L[pos][k];</span><br><span class="line">						roadMin[k] = roadMin[pos];</span><br><span class="line">						weight[k] = cityWeight[k]+weight[pos];</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">else</span> <span class="keyword">if</span>(L[pos][k]&lt;INF &amp;&amp; <span class="built_in">dist</span>[pos]+L[pos][k]==<span class="built_in">dist</span>[k]) &#123;</span><br><span class="line">						roadMin[k] += roadMin[pos];</span><br><span class="line">						<span class="keyword">if</span>(weight[k]&lt;cityWeight[k]+weight[pos])</span><br><span class="line">							weight[k] = cityWeight[k]+weight[pos];</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.<span class="built_in">println</span>(roadMin[end]+<span class="string">" "</span>+weight[end]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>结果：</p>
-<img src="/2019/07/11/c-学习笔记/随机数产生.png">
-<p>(<strong>注</strong>：srand一定要放在循环的外面)</p>
-<h2 id="产生一定范围内的随机数通用表达式"><a href="#产生一定范围内的随机数通用表达式" class="headerlink" title="产生一定范围内的随机数通用表达式"></a>产生一定范围内的随机数通用表达式</h2><p>a+rand()%n    (其中a是起始值，n是整数的范围)</p>
-<hr>
-<h1 id="vector的用法"><a href="#vector的用法" class="headerlink" title="vector的用法"></a>vector的用法</h1><p>  vector是一种动态数组，其内部定义了很多基本操作，使用它时需要包含头文件<code>#include&lt;vector&gt;</code></p>
-<h2 id="vector的初始化"><a href="#vector的初始化" class="headerlink" title="vector的初始化"></a>vector的初始化</h2><table>
-<thead>
-<tr>
-<th>形式</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>vector&lt;int&gt; a;</td>
-<td>声明一个int型向量a(尖括号中为元素类型名。它可以是任何合法的数据类型)</td>
-</tr>
-<tr>
-<td>vector&lt;int&gt; a(10);</td>
-<td>声明一个初始大小为10的向量，没有给定初值，其值不确定</td>
-</tr>
-<tr>
-<td>vector&lt;int&gt; a(10, 1);</td>
-<td>声明一个初始大小为10且初值都为1的向量</td>
-</tr>
-<tr>
-<td>vector&lt;int&gt; b(a);</td>
-<td>用向量a初始化向量b，整体复制性赋值</td>
-</tr>
-<tr>
-<td>vector&lt;int&gt; b(a.begin(), a.begin()+3);</td>
-<td>向量a中从第0个到第2个(共3个)为b向量赋初值</td>
-</tr>
-</tbody></table>
-<p>除此之外，还可以用数组初始化vector</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int b[]=&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="type">vector</span>&lt;int&gt; a(b, b+<span class="number">5</span>);		<span class="comment">//将数组b的前五个元素作为向量a的初值</span></span><br><span class="line"><span class="type">vector</span>&lt;int&gt; a(&amp;b[<span class="number">0</span>], &amp;b[<span class="number">4</span>]);	<span class="comment">//同理</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="vector的操作方法"><a href="#vector的操作方法" class="headerlink" title="vector的操作方法"></a>vector的操作方法</h2><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>a.assign(b.begin(), b.end())</td>
-<td>将begin到end区间内的数据赋值给a</td>
-</tr>
-<tr>
-<td>a.assign(n, elem)</td>
-<td>向量a含n个元素，每个元素值为elem</td>
-</tr>
-<tr>
-<td>a.at(ai)</td>
-<td>传回索引ai所指向的数据，如果ai越界，抛出out_of_range异常</td>
-</tr>
-<tr>
-<td>a.back()</td>
-<td>传回最后一个数据，不检查这个数据是否存在</td>
-</tr>
-<tr>
-<td>a.begin()</td>
-<td>返回一个迭代器，它指向容器a的第一个元素</td>
-</tr>
-<tr>
-<td>a.capacity()</td>
-<td>返回容器中数据个数</td>
-</tr>
-<tr>
-<td>a.clear()</td>
-<td>清空容器中所有数据</td>
-</tr>
-<tr>
-<td>a.empty()</td>
-<td>判断容器是否为空</td>
-</tr>
-<tr>
-<td>a.end()</td>
-<td>返回一个迭代器，它指向容器c的最后一个元素的下一个位置</td>
-</tr>
-<tr>
-<td>a.erase(pos)</td>
-<td>删除pos位置的数据，传回下一个数据的位置</td>
-</tr>
-<tr>
-<td>a.erase(beg, end)</td>
-<td>删除[beg, end)位置的数据，传回下一个数据的位置</td>
-</tr>
-<tr>
-<td>a.front()</td>
-<td>传回第一个数据</td>
-</tr>
-<tr>
-<td>a.insert(pos, elem)</td>
-<td>在pos位置插入elem元素，传回新数据位置</td>
-</tr>
-<tr>
-<td>a.insert(pos, n, elem)</td>
-<td>在pos位置插入n个elem元素，无返回值</td>
-</tr>
-<tr>
-<td>a.insert(pos, beg, end)</td>
-<td>在pos位置插入[beg, end)区间的数据，无返回值</td>
-</tr>
-<tr>
-<td>a.max_size()</td>
-<td>返回容器中最大数据的数量</td>
-</tr>
-<tr>
-<td>a.pop_back()</td>
-<td>删除最后一个数据</td>
-</tr>
-<tr>
-<td>a.push_back(elem)</td>
-<td>在尾部加入一个elem数据</td>
-</tr>
-<tr>
-<td>a.rbegin()</td>
-<td>返回一个逆序迭代器，它指向容器c的最后一个元素</td>
-</tr>
-<tr>
-<td>a.rend()</td>
-<td>返回一个逆序迭代器，它指向容器c的第一个元素前面的位置</td>
-</tr>
-<tr>
-<td>a.reserve(num)</td>
-<td>保留适当的(num个)容量，可以避免多次内存扩充操作(当a的容量不足时电脑会自动扩容，这样会降低性能)</td>
-</tr>
-<tr>
-<td>a.resize(num)</td>
-<td>将容器a现有的元素个数调整至num个，多则删少则补(补的值随机)</td>
-</tr>
-<tr>
-<td>a.resize(num, elem)</td>
-<td>将容器a现有的元素个数调整至num个，多则删少则补(补值为elem)</td>
-</tr>
-<tr>
-<td>a.size()</td>
-<td>返回容器中实际数据的数量</td>
-</tr>
-<tr>
-<td>a.swap(b)</td>
-<td>容器a,b中的元素进行整体性交换</td>
-</tr>
-</tbody></table>
-<hr>
-<p>(未完待续…)</p>
 
       
     </div>
@@ -563,7 +442,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://fancyninomi.github.io/2019/07/11/c-学习笔记/" title="c++学习笔记">https://fancyninomi.github.io/2019/07/11/c-学习笔记/</a>
+    <a href="https://fancyninomi.github.io/2019/09/17/Dijkstra算法-PTA1003-Emergency/" title="Dijkstra算法 & PTA1003 Emergency">https://fancyninomi.github.io/2019/09/17/Dijkstra算法-PTA1003-Emergency/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -597,8 +476,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/06/初来乍到，请多指教/" rel="next" title="使用Markdown写好一篇hexo博客">
-                <i class="fa fa-chevron-left"></i> 使用Markdown写好一篇hexo博客
+              <a href="/2019/09/09/Set-Map/" rel="next" title="Set & Map">
+                <i class="fa fa-chevron-left"></i> Set & Map
               </a>
             
           </div>
@@ -606,10 +485,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/11/生成随机字符串数组并排序/" rel="prev" title="生成随机字符串数组并排序">
-                生成随机字符串数组并排序 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -739,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#批量注释"><span class="nav-number">1.</span> <span class="nav-text">批量注释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#随机函数rand-和srand-用法"><span class="nav-number">2.</span> <span class="nav-text">随机函数rand()和srand()用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rand"><span class="nav-number">2.1.</span> <span class="nav-text">rand()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#srand"><span class="nav-number">2.2.</span> <span class="nav-text">srand()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#产生一定范围内的随机数通用表达式"><span class="nav-number">2.3.</span> <span class="nav-text">产生一定范围内的随机数通用表达式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vector的用法"><span class="nav-number">3.</span> <span class="nav-text">vector的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vector的初始化"><span class="nav-number">3.1.</span> <span class="nav-text">vector的初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vector的操作方法"><span class="nav-number">3.2.</span> <span class="nav-text">vector的操作方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dijkstra最短路径"><span class="nav-number">1.</span> <span class="nav-text">Dijkstra最短路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PTA1003-Emergency"><span class="nav-number">2.</span> <span class="nav-text">PTA1003 Emergency</span></a></li></ol></div>
             
 
           </div>
