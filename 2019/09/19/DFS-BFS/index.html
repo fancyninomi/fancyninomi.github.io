@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="PTA,">
 
 
 
@@ -79,19 +79,18 @@
 
 
 
-<meta name="description" content="good good studyday day up">
+<meta name="description" content="┑(￣▽ ￣)┍">
+<meta name="keywords" content="PTA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="c++学习笔记">
-<meta property="og:url" content="https://fancyninomi.github.io/2019/07/11/c-学习笔记/index.html">
+<meta property="og:title" content="DFS &amp; BFS">
+<meta property="og:url" content="https://fancyninomi.github.io/2019/09/19/DFS-BFS/index.html">
 <meta property="og:site_name" content="Nino">
-<meta property="og:description" content="good good studyday day up">
+<meta property="og:description" content="┑(￣▽ ￣)┍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://fancyninomi.github.io/2019/07/11/c-学习笔记/随机数产生.png">
-<meta property="og:updated_time" content="2019-08-02T02:55:32.592Z">
+<meta property="og:updated_time" content="2019-09-20T00:44:42.661Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="c++学习笔记">
-<meta name="twitter:description" content="good good studyday day up">
-<meta name="twitter:image" content="https://fancyninomi.github.io/2019/07/11/c-学习笔记/随机数产生.png">
+<meta name="twitter:title" content="DFS &amp; BFS">
+<meta name="twitter:description" content="┑(￣▽ ￣)┍">
 
 
 
@@ -121,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://fancyninomi.github.io/2019/07/11/c-学习笔记/">
+  <link rel="canonical" href="https://fancyninomi.github.io/2019/09/19/DFS-BFS/">
 
 
 
 
 
-  <title>c++学习笔记 | Nino</title>
+  <title>DFS & BFS | Nino</title>
   
 
 
@@ -254,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fancyninomi.github.io/2019/07/11/c-学习笔记/">
+    <link itemprop="mainEntityOfPage" href="https://fancyninomi.github.io/2019/09/19/DFS-BFS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ninomi">
@@ -271,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">c++学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">DFS & BFS</h1>
         
 
         <div class="post-meta">
@@ -283,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-11T09:51:19+08:00">
-                2019-07-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-19T23:21:44+08:00">
+                2019-09-19
               </time>
             
 
@@ -293,6 +292,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -322,7 +343,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k
+                  953
                 </span>
               
 
@@ -359,161 +380,20 @@
       
 
       
-        <p>good good study<br>day day up</p>
+        <p>┑(￣▽ ￣)┍ </p>
 <a id="more"></a>
-<h1 id="批量注释"><a href="#批量注释" class="headerlink" title="批量注释"></a>批量注释</h1><p>快捷键：Ctrl+k+c<br>取消注释：Ctrl+k+u</p>
-<hr>
-<h1 id="随机函数rand-和srand-用法"><a href="#随机函数rand-和srand-用法" class="headerlink" title="随机函数rand()和srand()用法"></a>随机函数rand()和srand()用法</h1><h2 id="rand"><a href="#rand" class="headerlink" title="rand()"></a>rand()</h2><p><strong>头文件</strong>：<code>#include&lt;cstdlib&gt;</code><br><strong>功能</strong>：rand返回一随机数值0~32767之间，随机数种子默认为1。相同的随机数种子产生的随机数也相同，因此rand产生的是伪随机数。<br>想要rand每次执行产生不同的随机数吗？<br>    那就用srand函数吧！</p>
-<h2 id="srand"><a href="#srand" class="headerlink" title="srand()"></a>srand()</h2><p><strong>头文件</strong>：<code>#include&lt;cstdlib&gt;</code><br><strong>功能</strong>：srand()用来设置rand()产生随机数时的随机数种子<br><strong>用法</strong>：参数seed必须是个整数，通常可以利用time(0)的返回值或NULL来当做seed。<br><em>(注意：time函数要使用time.h头文件)</em><br>程序例：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;time.h&gt;    //包含函数time的头文件</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;   //包含函数rand和srand的头文件</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	srand(time(<span class="number">0</span>));</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Ten random numbers from "</span>	<span class="comment">//产生0-99之间的随机数 </span></span><br><span class="line">		&lt;&lt; <span class="string">"0"</span> &lt;&lt; <span class="string">" to "</span> </span><br><span class="line">		&lt;&lt; <span class="string">"99"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; ++i)            <span class="comment">//产生10个随机数</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; rand() % <span class="number">98</span> &lt;&lt; <span class="string">"\t"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="深度优先遍历-DFS"><a href="#深度优先遍历-DFS" class="headerlink" title="深度优先遍历(DFS)"></a>深度优先遍历(DFS)</h2><p><strong>算法的基本思想：</strong>从图的某个初始顶点v出发，首先访问初始顶点v，随后选择一个与v相邻且没访问过的点u，接着以点u为初始顶点，继续深度优先遍历，这个遍历是一个递归的过程。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> visited[MAXV] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(AdjGraph *G, <span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	visited[v] = <span class="number">1</span>;	<span class="comment">//置v已经访问</span></span><br><span class="line">	<span class="keyword">for</span>(循环v的每个邻接点) &#123;</span><br><span class="line">		<span class="keyword">if</span>(该邻接点未访问) &#123;</span><br><span class="line">			DFS(G, 该邻接点);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>结果：</p>
-<img src="/2019/07/11/c-学习笔记/随机数产生.png">
-<p>(<strong>注</strong>：srand一定要放在循环的外面)</p>
-<h2 id="产生一定范围内的随机数通用表达式"><a href="#产生一定范围内的随机数通用表达式" class="headerlink" title="产生一定范围内的随机数通用表达式"></a>产生一定范围内的随机数通用表达式</h2><p>a+rand()%n    (其中a是起始值，n是整数的范围)</p>
-<hr>
-<h1 id="vector的用法"><a href="#vector的用法" class="headerlink" title="vector的用法"></a>vector的用法</h1><p>  vector是一种动态数组，其内部定义了很多基本操作，使用它时需要包含头文件<code>#include&lt;vector&gt;</code></p>
-<h2 id="vector的初始化"><a href="#vector的初始化" class="headerlink" title="vector的初始化"></a>vector的初始化</h2><table>
-<thead>
-<tr>
-<th>形式</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>vector&lt;int&gt; a;</td>
-<td>声明一个int型向量a(尖括号中为元素类型名。它可以是任何合法的数据类型)</td>
-</tr>
-<tr>
-<td>vector&lt;int&gt; a(10);</td>
-<td>声明一个初始大小为10的向量，没有给定初值，其值不确定</td>
-</tr>
-<tr>
-<td>vector&lt;int&gt; a(10, 1);</td>
-<td>声明一个初始大小为10且初值都为1的向量</td>
-</tr>
-<tr>
-<td>vector&lt;int&gt; b(a);</td>
-<td>用向量a初始化向量b，整体复制性赋值</td>
-</tr>
-<tr>
-<td>vector&lt;int&gt; b(a.begin(), a.begin()+3);</td>
-<td>向量a中从第0个到第2个(共3个)为b向量赋初值</td>
-</tr>
-</tbody></table>
-<p>除此之外，还可以用数组初始化vector</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int b[]=&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="type">vector</span>&lt;int&gt; a(b, b+<span class="number">5</span>);		<span class="comment">//将数组b的前五个元素作为向量a的初值</span></span><br><span class="line"><span class="type">vector</span>&lt;int&gt; a(&amp;b[<span class="number">0</span>], &amp;b[<span class="number">4</span>]);	<span class="comment">//同理</span></span><br></pre></td></tr></table></figure>
+<p><strong>嗯，好像挺简单的，做道题吧……</strong></p>
+<h3 id="PTA1004-Counting-Leaves"><a href="#PTA1004-Counting-Leaves" class="headerlink" title="PTA1004 Counting Leaves"></a>PTA1004 Counting Leaves</h3><p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805521431773184" target="_blank" rel="noopener">题目在这里</a><br>分析：用map代替邻接表储存结点信息，用一维数组levels储存每一层的叶子结点数目，只要某结点的key值对应的value值为空，则该节点为叶子结点，为了求最大深度，在每次进DFS后首先要更新最大深度。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> &#123;</span></span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> maxDepth = <span class="number">-1</span>;	<span class="comment">//最大深度</span></span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span>[] levels = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">100</span>];	<span class="comment">//记录每一层的叶子结点数目</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">DFS</span><span class="params">(HashMap&lt;Integer, ArrayList&lt;Integer&gt;&gt; <span class="built_in">map</span>, <span class="keyword">int</span> node, <span class="keyword">int</span> depth)</span> </span>&#123;</span><br><span class="line">		maxDepth = Math.max(depth, maxDepth);</span><br><span class="line">		ArrayList&lt;Integer&gt; <span class="built_in">list</span> = <span class="built_in">map</span>.get(node);</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">list</span> == null) &#123;	<span class="comment">//没有子节点了，跳出当前DFS</span></span><br><span class="line">			levels[depth]++;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(Integer i : <span class="built_in">list</span>) &#123;	<span class="comment">//有子节点时遍历子节点，找出每个子节点的子节点</span></span><br><span class="line">			DFS(<span class="built_in">map</span>, i, depth+<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner sc=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">int</span> n = sc.nextInt();	<span class="comment">//总节点数</span></span><br><span class="line">		<span class="keyword">int</span> m = sc.nextInt();	<span class="comment">//叶子结点总数</span></span><br><span class="line">		HashMap&lt;Integer, ArrayList&lt;Integer&gt;&gt; <span class="built_in">map</span> = <span class="keyword">new</span> HashMap&lt;&gt;();	<span class="comment">//用map记录结点间的父子关系</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;m; ++i) &#123;	<span class="comment">//初始化map</span></span><br><span class="line">			<span class="keyword">int</span> a = sc.nextInt();</span><br><span class="line">			<span class="keyword">int</span> k = sc.nextInt();</span><br><span class="line">			ArrayList&lt;Integer&gt; <span class="built_in">list</span> = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;k; ++j) &#123;</span><br><span class="line">				<span class="keyword">int</span> b = sc.nextInt();</span><br><span class="line">				<span class="built_in">list</span>.add(b);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">map</span>.put(a, <span class="built_in">list</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		DFS(<span class="built_in">map</span>, <span class="number">1</span>, <span class="number">1</span>);	<span class="comment">//从根结点开始(根结点深度记为1)</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;maxDepth; ++i)	<span class="comment">//按格式输出</span></span><br><span class="line">			System.out.<span class="built_in">printf</span>(<span class="string">"%d "</span>, levels[i]);</span><br><span class="line">		System.out.<span class="built_in">printf</span>(<span class="string">"%d"</span>, levels[maxDepth]);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="vector的操作方法"><a href="#vector的操作方法" class="headerlink" title="vector的操作方法"></a>vector的操作方法</h2><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>a.assign(b.begin(), b.end())</td>
-<td>将begin到end区间内的数据赋值给a</td>
-</tr>
-<tr>
-<td>a.assign(n, elem)</td>
-<td>向量a含n个元素，每个元素值为elem</td>
-</tr>
-<tr>
-<td>a.at(ai)</td>
-<td>传回索引ai所指向的数据，如果ai越界，抛出out_of_range异常</td>
-</tr>
-<tr>
-<td>a.back()</td>
-<td>传回最后一个数据，不检查这个数据是否存在</td>
-</tr>
-<tr>
-<td>a.begin()</td>
-<td>返回一个迭代器，它指向容器a的第一个元素</td>
-</tr>
-<tr>
-<td>a.capacity()</td>
-<td>返回容器中数据个数</td>
-</tr>
-<tr>
-<td>a.clear()</td>
-<td>清空容器中所有数据</td>
-</tr>
-<tr>
-<td>a.empty()</td>
-<td>判断容器是否为空</td>
-</tr>
-<tr>
-<td>a.end()</td>
-<td>返回一个迭代器，它指向容器c的最后一个元素的下一个位置</td>
-</tr>
-<tr>
-<td>a.erase(pos)</td>
-<td>删除pos位置的数据，传回下一个数据的位置</td>
-</tr>
-<tr>
-<td>a.erase(beg, end)</td>
-<td>删除[beg, end)位置的数据，传回下一个数据的位置</td>
-</tr>
-<tr>
-<td>a.front()</td>
-<td>传回第一个数据</td>
-</tr>
-<tr>
-<td>a.insert(pos, elem)</td>
-<td>在pos位置插入elem元素，传回新数据位置</td>
-</tr>
-<tr>
-<td>a.insert(pos, n, elem)</td>
-<td>在pos位置插入n个elem元素，无返回值</td>
-</tr>
-<tr>
-<td>a.insert(pos, beg, end)</td>
-<td>在pos位置插入[beg, end)区间的数据，无返回值</td>
-</tr>
-<tr>
-<td>a.max_size()</td>
-<td>返回容器中最大数据的数量</td>
-</tr>
-<tr>
-<td>a.pop_back()</td>
-<td>删除最后一个数据</td>
-</tr>
-<tr>
-<td>a.push_back(elem)</td>
-<td>在尾部加入一个elem数据</td>
-</tr>
-<tr>
-<td>a.rbegin()</td>
-<td>返回一个逆序迭代器，它指向容器c的最后一个元素</td>
-</tr>
-<tr>
-<td>a.rend()</td>
-<td>返回一个逆序迭代器，它指向容器c的第一个元素前面的位置</td>
-</tr>
-<tr>
-<td>a.reserve(num)</td>
-<td>保留适当的(num个)容量，可以避免多次内存扩充操作(当a的容量不足时电脑会自动扩容，这样会降低性能)</td>
-</tr>
-<tr>
-<td>a.resize(num)</td>
-<td>将容器a现有的元素个数调整至num个，多则删少则补(补的值随机)</td>
-</tr>
-<tr>
-<td>a.resize(num, elem)</td>
-<td>将容器a现有的元素个数调整至num个，多则删少则补(补值为elem)</td>
-</tr>
-<tr>
-<td>a.size()</td>
-<td>返回容器中实际数据的数量</td>
-</tr>
-<tr>
-<td>a.swap(b)</td>
-<td>容器a,b中的元素进行整体性交换</td>
-</tr>
-</tbody></table>
+<p>因为我总是搞不清楚递归，在这里记录一下dfs递归的过程(┬＿┬)<br>假设输入为：<br>5 2<br>1 2 2 3<br>2 2 4 5<br>1.首先调用DFS(1,1)，访问源点1，找源点1的邻接点2,2未被访问<br>2.转DFS(2,2)，访问点2，最大深度更新为2，找2的邻接点4,4未被访问<br>3.转DFS(4,3)，访问点4，最大深度更新为3，点4无子节点，第三层叶子结点个数+1，退出DFS(4,3)<br>4.回到DFS(2,2)，继续访问2的下一个邻接点5<br>5.转DFS(5,3)，访问结点5,5无子节点，第三层叶子结点个数+1，退出DFS(5,3)<br>6.回到DFS(2,2)，2结点的子节点全部访问完毕，退出DFS(2,2)<br>7.回到DFS(1,1)，继续访问1的下一个子节点3<br>8.转DFS(3,2)，访问结点3，点3无子节点，第二层叶子节点数+1，退出DFS(3,2)<br>9.回到DFS(1,1)，1结点的子节点全部访问完毕，退出DFS(1,1)<br>递归结束！</p>
 <hr>
-<p>(未完待续…)</p>
+<h2 id="广度优先遍历-BFS"><a href="#广度优先遍历-BFS" class="headerlink" title="广度优先遍历(BFS)"></a>广度优先遍历(BFS)</h2><p><strong>算法基本思想：</strong>首先访问初始点v，接着访问顶点v所有未被访问的邻接点v1,v2,v3…，然后再按照v1,v2,v3…的次序访问每一个顶点的所有未被访问的邻接点，以此类推，直到全部顶点访问完毕，需要用队列辅助。</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">void <span class="keyword">BFS(AdjGraph </span>*G, int v) &#123;</span><br><span class="line">	定义队列qu并初始化<span class="comment">;</span></span><br><span class="line">	定义访问标记数组visited[MAXV]<span class="comment">;</span></span><br><span class="line">	visited[v] = <span class="number">1</span><span class="comment">;</span></span><br><span class="line">	访问点v<span class="comment">;</span></span><br><span class="line">	访问后的点加入队列qu<span class="comment">;</span></span><br><span class="line">	while(qu不为空) &#123;</span><br><span class="line">		出队一个顶点u<span class="comment">;</span></span><br><span class="line">		for(循环查找u的每个邻接点) &#123;</span><br><span class="line">			if(u未被访问) &#123;</span><br><span class="line">				访问该点<span class="comment">;</span></span><br><span class="line">				visited[u] = <span class="number">1</span><span class="comment">;</span></span><br><span class="line">				u加入队列<span class="comment">;</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -563,7 +443,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://fancyninomi.github.io/2019/07/11/c-学习笔记/" title="c++学习笔记">https://fancyninomi.github.io/2019/07/11/c-学习笔记/</a>
+    <a href="https://fancyninomi.github.io/2019/09/19/DFS-BFS/" title="DFS & BFS">https://fancyninomi.github.io/2019/09/19/DFS-BFS/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -588,6 +468,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/PTA/" rel="tag"><i class="fa fa-tag"></i> PTA</a>
+          
+        </div>
+      
 
       
       
@@ -597,8 +483,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/06/初来乍到，请多指教/" rel="next" title="使用Markdown写好一篇hexo博客">
-                <i class="fa fa-chevron-left"></i> 使用Markdown写好一篇hexo博客
+              <a href="/2019/09/17/Dijkstra算法-PTA1003-Emergency/" rel="next" title="Dijkstra算法 & PTA1003 Emergency">
+                <i class="fa fa-chevron-left"></i> Dijkstra算法 & PTA1003 Emergency
               </a>
             
           </div>
@@ -606,10 +492,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/11/生成随机字符串数组并排序/" rel="prev" title="生成随机字符串数组并排序">
-                生成随机字符串数组并排序 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -748,7 +630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#批量注释"><span class="nav-number">1.</span> <span class="nav-text">批量注释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#随机函数rand-和srand-用法"><span class="nav-number">2.</span> <span class="nav-text">随机函数rand()和srand()用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rand"><span class="nav-number">2.1.</span> <span class="nav-text">rand()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#srand"><span class="nav-number">2.2.</span> <span class="nav-text">srand()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#产生一定范围内的随机数通用表达式"><span class="nav-number">2.3.</span> <span class="nav-text">产生一定范围内的随机数通用表达式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vector的用法"><span class="nav-number">3.</span> <span class="nav-text">vector的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vector的初始化"><span class="nav-number">3.1.</span> <span class="nav-text">vector的初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vector的操作方法"><span class="nav-number">3.2.</span> <span class="nav-text">vector的操作方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#深度优先遍历-DFS"><span class="nav-number">1.</span> <span class="nav-text">深度优先遍历(DFS)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PTA1004-Counting-Leaves"><span class="nav-number">1.1.</span> <span class="nav-text">PTA1004 Counting Leaves</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#广度优先遍历-BFS"><span class="nav-number">2.</span> <span class="nav-text">广度优先遍历(BFS)</span></a></li></ol></div>
             
 
           </div>
