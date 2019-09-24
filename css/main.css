@@ -1957,7 +1957,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2a0b00;
+  background: #ffff70;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3254,4 +3254,8 @@ pre .javascript .function {
   .pagination {
     margin: 8px 0 0;
   }
+}
+.local-search-popup #local-search-result {
+  padding: 25px 40px;
+  height: calc(100% - 95px);
 }
