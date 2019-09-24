@@ -1957,7 +1957,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffff70;
+  background: #30c42e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3258,4 +3258,20 @@ pre .javascript .function {
 .local-search-popup #local-search-result {
   padding: 25px 40px;
   height: calc(100% - 95px);
+}
+.back-to-top {
+  right: 60px;
+  width: 70px;
+  height: 900px;
+  top: -900px;
+  bottom: unset;
+  transition: all 0.5s ease-in-out;
+  background: url("/images/scroll.png");
+}
+.back-to-top > i {
+  display: none;
+}
+.back-to-top.back-to-top-on {
+  bottom: unset;
+  top: calc(100vh - 900px - 200px);
 }
