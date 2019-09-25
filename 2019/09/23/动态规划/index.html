@@ -86,18 +86,20 @@
 
 
 
-<meta name="description" content="动态规划(dynamic programming)，简称DP">
+<meta name="description" content="动态规划(dynamic programming)，简称DP一般思路：判断问题的子结构，当具有最优子结构的时候，动态规划可能适用。">
 <meta name="keywords" content="PTA,动态规划">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动态规划">
 <meta property="og:url" content="https://fancyninomi.github.io/2019/09/23/动态规划/index.html">
 <meta property="og:site_name" content="Nino">
-<meta property="og:description" content="动态规划(dynamic programming)，简称DP">
+<meta property="og:description" content="动态规划(dynamic programming)，简称DP一般思路：判断问题的子结构，当具有最优子结构的时候，动态规划可能适用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-24T00:37:47.839Z">
+<meta property="og:image" content="https://fancyninomi.github.io/2019/09/23/动态规划/lcs.PNG">
+<meta property="og:updated_time" content="2019-09-25T13:03:51.308Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="动态规划">
-<meta name="twitter:description" content="动态规划(dynamic programming)，简称DP">
+<meta name="twitter:description" content="动态规划(dynamic programming)，简称DP一般思路：判断问题的子结构，当具有最优子结构的时候，动态规划可能适用。">
+<meta name="twitter:image" content="https://fancyninomi.github.io/2019/09/23/动态规划/lcs.PNG">
 
 
 
@@ -380,7 +382,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  645
+                  1.4k
                 </span>
               
 
@@ -396,7 +398,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  6
                 </span>
               
             </div>
@@ -417,9 +419,10 @@
       
 
       
-        <p>动态规划(dynamic programming)，简称DP</p>
+        <p>动态规划(dynamic programming)，简称DP<br>一般思路：判断问题的子结构，当具有最优子结构的时候，动态规划可能适用。</p>
 <a id="more"></a>
-<h2 id="一、求和最大的连续子序列"><a href="#一、求和最大的连续子序列" class="headerlink" title="一、求和最大的连续子序列"></a>一、求和最大的连续子序列</h2><ul>
+<h2 id="一、求和最大的连续子序列"><a href="#一、求和最大的连续子序列" class="headerlink" title="一、求和最大的连续子序列"></a>一、求和最大的连续子序列</h2><p>求连续的子序列最大和</p>
+<ul>
 <li>temp保存子序列临时最大和，temp=temp+a[i]表示以a[i]结尾的子字符串的最大和</li>
 <li>只要temp&lt;0，就舍弃包括a[i]和之前的字符，因为负数总是拉低总和的，舍弃后令temp=0</li>
 <li>定义maxn保存子序列最大和，如果temp&gt;maxn，就更新maxn的值<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> maxn = -<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; ++i) &#123;</span><br><span class="line">	temp = temp + a[i];</span><br><span class="line">	<span class="keyword">if</span>(temp&lt;<span class="number">0</span>)</span><br><span class="line">		temp = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(temp&gt;maxn)</span><br><span class="line">		maxn = temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">printf</span>(<span class="string">"%d"</span>, maxn);</span><br></pre></td></tr></table></figure>
@@ -431,7 +434,7 @@
 
 <p>(在pta运行后，最后一个测试点有运行超时的问题…我觉得这是java的错(￣﹏￣))狗头保命.jpg</p>
 <hr>
-<h2 id="二、求最长对称子序列"><a href="#二、求最长对称子序列" class="headerlink" title="二、求最长对称子序列"></a>二、求最长对称子序列</h2><ul>
+<h2 id="二、求最长对称子串"><a href="#二、求最长对称子串" class="headerlink" title="二、求最长对称子串"></a>二、求最长对称子串</h2><ul>
 <li>dp[i][j]表示s[i]到s[j]的字符串是否为对称的，值为0或1</li>
 <li>首先初始化字符串长度为1和2的dp值<ol>
 <li>dp[i][i] = 1</li>
@@ -442,6 +445,35 @@
 
 </li>
 </ul>
+<hr>
+<h2 id="三、求最长不下降子序列"><a href="#三、求最长不下降子序列" class="headerlink" title="三、求最长不下降子序列"></a>三、求最长不下降子序列</h2><p>求一个数组a[n]的最长子序列(可以不连续)，使得这个子序列是不下降的。</p>
+<ul>
+<li>用dp[i]保存子序列结尾是a[i]的最大长度</li>
+<li>对于a[i]需要判断每一个在它前面的元素a[j],当a[i]&gt;a[j]<ul>
+<li>如果dp[i]&lt;dp[j]+1，dp[i]=dp[j]+1</li>
+<li>如果dp[i]&gt;dp[j]+1，dp[i]不变</li>
+</ul>
+</li>
+<li>用maxn保存最大的dp[i]<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int maxn = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(int <span class="built_in">i</span>=<span class="number">0</span>; <span class="built_in">i</span>&lt;n; ++<span class="built_in">i</span>) &#123;</span><br><span class="line">	dp[<span class="built_in">i</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(int <span class="built_in">j</span>=<span class="number">0</span>; <span class="built_in">j</span>&lt;<span class="built_in">i</span>; ++<span class="built_in">j</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span>(a[<span class="built_in">i</span>]&gt;a[<span class="built_in">j</span>])</span><br><span class="line">			dp[<span class="built_in">i</span>] = <span class="built_in">max</span>(dp[<span class="built_in">i</span>], dp[<span class="built_in">j</span>]+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	maxn = <span class="built_in">max</span>(maxn, dp[<span class="built_in">i</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="PTA1045-Favorite-Color-Stripe"><a href="#PTA1045-Favorite-Color-Stripe" class="headerlink" title="PTA1045 Favorite Color Stripe"></a>PTA1045 Favorite Color Stripe</h3><p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805437411475456" target="_blank" rel="noopener">题目在这里</a><br>分析：将题目转换为求最长不下降子序列的问题。order数组保存喜欢的颜色的顺序，例如order[i]=j表示颜色i的下标为j。喜欢的颜色依次存储到数组中，一个升序的序列就完成了。接下来把原有颜色序列中不喜欢的颜色剔除后放入colors数组，利用order数组将colors数组中的喜欢的颜色转换为对应的下标，这样求最长的喜欢的颜色序列就是求colors数组的最长不下降子序列了。</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) &#123;</span><br><span class="line">		Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">int</span> n = sc.nextInt();</span><br><span class="line">		<span class="keyword">int</span> m = sc.nextInt();</span><br><span class="line">		<span class="keyword">int</span>[] <span class="keyword">order</span> = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">201</span>];	<span class="comment">//颜色顺序</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=m; ++i) &#123;</span><br><span class="line">			<span class="keyword">int</span> k = sc.nextInt();</span><br><span class="line">			<span class="keyword">order</span>[k] = i;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> L = sc.nextInt();</span><br><span class="line">		<span class="keyword">int</span>[] colors = <span class="keyword">new</span> <span class="keyword">int</span>[L];</span><br><span class="line">		<span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;L; ++i) &#123;</span><br><span class="line">			<span class="keyword">int</span> k = sc.nextInt();</span><br><span class="line">			<span class="keyword">if</span>(<span class="keyword">order</span>[k]&gt;=<span class="number">1</span>)	<span class="comment">//删除不喜欢的颜色</span></span><br><span class="line">				colors[num++] = <span class="keyword">order</span>[k];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[L];</span><br><span class="line">		<span class="keyword">int</span> maxn = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;num; ++i) &#123;</span><br><span class="line">			dp[i] = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;i; ++j) &#123;</span><br><span class="line">				<span class="keyword">if</span>(colors[i]&gt;=colors[j])</span><br><span class="line">					dp[i] = Math.max(dp[i], dp[j]+<span class="number">1</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			maxn = Math.max(maxn, dp[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.printf(<span class="string">"%d"</span>, maxn);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、求最长公共子序列"><a href="#四、求最长公共子序列" class="headerlink" title="四、求最长公共子序列"></a>四、求最长公共子序列</h2><p>给定两个字符串或数字序列a,b，求一个字符串使得这个字符串是a,b的最长公共子序列，可以<strong>不连续</strong>。</p>
+<ul>
+<li>dp[i][j]表示a的第 i 位之前和b的第 j 位之前的这两个序列的最长公共子序列的长度(下标从1开始)，那么dp[a.length][b.length]即为所求</li>
+<li>初始化dp[0][j]=0，dp[i][0]=0</li>
+<li>若a[i] = b[j]，dp[i][j] = dp[i-1][j-1]+1</li>
+<li>若a[i] != b[j]，dp[i][j] = max(dp[i-1][j], dp[i][j-1])</li>
+</ul>
+<p><strong>递推求最长公共子序列的过程：</strong></p>
+<img src="/2019/09/23/动态规划/lcs.PNG" title="求最长公共子序列的过程">
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(int <span class="built_in">i</span>=<span class="number">0</span>; <span class="built_in">i</span>&lt;=a.<span class="built_in">length</span>; ++<span class="built_in">i</span>) &#123;</span><br><span class="line">	dp[<span class="built_in">i</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	dp[<span class="number">0</span>][<span class="built_in">i</span>] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(int <span class="built_in">i</span>=<span class="number">1</span>; <span class="built_in">i</span>&lt;=a.<span class="built_in">length</span>; ++<span class="built_in">i</span>) &#123;</span><br><span class="line">	<span class="keyword">for</span>(int <span class="built_in">j</span>=<span class="number">1</span>; <span class="built_in">j</span>&lt;=b.<span class="built_in">length</span>; ++<span class="built_in">j</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span>(a[<span class="built_in">i</span>] == b[<span class="built_in">j</span>])</span><br><span class="line">			dp[<span class="built_in">i</span>][<span class="built_in">j</span>] = dp[<span class="built_in">i</span><span class="number">-1</span>][<span class="built_in">j</span><span class="number">-1</span>]+<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			dp[<span class="built_in">i</span>][<span class="built_in">j</span>] = <span class="built_in">max</span>(dp[<span class="built_in">i</span><span class="number">-1</span>][<span class="built_in">j</span>], dp[<span class="built_in">i</span>][<span class="built_in">j</span><span class="number">-1</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果要求的最大公共子序列是连续的：</strong><br>当a[i] != b[j]时，dp[i][j] = 0</p>
 
       
     </div>
@@ -680,7 +712,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、求和最大的连续子序列"><span class="nav-number">1.</span> <span class="nav-text">一、求和最大的连续子序列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PTA1007-Maximum-Subsequence-Sum"><span class="nav-number">1.1.</span> <span class="nav-text">PTA1007 Maximum Subsequence Sum</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、求最长对称子序列"><span class="nav-number">2.</span> <span class="nav-text">二、求最长对称子序列</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、求和最大的连续子序列"><span class="nav-number">1.</span> <span class="nav-text">一、求和最大的连续子序列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PTA1007-Maximum-Subsequence-Sum"><span class="nav-number">1.1.</span> <span class="nav-text">PTA1007 Maximum Subsequence Sum</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、求最长对称子串"><span class="nav-number">2.</span> <span class="nav-text">二、求最长对称子串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、求最长不下降子序列"><span class="nav-number">3.</span> <span class="nav-text">三、求最长不下降子序列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PTA1045-Favorite-Color-Stripe"><span class="nav-number">3.1.</span> <span class="nav-text">PTA1045 Favorite Color Stripe</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、求最长公共子序列"><span class="nav-number">4.</span> <span class="nav-text">四、求最长公共子序列</span></a></li></ol></div>
             
 
           </div>
