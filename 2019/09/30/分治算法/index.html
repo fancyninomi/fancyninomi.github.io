@@ -96,7 +96,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://fancyninomi.github.io/2019/09/30/分治算法/大整数乘法.png">
 <meta property="og:image" content="https://fancyninomi.github.io/2019/09/30/分治算法/大整数乘法1.png">
-<meta property="og:updated_time" content="2019-09-30T15:36:26.500Z">
+<meta property="og:updated_time" content="2019-10-01T03:43:31.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分治算法">
 <meta name="twitter:description" content="分治算法就是把一个复杂的问题分成两个或更多的子问题，再把子问题分成更小的子问题…直到最后子问题可以简单的直接求解。">
@@ -383,7 +383,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.2k
+                  1.3k
                 </span>
               
 
@@ -399,7 +399,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  6
                 </span>
               
             </div>
@@ -450,11 +450,13 @@
 
 <hr>
 <h2 id="大整数的乘法-Karatsuba-乘法"><a href="#大整数的乘法-Karatsuba-乘法" class="headerlink" title="大整数的乘法(Karatsuba 乘法)"></a>大整数的乘法(Karatsuba 乘法)</h2><ul>
-<li>假设要相乘的两个数是x*y，x*y可以写成：(n是数字的位数)<img src="/2019/09/30/分治算法/大整数乘法.png"></li>
-<li>例如1234可以写成a = 12，b = 34；12345可以写成a = 123，b = 45。接着x*y可以计算为：<img src="/2019/09/30/分治算法/大整数乘法1.png"></li>
+<li>假设要相乘的两个数是x*y，x*y可以写成：(假设x、y的位数同为n)<img src="/2019/09/30/分治算法/大整数乘法.png" title="x、y的写法"></li>
+<li>例如1234可以写成a = 12，b = 34；12345可以写成a = 123，b = 45。接着x*y可以计算为：<img src="/2019/09/30/分治算法/大整数乘法1.png" title="计算过程"></li>
 <li>这个式子的倒数第二步的(ad + bc)不需要另行计算，可以靠((a+b)*(c+d) - ac - bd)来重复利用前面的两次乘积结果ac、bd</li>
+<li>拆分数据的时候要注意！因为求两数相乘的写法必须保证a、c对应的10的幂指数相同(如图x、y的写法)，我们把a、b、c、d分别拆分为<code>[0, size1-mid]</code>、<code>[size1-mid]</code>、<code>[0, size2-mid]</code>、<code>[size2-mid]</code>子串，这样保证了b、d的位数一致。<br>举个栗子：<code>12345 = 12*1000+345</code>    <code>6789 = 6*1000+789</code></li>
 </ul>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> karatsuba(<span class="keyword">long</span> num1, <span class="keyword">long</span> num2)&#123;</span><br><span class="line">	<span class="built_in">if</span>(num1 &lt; <span class="number">10</span> || num2 &lt; <span class="number">10</span>)	<span class="comment">//递归终止条件</span></span><br><span class="line">		<span class="built_in">return</span> num1 * num2;</span><br><span class="line">	<span class="comment">// 计算拆分长度</span></span><br><span class="line">	<span class="keyword">int</span> size1 = <span class="keyword">String</span>.valueOf(num1).length();</span><br><span class="line">	<span class="keyword">int</span> size2 = <span class="keyword">String</span>.valueOf(num2).length();</span><br><span class="line">	<span class="keyword">int</span> mid = Math.<span class="built_in">max</span>(size1, size2)/<span class="number">2</span>;</span><br><span class="line">	<span class="comment">// 拆分为a, b, c, d</span></span><br><span class="line">	<span class="keyword">long</span> a = Long.valueOf(<span class="keyword">String</span>.valueOf(num1).substring(<span class="number">0</span>, mid+<span class="number">1</span>));</span><br><span class="line">	<span class="keyword">long</span> b = Long.valueOf(<span class="keyword">String</span>.valueOf(num1).substring(mid+<span class="number">1</span>));</span><br><span class="line">	<span class="keyword">long</span> c = Long.valueOf(<span class="keyword">String</span>.valueOf(num2).substring(<span class="number">0</span>, mid+<span class="number">1</span>));</span><br><span class="line">	<span class="keyword">long</span> d = Long.valueOf(<span class="keyword">String</span>.valueOf(num2).substring(mid+<span class="number">1</span>));</span><br><span class="line">	<span class="comment">// 计算z2, z0, z1, 此处的乘法使用递归</span></span><br><span class="line">	<span class="keyword">long</span> z2 = karatsuba(a, c);</span><br><span class="line">	<span class="keyword">long</span> z0 = karatsuba(b, d);</span><br><span class="line">	<span class="keyword">long</span> z1 = karatsuba((a + b), (c + d)) - z0 - z2;</span><br><span class="line">	<span class="built_in">return</span> (<span class="keyword">long</span>)(z2 * Math.<span class="built_in">pow</span>(<span class="number">10</span>, (<span class="number">2</span>*mid)) + z1 * Math.<span class="built_in">pow</span>(<span class="number">10</span>, mid) + z0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><font color="#b22222">分治的思想：</font>这些乘法在算法里是递归实现的，当数字很大时先拆分，然后拆分出来的数字还是很大的话就继续拆分，直到x*y已经是一个很小的简单的问题。</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// java写法</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> karatsuba(<span class="keyword">long</span> num1, <span class="keyword">long</span> num2)&#123;</span><br><span class="line">	<span class="built_in">if</span>(num1 &lt; <span class="number">10</span> || num2 &lt; <span class="number">10</span>)	<span class="comment">//递归终止条件</span></span><br><span class="line">		<span class="built_in">return</span> num1 * num2;</span><br><span class="line">	<span class="comment">// 计算拆分长度</span></span><br><span class="line">	<span class="keyword">int</span> size1 = <span class="keyword">String</span>.valueOf(num1).length();</span><br><span class="line">	<span class="keyword">int</span> size2 = <span class="keyword">String</span>.valueOf(num2).length();</span><br><span class="line">	<span class="keyword">int</span> mid = Math.<span class="built_in">max</span>(size1, size2)/<span class="number">2</span>;</span><br><span class="line">	<span class="comment">// 拆分为a, b, c, d</span></span><br><span class="line">	<span class="keyword">long</span> a = Long.valueOf(<span class="keyword">String</span>.valueOf(num1).substring(<span class="number">0</span>, size1-mid));</span><br><span class="line">	<span class="keyword">long</span> b = Long.valueOf(<span class="keyword">String</span>.valueOf(num1).substring(size1-mid));</span><br><span class="line">	<span class="keyword">long</span> c = Long.valueOf(<span class="keyword">String</span>.valueOf(num2).substring(<span class="number">0</span>, size2-mid));</span><br><span class="line">	<span class="keyword">long</span> d = Long.valueOf(<span class="keyword">String</span>.valueOf(num2).substring(size2-mid));</span><br><span class="line">	<span class="comment">// 计算z2, z0, z1, 此处的乘法使用递归</span></span><br><span class="line">	<span class="keyword">long</span> z2 = karatsuba(a, c);</span><br><span class="line">	<span class="keyword">long</span> z0 = karatsuba(b, d);</span><br><span class="line">	<span class="keyword">long</span> z1 = karatsuba((a + b), (c + d)) - z0 - z2;</span><br><span class="line">	<span class="built_in">return</span> (<span class="keyword">long</span>)(z2 * Math.<span class="built_in">pow</span>(<span class="number">10</span>, (<span class="number">2</span>*mid)) + z1 * Math.<span class="built_in">pow</span>(<span class="number">10</span>, mid) + z0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
 <p>(未完待续—?)<br>早安咕午安咕晚安咕…</p>
@@ -1270,5 +1272,8 @@
    <script type="text/javascript" src="/js/src/fireworks.js"></script>
 
 
+  <!-- ����鸴�ƹ��� -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
 </html>
