@@ -99,7 +99,9 @@
 <meta property="og:image" content="https://fancyninomi.github.io/2019/07/06/初来乍到，请多指教/表格.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/honjun/hexo-tag-emojis-byhj/emojis/people/face-with-tears-of-joy.png">
 <meta property="og:image" content="https://fancyninomi.github.io/2019/07/06/初来乍到，请多指教/字体颜色.png">
-<meta property="og:updated_time" content="2019-09-25T13:03:26.922Z">
+<meta property="og:image" content="https://fancyninomi.github.io/2019/07/06/初来乍到，请多指教/文字居中.png">
+<meta property="og:image" content="https://fancyninomi.github.io/2019/07/06/初来乍到，请多指教/各色的标签.png">
+<meta property="og:updated_time" content="2019-10-13T15:07:16.155Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Markdown写好一篇hexo博客">
 <meta name="twitter:description" content="Markdown基础语法">
@@ -364,7 +366,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  907
+                  1.2k
                 </span>
               
 
@@ -380,7 +382,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  4
                 </span>
               
             </div>
@@ -459,6 +461,32 @@
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;%<span class="built_in"> raw </span>%&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
 
 <p>2.尖括号里的东西好像不会显示出来，&lt;前面加上\吧</p>
+<hr>
+<h1 id="hexo内置标签"><a href="#hexo内置标签" class="headerlink" title="hexo内置标签"></a>hexo内置标签</h1><p>标签是hexo提供的一种快速生成特定内容的方式。</p>
+<h2 id="文本居中的引用"><a href="#文本居中的引用" class="headerlink" title="文本居中的引用"></a>文本居中的引用</h2><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name">cq</span> %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">富强、民主、文明、和谐</span></span><br><span class="line"><span class="xml">自由、平等、公正、法治</span></span><br><span class="line"><span class="xml">爱国、敬业、诚信、友善</span></span><br><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name">endcq</span> %&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<img src="/2019/07/06/初来乍到，请多指教/文字居中.png" title="文字居中">
+<h2 id="note标签"><a href="#note标签" class="headerlink" title="note标签"></a>note标签</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#123;%<span class="built_in"> note </span>%&#125;</span><br><span class="line">Content (md partial supported) </span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;%<span class="built_in"> note </span>danger %&#125;</span><br><span class="line">Content (md partial supported) </span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;%<span class="built_in"> note </span><span class="builtin-name">info</span> %&#125;</span><br><span class="line">Content (md partial supported) </span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;%<span class="built_in"> note </span><span class="builtin-name">warning</span> %&#125;</span><br><span class="line">Content (md partial supported) </span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;%<span class="built_in"> note </span>success %&#125;</span><br><span class="line">Content (md partial supported) </span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;%<span class="built_in"> note </span>primary %&#125;</span><br><span class="line">Content (md partial supported) </span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<img src="/2019/07/06/初来乍到，请多指教/各色的标签.png">
+<h2 id="label标签"><a href="#label标签" class="headerlink" title="label标签"></a>label标签</h2><p>@后面是要显示的文字</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;% label <span class="keyword">default</span>@哈哈哈 %&#125;</span><br><span class="line">&#123;% label primary@啦啦啦 %&#125;</span><br><span class="line">&#123;% label success@呼呼呼 %&#125;</span><br><span class="line">&#123;% label info@嗷嗷嗷 %&#125;</span><br><span class="line">&#123;% label <span class="keyword">warning</span>@呸呸呸 %&#125;</span><br><span class="line">&#123;% label danger@噗噗噗 %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<span class="label default">哈哈哈</span>
+<span class="label primary">啦啦啦</span>
+<span class="label success">呼呼呼</span>
+<span class="label info">嗷嗷嗷</span>
+<span class="label warning">呸呸呸</span>
+<span class="label danger">噗噗噗</span>
+<h2 id="选项卡-tabs标签"><a href="#选项卡-tabs标签" class="headerlink" title="选项卡(tabs标签)"></a>选项卡(tabs标签)</h2><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name">tabs</span>, 2 %&#125;</span><span class="xml">	//, 2表示一开始在第二个选项卡，非必须，若数值为-1则隐藏选项卡内容</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab 选项卡1@home --&gt;</span>	//@heart是爱心小图标</span></span><br><span class="line"><span class="xml">大胆刁民</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab  选项卡2--&gt;</span></span></span><br><span class="line"><span class="xml">大佬们好呀\(▔▽▔)/</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name">endtabs</span> %&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<div class="tabs" id><ul class="nav-tabs"><li class="tab"><a href="#-1"><i class="fa fa-home" "></i>选项卡1</a></li><li class="tab active"><a href="#-2"> 选项卡2</a></li></ul><div class="tab-content"><div class="tab-pane" id="-1"><p>大胆刁民</p>
+</div><div class="tab-pane active" id="-2"><p>大佬们好呀(▔▽▔)/</p>
+</div></div></div>
 
       
     </div>
@@ -638,7 +666,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -649,7 +677,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -660,7 +688,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -693,7 +721,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Markdown基础语法"><span class="nav-number">1.</span> <span class="nav-text">Markdown基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标题"><span class="nav-number">1.1.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入图片的问题"><span class="nav-number">1.2.</span> <span class="nav-text">插入图片的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体"><span class="nav-number">1.3.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-number">1.4.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.5.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">1.6.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">1.7.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">1.8.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程图"><span class="nav-number">1.9.</span> <span class="nav-text">流程图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表情包的使用"><span class="nav-number">1.10.</span> <span class="nav-text">表情包的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改字体、颜色、大小"><span class="nav-number">1.11.</span> <span class="nav-text">更改字体、颜色、大小</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#某些问题"><span class="nav-number">2.</span> <span class="nav-text">某些问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Markdown基础语法"><span class="nav-number">1.</span> <span class="nav-text">Markdown基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标题"><span class="nav-number">1.1.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入图片的问题"><span class="nav-number">1.2.</span> <span class="nav-text">插入图片的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体"><span class="nav-number">1.3.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-number">1.4.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.5.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">1.6.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">1.7.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">1.8.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程图"><span class="nav-number">1.9.</span> <span class="nav-text">流程图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表情包的使用"><span class="nav-number">1.10.</span> <span class="nav-text">表情包的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改字体、颜色、大小"><span class="nav-number">1.11.</span> <span class="nav-text">更改字体、颜色、大小</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#某些问题"><span class="nav-number">2.</span> <span class="nav-text">某些问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo内置标签"><span class="nav-number">3.</span> <span class="nav-text">hexo内置标签</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文本居中的引用"><span class="nav-number">3.1.</span> <span class="nav-text">文本居中的引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#note标签"><span class="nav-number">3.2.</span> <span class="nav-text">note标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#label标签"><span class="nav-number">3.3.</span> <span class="nav-text">label标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选项卡-tabs标签"><span class="nav-number">3.4.</span> <span class="nav-text">选项卡(tabs标签)</span></a></li></ol></li></ol></div>
             
 
           </div>
