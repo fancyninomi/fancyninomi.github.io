@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="-LeetCode,">
+  <meta name="keywords" content="-LeetCode - 集合,">
 
 
 
@@ -87,14 +87,14 @@
 
 
 <meta name="description" content="b(￣▽￣)d">
-<meta name="keywords" content="-LeetCode">
+<meta name="keywords" content="-LeetCode - 集合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="List嵌套List">
 <meta property="og:url" content="https://fancyninomi.github.io/2019/10/13/List嵌套List/index.html">
 <meta property="og:site_name" content="Nino">
 <meta property="og:description" content="b(￣▽￣)d">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-13T15:11:18.509Z">
+<meta property="og:updated_time" content="2019-10-22T10:32:53.955Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="List嵌套List">
 <meta name="twitter:description" content="b(￣▽￣)d">
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  336
+                  338
                 </span>
               
 
@@ -425,7 +425,8 @@
 <p><code>List&lt;List&lt;Integer&gt;&gt; list = new ArrayList&lt;List&lt;Integer&gt;&gt;()</code>或<code>List&lt;ArrayList&lt;Integer&gt;&gt; list = new List&lt;ArrayList&lt;Integer&gt;&gt;()</code></p>
 <div class="note danger"><p>赋值问题 </p></div>
 <p>看一下LeetCode的<a href="https://leetcode-cn.com/problems/path-sum-ii/" target="_blank" rel="noopener">一道题</a></p>
-<span class="label primary">题解：</span>不能直接用`list.add(arr)`而要`list.add(newArrayList<>(arr))`
+<span class="label primary">题解：</span>
+<p>不能直接用<code>list.add(arr)</code>而要<code>list.add(newArrayList&lt;&gt;(arr))</code></p>
 <figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    ArrayList&lt;<span class="built_in">Integer</span>&gt; arr = <span class="literal">new</span> ArrayList&lt;<span class="built_in">Integer</span>&gt;();</span><br><span class="line">    ArrayList&lt;<span class="built_in">List</span>&lt;<span class="built_in">Integer</span>&gt;&gt; <span class="built_in">list</span> = <span class="literal">new</span> ArrayList&lt;<span class="built_in">List</span>&lt;<span class="built_in">Integer</span>&gt;&gt;();</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">List</span>&lt;<span class="built_in">List</span>&lt;<span class="built_in">Integer</span>&gt;&gt; pathSum(TreeNode root, int <span class="keyword">sum</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="built_in">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">list</span>;</span><br><span class="line">        inorder(root, <span class="number">0</span>, <span class="keyword">sum</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">list</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="literal">void</span> inorder(TreeNode root, int temp, int <span class="keyword">sum</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="built_in">null</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        arr.add(root.val);</span><br><span class="line">        temp += root.val;</span><br><span class="line">        <span class="keyword">if</span>(root.left == <span class="built_in">null</span> &amp;&amp; root.right == <span class="built_in">null</span>) &#123;   <span class="comment">//因为list底层数组只能保存基本类型或者对象的引用，所以不能直接add arr，不然后面</span></span><br><span class="line">            <span class="keyword">if</span>(temp == <span class="keyword">sum</span>)                             <span class="comment">//回溯后arr就变为空了</span></span><br><span class="line">                <span class="built_in">list</span>.add(<span class="literal">new</span> ArrayList&lt;<span class="built_in">Integer</span>&gt;(arr));  <span class="comment">//因为我们需要复用arr数组，所以不能直接调用list.add(arr)，而是应该调用ans.add(new</span></span><br><span class="line">            arr.remove(arr.size()<span class="number">-1</span>);                   <span class="comment">//list.add(newArrayList&lt;&gt;(arr))</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        inorder(root.left, temp, <span class="keyword">sum</span>);</span><br><span class="line">        inorder(root.right, temp, <span class="keyword">sum</span>);</span><br><span class="line">        arr.remove(arr.size()<span class="number">-1</span>);                       <span class="comment">//回溯，将当前节点的值删除，遍历另一个分支</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -504,7 +505,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LeetCode/" rel="tag"><i class="fa fa-tag"></i> -LeetCode</a>
+            <a href="/tags/LeetCode-集合/" rel="tag"><i class="fa fa-tag"></i> -LeetCode - 集合</a>
           
         </div>
       
@@ -526,6 +527,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/22/拓扑排序/" rel="prev" title="拓扑排序">
+                拓扑排序 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -600,7 +605,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -622,7 +627,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

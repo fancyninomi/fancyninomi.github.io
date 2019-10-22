@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[List嵌套List]]></title>
-    <url>%2F2019%2F10%2F13%2FList%E5%B5%8C%E5%A5%97List%2F</url>
-    <content type="text"><![CDATA[b(￣▽￣)d 泛型的类型参数必须相同！ List&lt;List&lt;Integer&gt;&gt; list = new List&lt;List&lt;Integer&gt;&gt;()这种初始化方式是错误的，因为List是接口，不能实例化。 正确的做法： List&lt;List&lt;Integer&gt;&gt; list = new ArrayList&lt;List&lt;Integer&gt;&gt;()或List&lt;ArrayList&lt;Integer&gt;&gt; list = new List&lt;ArrayList&lt;Integer&gt;&gt;() 赋值问题 看一下LeetCode的一道题 题解：不能直接用`list.add(arr)`而要`list.add(newArrayList(arr))` 12345678910111213141516171819202122232425class Solution &#123; ArrayList&lt;Integer&gt; arr = new ArrayList&lt;Integer&gt;(); ArrayList&lt;List&lt;Integer&gt;&gt; list = new ArrayList&lt;List&lt;Integer&gt;&gt;(); public List&lt;List&lt;Integer&gt;&gt; pathSum(TreeNode root, int sum) &#123; if(root == null) return list; inorder(root, 0, sum); return list; &#125; public void inorder(TreeNode root, int temp, int sum) &#123; if(root == null) return; arr.add(root.val); temp += root.val; if(root.left == null &amp;&amp; root.right == null) &#123; //因为list底层数组只能保存基本类型或者对象的引用，所以不能直接add arr，不然后面 if(temp == sum) //回溯后arr就变为空了 list.add(new ArrayList&lt;Integer&gt;(arr)); //因为我们需要复用arr数组，所以不能直接调用list.add(arr)，而是应该调用ans.add(new arr.remove(arr.size()-1); //list.add(newArrayList&lt;&gt;(arr)) return; &#125; inorder(root.left, temp, sum); inorder(root.right, temp, sum); arr.remove(arr.size()-1); //回溯，将当前节点的值删除，遍历另一个分支 &#125;&#125;]]></content>
+    <title><![CDATA[ArrayList & LinkedList]]></title>
+    <url>%2F2019%2F10%2F22%2FArrayList-LinkedList%2F</url>
+    <content type="text"><![CDATA[ヽ(??▽?)ノ ArrayList常用方法 方法 说明 .add(n) 增加数组元素 .add(index, n) 增加数组元素 .size() 返回数组长度 .set(index, n) 修改某个元素 .remove(n) 删除元素 .remove(index, n) 删除元素 .get(index) 获取指定位置的对象 .indexOf(Object o) 判断对象在ArrayList所处的位置 .toArray() 把一个ArrayList对象转换为数组 .contains() 判断ArrayList是否包含指定内容 .clear() 清空ArrayList LinkedList常用方法也有add, remove, get, size等方法，还有： 方法 说明 .offer() 链尾部插入元素 .poll() 查询并移除第一个元素 .pop() 删除头元素 .peek() 获取第一个元素但是不移除 总结1.ArrayList是线性表，LinkedList是链表2.对于随机访问get,set方法，ArrayList优于LinkedList，因为LinkedList需要移动指针3.对于新增和删除方法，LinkedList占优势，因为ArrayList要移动数据]]></content>
       <categories>
         <category>java</category>
       </categories>
       <tags>
-        <tag>-LeetCode</tag>
+        <tag>集合</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[拓扑排序]]></title>
+    <url>%2F2019%2F10%2F22%2F%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%2F</url>
+    <content type="text"><![CDATA[(๑•̀ㅂ•́)و✧ 算法原理1.从有向图中选择一个没有前驱(即入度为0)的节点并输出它。2.从图中删除这个节点，并且删除从该节点出发的所有有向边。3.重复上述两步，直到图中不再有没有前驱的顶点为止。 若所有的点都删除了，该图就是个无环图 LeetCode210 课程表II题目在这里 分析： 首先创建邻接表adj存储图的信息，inDegree储存每个节点的入度信息。初始时把入度为0的节点放入队列qu，只要队列不为空，取出队首节点并放入数组arr，依次把这个节点的所有邻接点入度-1，再次搜索入度为0的节点放入队列。直到队列为空，判断arr中的元素个数是否为总节点个数，若是，输出数组，否则拓扑失败。注意HashSet数组的定义和初始化 1234567891011121314151617181920212223242526272829303132333435363738class Solution &#123; public int[] findOrder(int numCourses, int[][] prerequisites) &#123; if(numCourses &lt;= 0) //判空 return new int[0]; HashSet&lt;Integer&gt;[] adj = new HashSet[numCourses]; int[] inDegree = new int[numCourses]; //保存入度的数组 LinkedList&lt;Integer&gt; qu = new LinkedList&lt;Integer&gt;(); for(int i=0; i&lt;numCourses; ++i) &#123; //构建邻接表 adj[i] = new HashSet&lt;Integer&gt;(); &#125; for(int[] a : prerequisites) &#123; //初始化邻接表和入度数组 adj[a[1]].add(a[0]); inDegree[a[0]]++; &#125; for(int i=0; i&lt;numCourses; ++i) &#123; //入度为0的节点入队列 if(inDegree[i] == 0) qu.offer(i); &#125; ArrayList&lt;Integer&gt; arr = new ArrayList&lt;&gt;(); while(!qu.isEmpty()) &#123; int q = qu.poll(); arr.add(q); HashSet&lt;Integer&gt; h = adj[q]; for(int i : h) &#123; //取出队列元素q后把前驱节点为q的节点的入度-1 inDegree[i]--; if(inDegree[i] == 0) //若入度为0，入队 qu.offer(i); &#125; &#125; if(numCourses == arr.size()) &#123; int[] result = new int[numCourses]; for(int i=0; i&lt;numCourses; ++i) result[i] = arr.get(i); return result; &#125; else return new int[0]; &#125;&#125; LeetCode207 课程表题目在这里还可以用dfs玩哦~ 分析： 初始化邻接表flag[i] = -1表示已经被从别的点开始的dfs确认没有环了！返回trueflag[i] = 1表示已经被当前点访问过一次了，现在是第二次，所以有环，返回false 123456789101112131415161718192021222324class Solution &#123; public boolean canFinish(int numCourses, int[][] prerequisites) &#123; int[][] adj = new int[numCourses][numCourses]; int[] flag = new int[numCourses]; for(int[] a : prerequisites) adj[a[1]][a[0]] = 1; for(int i=0; i&lt;numCourses; ++i) &#123; if(dfs(adj, flag, i) == false) return false; &#125; return true; &#125; public boolean dfs(int[][] adj, int[] flag, int i) &#123; if(flag[i] == 1) return false; if(flag[i] == -1) return true; flag[i] = 1; for(int j=0; j&lt;adj.length; ++j) &#123; if(adj[i][j] == 1 &amp;&amp; !dfs(adj, flag, j)) return false; &#125; flag[i] = -1; return true; &#125;&#125;]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>拓扑排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[List嵌套List]]></title>
+    <url>%2F2019%2F10%2F13%2FList%E5%B5%8C%E5%A5%97List%2F</url>
+    <content type="text"><![CDATA[b(￣▽￣)d 泛型的类型参数必须相同！ List&lt;List&lt;Integer&gt;&gt; list = new List&lt;List&lt;Integer&gt;&gt;()这种初始化方式是错误的，因为List是接口，不能实例化。 正确的做法： List&lt;List&lt;Integer&gt;&gt; list = new ArrayList&lt;List&lt;Integer&gt;&gt;()或List&lt;ArrayList&lt;Integer&gt;&gt; list = new List&lt;ArrayList&lt;Integer&gt;&gt;() 赋值问题 看一下LeetCode的一道题 题解： 不能直接用list.add(arr)而要list.add(newArrayList&lt;&gt;(arr)) 12345678910111213141516171819202122232425class Solution &#123; ArrayList&lt;Integer&gt; arr = new ArrayList&lt;Integer&gt;(); ArrayList&lt;List&lt;Integer&gt;&gt; list = new ArrayList&lt;List&lt;Integer&gt;&gt;(); public List&lt;List&lt;Integer&gt;&gt; pathSum(TreeNode root, int sum) &#123; if(root == null) return list; inorder(root, 0, sum); return list; &#125; public void inorder(TreeNode root, int temp, int sum) &#123; if(root == null) return; arr.add(root.val); temp += root.val; if(root.left == null &amp;&amp; root.right == null) &#123; //因为list底层数组只能保存基本类型或者对象的引用，所以不能直接add arr，不然后面 if(temp == sum) //回溯后arr就变为空了 list.add(new ArrayList&lt;Integer&gt;(arr)); //因为我们需要复用arr数组，所以不能直接调用list.add(arr)，而是应该调用ans.add(new arr.remove(arr.size()-1); //list.add(newArrayList&lt;&gt;(arr)) return; &#125; inorder(root.left, temp, sum); inorder(root.right, temp, sum); arr.remove(arr.size()-1); //回溯，将当前节点的值删除，遍历另一个分支 &#125;&#125;]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>-LeetCode - 集合</tag>
       </tags>
   </entry>
   <entry>
@@ -68,6 +91,9 @@
       <categories>
         <category>Java</category>
       </categories>
+      <tags>
+        <tag>集合</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[java排序]]></title>
