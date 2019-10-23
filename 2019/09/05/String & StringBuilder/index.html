@@ -88,14 +88,14 @@
 
 <meta name="description" content="≧０≦">
 <meta property="og:type" content="article">
-<meta property="og:title" content="String类的常用方法">
-<meta property="og:url" content="https://fancyninomi.github.io/2019/09/05/String类的常用方法/index.html">
+<meta property="og:title" content="String &amp; StirngBuilder">
+<meta property="og:url" content="https://fancyninomi.github.io/2019/09/05/String & StringBuilder/index.html">
 <meta property="og:site_name" content="Nino">
 <meta property="og:description" content="≧０≦">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-30T15:14:03.087Z">
+<meta property="og:updated_time" content="2019-10-23T13:26:03.570Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="String类的常用方法">
+<meta name="twitter:title" content="String &amp; StirngBuilder">
 <meta name="twitter:description" content="≧０≦">
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://fancyninomi.github.io/2019/09/05/String类的常用方法/">
+  <link rel="canonical" href="https://fancyninomi.github.io/2019/09/05/String & StringBuilder/">
 
 
 
 
 
-  <title>String类的常用方法 | Nino</title>
+  <title>String & StirngBuilder | Nino</title>
   
 
 
@@ -289,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fancyninomi.github.io/2019/09/05/String类的常用方法/">
+    <link itemprop="mainEntityOfPage" href="https://fancyninomi.github.io/2019/09/05/String & StringBuilder/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ninomi">
@@ -306,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">String类的常用方法</h1>
+          <h1 class="post-title" itemprop="name headline">String & StirngBuilder</h1>
         
 
         <div class="post-meta">
@@ -379,7 +379,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  484
+                  741
                 </span>
               
 
@@ -395,7 +395,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -418,7 +418,7 @@
       
         <p>≧０≦</p>
 <a id="more"></a>
-<table>
+<h3 id="String常用方法"><a href="#String常用方法" class="headerlink" title="String常用方法"></a>String常用方法</h3><table>
 <thead>
 <tr>
 <th>方法</th>
@@ -514,6 +514,41 @@
 <td>判断该字符串是否匹配指定的正则表达式</td>
 </tr>
 </tbody></table>
+<h3 id="StringBuilder"><a href="#StringBuilder" class="headerlink" title="StringBuilder"></a>StringBuilder</h3><span class="label warning">初始化问题：</span>
+<p>由于StringBuffer和String属于不同的类型，<code>StirngBuilder sb = &quot;123&quot;</code>是错误的，<code>StirngBuilder sb = (StringBuilder)&quot;123&quot;</code>也是错误的。<br><strong>常用方法</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>append(String s)</td>
+<td>将指定的字符串追加到此字符序列</td>
+</tr>
+<tr>
+<td>reverse()</td>
+<td>将此字符序列用其反转形式取代</td>
+</tr>
+<tr>
+<td>insert(int index, char c)</td>
+<td>在索引值为index的位置插入指定的字符(串)</td>
+</tr>
+<tr>
+<td>delete(int startIndex,int endIndex)</td>
+<td>删除起始位置(含)到结尾位置(不含)之间的字符串</td>
+</tr>
+<tr>
+<td>toString()</td>
+<td>返回String类型的字符串</td>
+</tr>
+<tr>
+<td>replace(char oldChar, char newChar)</td>
+<td>oldChar为待替换字符(串)，newChar为新替换的字符(串)</td>
+</tr>
+</tbody></table>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>1.如果经常需要对一个字符串进行修改，例如插入、删除等操作，使用StringBuffer更加适合。<br>2.StirngBuilder在进行字符串处理时，不生成新的对象，每次修改都会改变对象自身，内存上优于String。<br>3.StirngBuilder是线程不安全的，StirngBuffer是线程安全的。二者方法基本一样。</p>
 
       
     </div>
@@ -563,7 +598,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://fancyninomi.github.io/2019/09/05/String类的常用方法/" title="String类的常用方法">https://fancyninomi.github.io/2019/09/05/String类的常用方法/</a>
+    <a href="https://fancyninomi.github.io/2019/09/05/String & StringBuilder/" title="String & StirngBuilder">https://fancyninomi.github.io/2019/09/05/String & StringBuilder/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -666,8 +701,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -684,7 +728,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -706,7 +750,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -729,6 +773,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#String常用方法"><span class="nav-number">1.</span> <span class="nav-text">String常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StringBuilder"><span class="nav-number">2.</span> <span class="nav-text">StringBuilder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区别"><span class="nav-number">3.</span> <span class="nav-text">区别</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
