@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode329 矩阵中最长递增路径]]></title>
+    <url>%2F2019%2F10%2F27%2FLeetCode329-%E7%9F%A9%E9%98%B5%E4%B8%AD%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E8%B7%AF%E5%BE%84%2F</url>
+    <content type="text"><![CDATA[（＝。＝） 题目在这里 分析： 1.用深度优先搜索从根开始访问所有的节点2.为了避免深度优先搜索中的重复访问，可以采取记忆化的优化技术(记忆化：对于大量重复调用的问题，缓存其结果)，在这道题里，我们用temp数组来储存结果，如果已经知道相邻四个单元格的结果，就直接用，若未知，则先计算后保存至temp数组 123456789101112131415161718192021222324252627class Solution &#123; int[][] dirs = &#123;&#123;0, 1&#125;, &#123;1, 0&#125;, &#123;0, -1&#125;, &#123;-1, 0&#125;&#125;; int n ,m; public int longestIncreasingPath(int[][] matrix) &#123; if(matrix.length &lt;= 0) return 0; n = matrix.length; m = matrix[0].length; int[][] temp = new int[n][m]; int ans = 0; for (int i = 0; i &lt; n; ++i) for (int j = 0; j &lt; m; ++j) ans = Math.max(ans, dfs(matrix, i, j, temp)); return ans; &#125; public int dfs(int[][] matrix, int i, int j, int[][] temp) &#123; if(temp[i][j] != 0) //若已访问，直接退出 return temp[i][j]; for(int[] d : dirs) &#123; //访问上下左右的节点 int x = i+d[0]; int y = j+d[1]; if(x&gt;=0 &amp;&amp; y&gt;=0 &amp;&amp; x&lt;n &amp;&amp; y&lt;m &amp;&amp; matrix[x][y]&gt;matrix[i][j]) temp[i][j] = Math.max(temp[i][j], dfs(matrix, x, y, temp)); &#125; return ++temp[i][j]; //加上自己 &#125;&#125;]]></content>
+      <tags>
+        <tag>-LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode301 删除无效的括号]]></title>
     <url>%2F2019%2F10%2F23%2FLeetCode301-%E5%88%A0%E9%99%A4%E6%97%A0%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%2F</url>
     <content type="text"><![CDATA[Σ( ° △ °|||)︴ 题目在这里 分析： 1.首先从左往右扫描字符串，每找到一个多余的右括号就删掉它，然后继续往后扫描2.从左往右扫描完后，将字符串反转，依然从左往右找多余的左括号并删掉3.删除的时候，记录删除的位置last，为了保证删除括号后的结果集不重复，需要检查当前位置j==last或者s.charAt(j-1) != p[1]。例如 ()())() 这组括号的第4、5个位置上的右括号删除任一个结果都是一样的。4.为了记录不同的结果集设置了for(int j=last; j&lt;=i; ++j)循环，找到一次正确的结果后回溯，寻找另一种可能的结果 12345678910111213141516171819202122232425class Solution &#123; public List&lt;String&gt; removeInvalidParentheses(String s) &#123; ArrayList&lt;String&gt; ans = new ArrayList&lt;&gt;(); //存放结果集 char[] p = new char[]&#123;'(', ')'&#125;; remove(s, ans, 0, 0, p); return ans; &#125; public void remove(String s, ArrayList&lt;String&gt; ans, int start, int last, char[] p) &#123; for(int left=0, i=start; i&lt;s.length(); ++i) &#123; //删除多余的右括号 if(s.charAt(i) == p[0]) left++; if(s.charAt(i) == p[1]) left--; if(left&gt;=0) continue; for(int j=last; j&lt;=i; ++j) &#123; //为了记录不同的结果集 if(s.charAt(j) == p[1] &amp;&amp; (j==last || s.charAt(j-1) != p[1])) remove(s.substring(0, j)+s.substring(j+1, s.length()), ans, i, j, p); &#125; return; &#125; String reverse = new StringBuilder(s).reverse().toString(); if(p[1] == ')') //如果第一遍从左到右删除完毕，翻转s删除多余的左括号 remove(reverse, ans, 0, 0, new char[]&#123;')', '('&#125;); else //左右括号都删除完毕了 ans.add(reverse); &#125; &#125;]]></content>
