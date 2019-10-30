@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode332 重新安排行程]]></title>
+    <url>%2F2019%2F10%2F30%2FLeetCode332-%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E8%A1%8C%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[w(ﾟДﾟ)w 题目在这里 分析： 为了按字符顺序返回最小的行程组合，使用优先队列PriorityQueue 用深搜访问各个机场的话需要逆序放入结果集，因为会优先访问到最深的地方再返回 使用Map&lt;String, PriorityQueue&lt;String&gt;&gt;存放机场之间的连通性，这样删除边的操作和访问顺序都可以用出队操作代替 访问队列中的元素时注意判空条件temp != null &amp;&amp; !temp.isEmpty()： null只能分辨出对象是否分配内存空间，不管是否分配都不会报错 如果不分配内存空间，isEmpty会报空指针异常，主要判断PriorityQueue内容是否为空 使用addFirst方法时，不能用List interface，而要直接用LinkedList，不然会找不到addFirst方法 123456789101112131415161718192021class Solution &#123; Map&lt;String, PriorityQueue&lt;String&gt;&gt; map = new HashMap&lt;&gt;(); LinkedList&lt;String&gt; ans = new LinkedList&lt;&gt;(); public List&lt;String&gt; findItinerary(List&lt;List&lt;String&gt;&gt; tickets) &#123; if(tickets.size() == 0) return ans; for(List&lt;String&gt; l : tickets) &#123; //初始化map PriorityQueue&lt;String&gt; temp = map.computeIfAbsent(l.get(0), k-&gt;new PriorityQueue&lt;String&gt;()); temp.offer(l.get(1)); &#125; dfs("JFK"); return ans; &#125; public void dfs(String src) &#123; PriorityQueue&lt;String&gt; temp = map.get(src); while(temp != null &amp;&amp; !temp.isEmpty()) &#123; dfs(temp.poll()); &#125; ans.addFirst(src); &#125;&#125;]]></content>
+      <tags>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode329 矩阵中最长递增路径]]></title>
     <url>%2F2019%2F10%2F27%2FLeetCode329-%E7%9F%A9%E9%98%B5%E4%B8%AD%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E8%B7%AF%E5%BE%84%2F</url>
     <content type="text"><![CDATA[（＝。＝） 题目在这里 分析： 1.用深度优先搜索从根开始访问所有的节点2.为了避免深度优先搜索中的重复访问，可以采取记忆化的优化技术(记忆化：对于大量重复调用的问题，缓存其结果)，在这道题里，我们用temp数组来储存结果，如果已经知道相邻四个单元格的结果，就直接用，若未知，则先计算后保存至temp数组 123456789101112131415161718192021222324252627class Solution &#123; int[][] dirs = &#123;&#123;0, 1&#125;, &#123;1, 0&#125;, &#123;0, -1&#125;, &#123;-1, 0&#125;&#125;; int n ,m; public int longestIncreasingPath(int[][] matrix) &#123; if(matrix.length &lt;= 0) return 0; n = matrix.length; m = matrix[0].length; int[][] temp = new int[n][m]; int ans = 0; for (int i = 0; i &lt; n; ++i) for (int j = 0; j &lt; m; ++j) ans = Math.max(ans, dfs(matrix, i, j, temp)); return ans; &#125; public int dfs(int[][] matrix, int i, int j, int[][] temp) &#123; if(temp[i][j] != 0) //若已访问，直接退出 return temp[i][j]; for(int[] d : dirs) &#123; //访问上下左右的节点 int x = i+d[0]; int y = j+d[1]; if(x&gt;=0 &amp;&amp; y&gt;=0 &amp;&amp; x&lt;n &amp;&amp; y&lt;m &amp;&amp; matrix[x][y]&gt;matrix[i][j]) temp[i][j] = Math.max(temp[i][j], dfs(matrix, x, y, temp)); &#125; return ++temp[i][j]; //加上自己 &#125;&#125;]]></content>
       <tags>
-        <tag>-LeetCode</tag>
+        <tag>LeetCode</tag>
       </tags>
   </entry>
   <entry>
@@ -21,7 +29,7 @@
     <url>%2F2019%2F10%2F22%2FArrayList-LinkedList%2F</url>
     <content type="text"><![CDATA[ヽ(??▽?)ノ ArrayList常用方法 方法 说明 .add(n) 增加数组元素 .add(index, n) 增加数组元素 .size() 返回数组长度 .set(index, n) 修改某个元素 .remove(n) 删除元素 .remove(index, n) 删除元素 .get(index) 获取指定位置的对象 .indexOf(Object o) 判断对象在ArrayList所处的位置 .toArray() 把一个ArrayList对象转换为数组 .contains() 判断ArrayList是否包含指定内容 .clear() 清空ArrayList LinkedList常用方法也有add, remove, get, size等方法，还有： 方法 说明 .offer() 链尾部插入元素 .poll() 查询并移除第一个元素 .pop() 删除头元素 .peek() 获取第一个元素但是不移除 总结1.ArrayList是线性表，LinkedList是链表2.对于随机访问get,set方法，ArrayList优于LinkedList，因为LinkedList需要移动指针3.对于新增和删除方法，LinkedList占优势，因为ArrayList要移动数据]]></content>
       <categories>
-        <category>java</category>
+        <category>Java</category>
       </categories>
       <tags>
         <tag>集合</tag>
@@ -44,10 +52,11 @@
     <url>%2F2019%2F10%2F13%2FList%E5%B5%8C%E5%A5%97List%2F</url>
     <content type="text"><![CDATA[b(￣▽￣)d 泛型的类型参数必须相同！ List&lt;List&lt;Integer&gt;&gt; list = new List&lt;List&lt;Integer&gt;&gt;()这种初始化方式是错误的，因为List是接口，不能实例化。 正确的做法： List&lt;List&lt;Integer&gt;&gt; list = new ArrayList&lt;List&lt;Integer&gt;&gt;()或List&lt;ArrayList&lt;Integer&gt;&gt; list = new List&lt;ArrayList&lt;Integer&gt;&gt;() 赋值问题 看一下LeetCode的一道题 题解： 不能直接用list.add(arr)而要list.add(newArrayList&lt;&gt;(arr)) 12345678910111213141516171819202122232425class Solution &#123; ArrayList&lt;Integer&gt; arr = new ArrayList&lt;Integer&gt;(); ArrayList&lt;List&lt;Integer&gt;&gt; list = new ArrayList&lt;List&lt;Integer&gt;&gt;(); public List&lt;List&lt;Integer&gt;&gt; pathSum(TreeNode root, int sum) &#123; if(root == null) return list; inorder(root, 0, sum); return list; &#125; public void inorder(TreeNode root, int temp, int sum) &#123; if(root == null) return; arr.add(root.val); temp += root.val; if(root.left == null &amp;&amp; root.right == null) &#123; //因为list底层数组只能保存基本类型或者对象的引用，所以不能直接add arr，不然后面 if(temp == sum) //回溯后arr就变为空了 list.add(new ArrayList&lt;Integer&gt;(arr)); //因为我们需要复用arr数组，所以不能直接调用list.add(arr)，而是应该调用ans.add(new arr.remove(arr.size()-1); //list.add(newArrayList&lt;&gt;(arr)) return; &#125; inorder(root.left, temp, sum); inorder(root.right, temp, sum); arr.remove(arr.size()-1); //回溯，将当前节点的值删除，遍历另一个分支 &#125;&#125;]]></content>
       <categories>
-        <category>java</category>
+        <category>Java</category>
       </categories>
       <tags>
-        <tag>-LeetCode - 集合</tag>
+        <tag>集合</tag>
+        <tag>LeetCode</tag>
       </tags>
   </entry>
   <entry>
@@ -103,7 +112,7 @@
   <entry>
     <title><![CDATA[Set & Map]]></title>
     <url>%2F2019%2F09%2F09%2FSet-Map%2F</url>
-    <content type="text"><![CDATA[╮(╯▽╰)╭ Set1.Set集合不允许包含相同的元素，如果把两个相同的元素加入Set中会操作失败，add()方法返回false，新元素不会加入集合中。2.Set集合分为HashSet、TreeSet、EnumSet。 HashSetHashSet按哈希算法来存储集合中的元素，具有很好的查找和存取性能，特点： 元素的排列顺序可能与添加顺序不同，顺序也有可能发生变化 不是同步的(涉及多线程) 集合元素值可以是null 常用方法： 方法 描述 hashSet.add() 添加元素(返回boolean类型) hashSet.clear() 从此set中移除所有元素 hashSet.remove() 移除set中的指定元素 hashSet.isEmpty() 判断set集合是否为空，空则返回true hashSet.contains() 若set集合中包含指定元素则返回true hashSet.size() 返回set集合中的元素数量 对HashSet排序1.转换成List数组后使用Collections.sort方法进行排序2.转换成TreeSet排序 TreeSet特点：确保集合处于排序状态与HashSet相比还提供了如下一些额外的方法： 方法 描述 comparator() 定制排序(自然排序为升序) treeSet.first() 返回集合中第一个元素 treeSet.last() 返回集合中最后一个元素 treeSet.lower() 返回集合中小于指定元素的最大元素(指定元素不需要是集合里的元素) treeSet.higher() 返回集合中大于指定元素的最小元素(指定元素不需要是集合中的元素) treeSet.subSet(Object beg, Object end) 返回集合的子集合，范围：[beg, end) treeSet.headSet(Object to) 返回集合的子集，由小于to的元素构成 treeSet.tailSet(Object from) 返回集合的子集，由&gt;=from的元素构成 (未完待续…咕咕咕)]]></content>
+    <content type="text"><![CDATA[╮(╯▽╰)╭ Set1.Set集合不允许包含相同的元素，如果把两个相同的元素加入Set中会操作失败，add()方法返回false，新元素不会加入集合中。2.Set集合分为HashSet、TreeSet、EnumSet。 HashSetHashSet按哈希算法来存储集合中的元素，具有很好的查找和存取性能，特点： 元素的排列顺序可能与添加顺序不同，顺序也有可能发生变化 不是同步的(涉及多线程) 集合元素值可以是null 常用方法： 方法 描述 hashSet.add() 添加元素(返回boolean类型) hashSet.clear() 从此set中移除所有元素 hashSet.remove() 移除set中的指定元素 hashSet.isEmpty() 判断set集合是否为空，空则返回true hashSet.contains() 若set集合中包含指定元素则返回true hashSet.size() 返回set集合中的元素数量 对HashSet排序1.转换成List数组后使用Collections.sort方法进行排序2.转换成TreeSet排序 TreeSet特点：确保集合处于排序状态与HashSet相比还提供了如下一些额外的方法： 方法 描述 comparator() 定制排序(自然排序为升序) treeSet.first() 返回集合中第一个元素 treeSet.last() 返回集合中最后一个元素 treeSet.lower() 返回集合中小于指定元素的最大元素(指定元素不需要是集合里的元素) treeSet.higher() 返回集合中大于指定元素的最小元素(指定元素不需要是集合中的元素) treeSet.subSet(Object beg, Object end) 返回集合的子集合，范围：[beg, end) treeSet.headSet(Object to) 返回集合的子集，由小于to的元素构成 treeSet.tailSet(Object from) 返回集合的子集，由&gt;=from的元素构成 MapMap依次存入一对元素，以键值对的形式存在，一定要保持键的唯一性 常用方法 方法 描述 put(K key, V value) 添加元素 remove() 删除 value get(key) 获取对应key值的value boolean containsKey(Object key) 判断集合总是否包含指定的key boolean containsValue(Object value) 判断集合总是否包含指定的value java8 forEach遍历方式利用lambda表达式 12Map&lt;String, Object&gt; map = new HashMap&lt;&gt;();map.forEach((k, v) -&gt; System.out.println(k + "：" + v);); computeIfAbsent()方法1234567891011121314Map&lt;String, List&lt;String&gt;&gt; map = new HashMap&lt;&gt;(); //定义一个map//如果要放一个元素进去，普通做法是先判断是否存在List&lt;String&gt; list = map.get("list1");if (list == null) &#123; list = new ArrayList&lt;&gt;(); map.put("list1", list);&#125;list.add("A");//如果用computeIfAbsent()方法,当key值为空则执行后面的lambda语句，若不为空取出与当前key匹配的list数组并add元素//变量k为map的keyList&lt;String&gt; list = map.computeIfAbsent("list1", k-&gt;new ArrayList&lt;&gt;());list.add("A");]]></content>
       <categories>
         <category>Java</category>
       </categories>

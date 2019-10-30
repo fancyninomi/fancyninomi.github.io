@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Nino">
 <meta property="og:description" content="╮(╯▽╰)╭">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-22T09:21:56.649Z">
+<meta property="og:updated_time" content="2019-10-30T15:12:25.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Set &amp; Map">
 <meta name="twitter:description" content="╮(╯▽╰)╭">
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  443
+                  685
                 </span>
               
 
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -502,7 +502,40 @@
 </tr>
 </tbody></table>
 <hr>
-<p>(未完待续…咕咕咕)</p>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>Map依次存入一对元素，以键值对的形式存在，一定要保持键的唯一性</p>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>put(K key, V value)</td>
+<td>添加元素</td>
+</tr>
+<tr>
+<td>remove()</td>
+<td>删除</td>
+</tr>
+<tr>
+<td>value get(key)</td>
+<td>获取对应key值的value</td>
+</tr>
+<tr>
+<td>boolean containsKey(Object key)</td>
+<td>判断集合总是否包含指定的key</td>
+</tr>
+<tr>
+<td>boolean containsValue(Object value)</td>
+<td>判断集合总是否包含指定的value</td>
+</tr>
+</tbody></table>
+<h3 id="java8-forEach遍历方式"><a href="#java8-forEach遍历方式" class="headerlink" title="java8 forEach遍历方式"></a>java8 forEach遍历方式</h3><p>利用lambda表达式</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;<span class="keyword">String</span>, <span class="keyword">Object</span>&gt; <span class="built_in">map</span> = <span class="keyword">new</span> <span class="keyword">HashMap</span>&lt;&gt;();</span><br><span class="line"><span class="built_in">map</span>.forEach((k, v) -&gt; System.out.<span class="built_in">println</span>(k + <span class="string">"："</span> + v););</span><br></pre></td></tr></table></figure>
+
+<h3 id="computeIfAbsent-方法"><a href="#computeIfAbsent-方法" class="headerlink" title="computeIfAbsent()方法"></a>computeIfAbsent()方法</h3><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Map</span>&lt;<span class="built_in">String</span>, <span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt;&gt; <span class="built_in">map</span> = <span class="literal">new</span> HashMap&lt;&gt;();	<span class="comment">//定义一个map</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//如果要放一个元素进去，普通做法是先判断是否存在</span></span><br><span class="line"><span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; <span class="built_in">list</span> = <span class="built_in">map</span>.get(<span class="string">"list1"</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">list</span> == <span class="built_in">null</span>) &#123;</span><br><span class="line">  <span class="built_in">list</span> = <span class="literal">new</span> ArrayList&lt;&gt;();</span><br><span class="line">  <span class="built_in">map</span>.put(<span class="string">"list1"</span>, <span class="built_in">list</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">list</span>.add(<span class="string">"A"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果用computeIfAbsent()方法,当key值为空则执行后面的lambda语句，若不为空取出与当前key匹配的list数组并add元素</span></span><br><span class="line"><span class="comment">//变量k为map的key</span></span><br><span class="line"><span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; <span class="built_in">list</span> = <span class="built_in">map</span>.computeIfAbsent(<span class="string">"list1"</span>, k-&gt;<span class="literal">new</span> ArrayList&lt;&gt;());</span><br><span class="line"><span class="built_in">list</span>.add(<span class="string">"A"</span>);</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -688,7 +721,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -699,7 +732,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -710,7 +743,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -743,7 +776,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-number">1.</span> <span class="nav-text">Set</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashSet"><span class="nav-number">1.1.</span> <span class="nav-text">HashSet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TreeSet"><span class="nav-number">1.2.</span> <span class="nav-text">TreeSet</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-number">1.</span> <span class="nav-text">Set</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashSet"><span class="nav-number">1.1.</span> <span class="nav-text">HashSet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TreeSet"><span class="nav-number">1.2.</span> <span class="nav-text">TreeSet</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map"><span class="nav-number">2.</span> <span class="nav-text">Map</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用方法"><span class="nav-number">2.1.</span> <span class="nav-text">常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java8-forEach遍历方式"><span class="nav-number">2.2.</span> <span class="nav-text">java8 forEach遍历方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#computeIfAbsent-方法"><span class="nav-number">2.3.</span> <span class="nav-text">computeIfAbsent()方法</span></a></li></ol></li></ol></div>
             
 
           </div>
