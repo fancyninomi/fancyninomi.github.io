@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JDBC]]></title>
+    <url>%2F2019%2F10%2F31%2FJDBC%2F</url>
+    <content type="text"><![CDATA[(*￣(エ)￣) 加载数据库驱动1Class.forName("com.mysql.cj.jdbc.Driver"); 建立连接连接时需要提供：1.数据库端口号：3306数据库名称：nino时区设置：serverTimezone=UTC账号：root密码：admin 1Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/nino?serverTimezone=UTC", "root", "admin"); Statement方法execute用于执行任何SQL语句，返回一个 boolean 值，表明执行该语句是否返回了 ResultSet，但它执行 SQL 语句时比较麻烦，通常我们没有必要使用 execute 方法来执行 SQL 语句，而是使用 executeQuery 或 executeUpdate 更适合 executeQuery这个方法被用来执行 SELECT 语句，它几乎是使用最多的 SQL 语句。但也只能执行查询语句，执行后返回代表查询结果的ResultSet对象。 executeUpdate用于执行 insert、update 或 delete 语句以及 SQL DDL（数据定义语言）语句，返回值是一个整数（int），指示受影响的行数（即更新计数）。对于 CREATE TABLE 或 DROP TABLE 等不操作行的语句，executeUpdate 的返回值总为零。 ORM对象和关系数据库的映射]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode332 重新安排行程]]></title>
     <url>%2F2019%2F10%2F30%2FLeetCode332-%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E8%A1%8C%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[w(ﾟДﾟ)w 题目在这里 分析： 为了按字符顺序返回最小的行程组合，使用优先队列PriorityQueue 用深搜访问各个机场的话需要逆序放入结果集，因为会优先访问到最深的地方再返回 使用Map&lt;String, PriorityQueue&lt;String&gt;&gt;存放机场之间的连通性，这样删除边的操作和访问顺序都可以用出队操作代替 访问队列中的元素时注意判空条件temp != null &amp;&amp; !temp.isEmpty()： null只能分辨出对象是否分配内存空间，不管是否分配都不会报错 如果不分配内存空间，isEmpty会报空指针异常，主要判断PriorityQueue内容是否为空 使用addFirst方法时，不能用List interface，而要直接用LinkedList，不然会找不到addFirst方法 123456789101112131415161718192021class Solution &#123; Map&lt;String, PriorityQueue&lt;String&gt;&gt; map = new HashMap&lt;&gt;(); LinkedList&lt;String&gt; ans = new LinkedList&lt;&gt;(); public List&lt;String&gt; findItinerary(List&lt;List&lt;String&gt;&gt; tickets) &#123; if(tickets.size() == 0) return ans; for(List&lt;String&gt; l : tickets) &#123; //初始化map PriorityQueue&lt;String&gt; temp = map.computeIfAbsent(l.get(0), k-&gt;new PriorityQueue&lt;String&gt;()); temp.offer(l.get(1)); &#125; dfs("JFK"); return ans; &#125; public void dfs(String src) &#123; PriorityQueue&lt;String&gt; temp = map.get(src); while(temp != null &amp;&amp; !temp.isEmpty()) &#123; dfs(temp.poll()); &#125; ans.addFirst(src); &#125;&#125;]]></content>

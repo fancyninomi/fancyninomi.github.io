@@ -86,17 +86,16 @@
 
 
 
-<meta name="description" content="正则表达式是一种强大的字符串处理工具,用于匹配字符串的模板">
-<meta property="og:type" content="article">
-<meta property="og:title" content="正则表达式">
-<meta property="og:url" content="https://fancyninomi.github.io/2019/09/05/正则表达式/index.html">
+<meta name="description" content="不忘初心">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nino">
+<meta property="og:url" content="https://fancyninomi.github.io/page/3/index.html">
 <meta property="og:site_name" content="Nino">
-<meta property="og:description" content="正则表达式是一种强大的字符串处理工具,用于匹配字符串的模板">
+<meta property="og:description" content="不忘初心">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-06T00:36:27.213Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正则表达式">
-<meta name="twitter:description" content="正则表达式是一种强大的字符串处理工具,用于匹配字符串的模板">
+<meta name="twitter:title" content="Nino">
+<meta name="twitter:description" content="不忘初心">
 
 
 
@@ -126,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="https://fancyninomi.github.io/2019/09/05/正则表达式/">
+  <link rel="canonical" href="https://fancyninomi.github.io/page/3/">
 
 
 
 
 
-  <title>正则表达式 | Nino</title>
+  <title>Nino</title>
   
 
 
@@ -151,7 +150,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
     
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -274,9 +274,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -289,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fancyninomi.github.io/2019/09/05/正则表达式/">
+    <link itemprop="mainEntityOfPage" href="https://fancyninomi.github.io/2019/07/02/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ninomi">
@@ -306,7 +306,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">正则表达式</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/02/hello-world/" itemprop="url">Hello World</a></h1>
         
 
         <div class="post-meta">
@@ -318,8 +320,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-05T23:18:45+08:00">
-                2019-09-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-02T13:12:43+08:00">
+                2019-07-02
               </time>
             
 
@@ -329,28 +331,6 @@
           </span>
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -359,11 +339,6 @@
           
           
 
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
           
 
           
@@ -379,7 +354,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  354
+                  74
                 </span>
               
 
@@ -416,92 +391,17 @@
       
 
       
-        <p>正则表达式是一种强大的字符串处理工具,用于匹配字符串的模板</p>
-<a id="more"></a>
-<h3 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h3><table>
-<thead>
-<tr>
-<th>特殊字符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>$</td>
-<td>匹配字符串的结尾(要匹配$本身，用\$)</td>
-</tr>
-<tr>
-<td>^</td>
-<td>匹配字符串的开头(要匹配^本身，用\^)</td>
-</tr>
-<tr>
-<td>()</td>
-<td>标记一个子表达式的开始和结束位置(匹配本身，用\转义)</td>
-</tr>
-<tr>
-<td>[]</td>
-<td>用于确定括号表达式的开始和结束位置</td>
-</tr>
-<tr>
-<td>{}</td>
-<td>限定前面子表达式的出现次数。eg:{n}前面的子表达式出现n次;{n, }至少出现n次或以上;{n,m}至少出现n次，至多出现m次，<strong>逗号和两个数之间不能有空格</strong></td>
-</tr>
-<tr>
-<td>*</td>
-<td>指定前面的子表达式可以出现0次或多次</td>
-</tr>
-<tr>
-<td>+</td>
-<td>指定前面的子表达式可以出现1次或多次</td>
-</tr>
-<tr>
-<td>？</td>
-<td>指定前面的子表达式可以出现0次或1次，相当于{0,1}</td>
-</tr>
-<tr>
-<td>|</td>
-<td>指明两项之间任选一项</td>
-</tr>
-</tbody></table>
-<hr>
-<h3 id="预定义字符"><a href="#预定义字符" class="headerlink" title="预定义字符"></a>预定义字符</h3><table>
-<thead>
-<tr>
-<th>预定义字符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>.</td>
-<td>匹配除换行符\n之外的任何单字符</td>
-</tr>
-<tr>
-<td>\d</td>
-<td>匹配0~9的所有数字</td>
-</tr>
-<tr>
-<td>\D</td>
-<td>匹配一个非数字字符</td>
-</tr>
-<tr>
-<td>\s</td>
-<td>匹配任何空白字符，包括空格、制表符、回车符、换页符、换行符</td>
-</tr>
-<tr>
-<td>\S</td>
-<td>匹配所有非空白字符</td>
-</tr>
-<tr>
-<td>\w</td>
-<td>匹配任意一个字母、数字、下划线</td>
-</tr>
-<tr>
-<td>\W</td>
-<td>匹配所有的非字母、数字、下划线的字符</td>
-</tr>
-</tbody></table>
-<hr>
-<p>(未完待续？)</p>
-
+        
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/07/02/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
       
     </div>
     
@@ -511,64 +411,10 @@
     
 
     
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>Donate comment here</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>打赏</span>
-  </button>
-  <div id="QR" style="display: none;">
 
-    
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ninomi 微信支付">
-        <p>微信支付</p>
-      </div>
-    
-
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipay.png" alt="Ninomi 支付宝">
-        <p>支付宝</p>
-      </div>
-    
-
-    
-
-  </div>
-</div>
-
-      </div>
-    
-
-    
-      <div>
-        <ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者：</strong>
-    Ninomi
-  </li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="https://fancyninomi.github.io/2019/09/05/正则表达式/" title="正则表达式">https://fancyninomi.github.io/2019/09/05/正则表达式/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>
-    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-
-      </div>
     
 	
 	<div>
-	  
-		<div>
-    
-        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
-    
-</div>
-
 	  
    </div>
 
@@ -577,32 +423,12 @@
       
 
       
-      
+
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/09/05/String & StringBuilder/" rel="next" title="String & StirngBuilder">
-                <i class="fa fa-chevron-left"></i> String & StirngBuilder
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/06/java排序/" rel="prev" title="java排序">
-                java排序 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -612,11 +438,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
 
 
           </div>
@@ -624,15 +453,6 @@
 
 
           
-
-  
-    <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTA3MC8yMTU4Nw=="></div>
-    </div>
-
-  
-
-
 
         </div>
         
@@ -653,17 +473,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -725,22 +536,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊字符"><span class="nav-number">1.</span> <span class="nav-text">特殊字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预定义字符"><span class="nav-number">2.</span> <span class="nav-text">预定义字符</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -905,10 +700,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
@@ -937,17 +728,6 @@
 
 
 
-  
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
   
 
 
