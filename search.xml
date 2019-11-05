@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode5 最长回文子串]]></title>
+    <url>%2F2019%2F11%2F05%2FLeetCode5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2%2F</url>
+    <content type="text"><![CDATA[✧(≖ ◡ ≖✿) 题目在这里 动态规划解法1234567891011121314151617181920212223242526272829class Solution &#123; public String longestPalindrome(String s) &#123; if(s.length() &lt;= 0 || s == null) return ""; int n = s.length(); int start = 0, maxn = 1; LinkedList&lt;Character&gt; ans = new LinkedList&lt;&gt;(); int[][] dp = new int[n][n]; for(int i=0; i&lt;n; ++i) &#123; //初始化 dp[i][i] = 1; if(i&lt;n-1 &amp;&amp; s.charAt(i) == s.charAt(i+1)) &#123; dp[i][i+1] = 1; maxn = 2; start = i; &#125; &#125; for(int l=3; l&lt;=n; ++l) &#123; for(int i=0; i+l-1&lt;n; ++i) &#123; int j = i+l-1; if(s.charAt(i) == s.charAt(j) &amp;&amp; dp[i+1][j-1] == 1) &#123; dp[i][j] = 1; maxn = l; start = i; &#125; &#125; &#125; return s.substring(start, start+maxn); &#125;&#125; Manacher’s Algorithm 马拉车算法算法思想：为了解决奇数字符串和偶数字符串的问题，在每个字符串间插入“#”，为了使得扩展到边界自动结束，在两端分别插入“^”和“$”，经过处理，所求字符串的长度就永远是奇数了。 数组 P[i] 保存从中心i扩展的最大个数，同时也是去掉#后原字符串的总长度，因此只要求出 p 数组的值就能求出最长回文子串 R表示回文子串的最右边；C 表示回文子串的中心；mirror 表示 i 关于 C 的对称点 原字符开头下标 = (i - p[i])/2；R = C + p[i] 求p[i] 由于回文子串的对称性，p[i] = p[mirror] 当 p[i] 的值超过了 R，则无法利用对称性，但是p[i]至少可以扩展到 R-i (利用中心扩展法扩展) 当 p[mirror] 遇到了原字符串的左边界，p[mirror] = 1然而 p[i] 不一定遇到了边界，此时已然可以通过中心扩展法求p[i] 当 p[i] 遇到了原字符串的右边界 R，先把 p[i] 赋值为1，在通过中心扩展法求 p[i] 搞定上面的情况后还需要更新C和R 当求出的 P [i] 的右边界大于当前的 R 时，我们就需要更新 C 和 R 为当前的回文串了。因为我们必须保证 i 在 R 里面，所以一旦有更右边的 R 就要更新 R，并把C改为当前i值 结合图理解： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647public String preProcess(String s) &#123; //在每个字符串间插入“#” int n = s.length(); if (n == 0) &#123; return "^$"; &#125; String ret = "^"; for (int i = 0; i &lt; n; i++) ret += "#" + s.charAt(i); ret += "#$"; return ret;&#125;public String longestPalindrome2(String s) &#123; String T = preProcess(s); int n = T.length(); int[] P = new int[n]; int C = 0, R = 0; for (int i=1; i &lt;n-1; i++) &#123; int i_mirror = 2*C-i; if (R &gt; i) &#123; P[i] = Math.min(R-i, P[i_mirror]); // 防止超出R &#125; else &#123; P[i] = 0; // 等于R的情况 &#125; //利用中心扩展法 while (T.charAt(i+1+P[i]) == T.charAt(i-1-P[i])) &#123; P[i]++; &#125; // 判断是否需要更新 R if (i + P[i] &gt; R) &#123; C = i; R = i + P[i]; &#125; &#125; // 找出 P 的最大值 int maxLen = 0; int centerIndex = 0; for (int i=1; i&lt;n-1; i++) &#123; if (P[i] &gt; maxLen) &#123; maxLen = P[i]; centerIndex = i; &#125; &#125; int start = (centerIndex - maxLen)/2; //最开始讲的求原字符串下标 return s.substring(start, start + maxLen);&#125;]]></content>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JDBC]]></title>
     <url>%2F2019%2F10%2F31%2FJDBC%2F</url>
     <content type="text"><![CDATA[(*￣(エ)￣) 加载数据库驱动1Class.forName("com.mysql.cj.jdbc.Driver"); 建立连接连接时需要提供：1.数据库端口号：3306数据库名称：nino时区设置：serverTimezone=UTC账号：root密码：admin 1Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/nino?serverTimezone=UTC", "root", "admin"); Statement方法execute用于执行任何SQL语句，返回一个 boolean 值，表明执行该语句是否返回了 ResultSet，但它执行 SQL 语句时比较麻烦，通常我们没有必要使用 execute 方法来执行 SQL 语句，而是使用 executeQuery 或 executeUpdate 更适合 executeQuery这个方法被用来执行 SELECT 语句，它几乎是使用最多的 SQL 语句。但也只能执行查询语句，执行后返回代表查询结果的ResultSet对象。 executeUpdate用于执行 insert、update 或 delete 语句以及 SQL DDL（数据定义语言）语句，返回值是一个整数（int），指示受影响的行数（即更新计数）。对于 CREATE TABLE 或 DROP TABLE 等不操作行的语句，executeUpdate 的返回值总为零。 ORM对象和关系数据库的映射]]></content>
@@ -35,7 +44,7 @@
   <entry>
     <title><![CDATA[ArrayList & LinkedList]]></title>
     <url>%2F2019%2F10%2F22%2FArrayList-LinkedList%2F</url>
-    <content type="text"><![CDATA[ヽ(??▽?)ノ ArrayList常用方法 方法 说明 .add(n) 增加数组元素 .add(index, n) 增加数组元素 .size() 返回数组长度 .set(index, n) 修改某个元素 .remove(n) 删除元素 .remove(index, n) 删除元素 .get(index) 获取指定位置的对象 .indexOf(Object o) 判断对象在ArrayList所处的位置 .toArray() 把一个ArrayList对象转换为数组 .contains() 判断ArrayList是否包含指定内容 .clear() 清空ArrayList LinkedList常用方法也有add, remove, get, size等方法，还有： 方法 说明 .offer() 链尾部插入元素 .poll() 查询并移除第一个元素 .pop() 删除头元素 .peek() 获取第一个元素但是不移除 总结1.ArrayList是线性表，LinkedList是链表2.对于随机访问get,set方法，ArrayList优于LinkedList，因为LinkedList需要移动指针3.对于新增和删除方法，LinkedList占优势，因为ArrayList要移动数据]]></content>
+    <content type="text"><![CDATA[ヽ(??▽?)ノ ArrayList常用方法 方法 说明 .add(n) 增加数组元素 .add(index, n) 增加数组元素 .size() 返回数组长度 .set(index, n) 修改某个元素 .remove(n) 删除位置为n的元素，返回值指向当前被删除的对象 .get(index) 获取指定位置的对象 .indexOf(Object o) 判断对象在ArrayList所处的位置 .toArray() 把一个ArrayList对象转换为数组 .contains() 判断ArrayList是否包含指定内容 .clear() 清空ArrayList LinkedList常用方法也有add, remove, get, size等方法，还有： 方法 说明 .offer() 链尾部插入元素 .poll() 查询并移除第一个元素 .pop() 删除头元素 .peek() 获取第一个元素但是不移除 总结1.ArrayList是线性表，LinkedList是链表2.对于随机访问get,set方法，ArrayList优于LinkedList，因为LinkedList需要移动指针3.对于新增和删除方法，LinkedList占优势，因为ArrayList要移动数据]]></content>
       <categories>
         <category>Java</category>
       </categories>

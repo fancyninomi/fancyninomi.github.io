@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="Nino">
 <meta property="og:description" content="(*￣(エ)￣)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-03T08:35:48.394Z">
+<meta property="og:updated_time" content="2019-11-05T09:39:52.917Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDBC">
 <meta name="twitter:description" content="(*￣(エ)￣)">
@@ -435,7 +435,7 @@
 </div></div></div>
 
 <h3 id="try-with-resource资源关闭方式"><a href="#try-with-resource资源关闭方式" class="headerlink" title="try-with-resource资源关闭方式"></a>try-with-resource资源关闭方式</h3><p>将外部资源的句柄对象的创建放在try关键字后面的括号中，当这个try-catch代码块执行完毕后，Java会确保外部资源的close方法被调用，这样就不用了在代码结尾写一大块finally关闭资源了。</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function">Connection <span class="title">load</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">        Class.forName(<span class="string">"com.mysql.cj.jdbc.Driver"</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="function"><span class="keyword">return</span> DriverManager.<span class="title">getConnection</span><span class="params">(<span class="string">"jdbc:mysql://localhost:3306/nino?serverTimezone=UTC"</span>, <span class="string">"root"</span>, <span class="string">"admin"</span>)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(Hero h)</span> </span>&#123;</span><br><span class="line">    String sql = <span class="string">"insert into hero values(null,?,?,?)"</span>;</span><br><span class="line">    <span class="keyword">try</span> (Connection c = load(); PreparedStatement ps = c.prepareStatement(sql);) &#123;</span><br><span class="line">		ps.setString(<span class="number">1</span>, h._name);</span><br><span class="line">        ps.setFloat(<span class="number">2</span>, h._hp);</span><br><span class="line">        ps.setInt(<span class="number">3</span>, h._damage);</span><br><span class="line">		ps.execute();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function">Connection <span class="title">load</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		Class.forName(<span class="string">"com.mysql.cj.jdbc.Driver"</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="function"><span class="keyword">return</span> DriverManager.<span class="title">getConnection</span><span class="params">(<span class="string">"jdbc:mysql://localhost:3306/nino?serverTimezone=UTC"</span>, <span class="string">"root"</span>, <span class="string">"admin"</span>)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(Hero h)</span> </span>&#123;</span><br><span class="line">    String sql = <span class="string">"insert into hero values(null,?,?,?)"</span>;</span><br><span class="line">    <span class="keyword">try</span> (Connection c = load(); PreparedStatement ps = c.prepareStatement(sql);) &#123;</span><br><span class="line">	    ps.setString(<span class="number">1</span>, h._name);</span><br><span class="line">        ps.setFloat(<span class="number">2</span>, h._hp);</span><br><span class="line">        ps.setInt(<span class="number">3</span>, h._damage);</span><br><span class="line">		ps.execute();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -530,6 +530,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/11/05/LeetCode5-最长回文子串/" rel="prev" title="LeetCode5 最长回文子串">
+                LeetCode5 最长回文子串 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -612,7 +616,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
