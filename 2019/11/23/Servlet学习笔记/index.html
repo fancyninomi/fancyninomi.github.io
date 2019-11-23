@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Servlet,">
 
 
 
@@ -86,17 +86,20 @@
 
 
 
-<meta name="description" content="ヽ(ˋ▽ˊ)ノ">
+<meta name="description" content="ლ(•̀ _ •́ ლ)">
+<meta name="keywords" content="Servlet">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java排序">
-<meta property="og:url" content="https://fancyninomi.github.io/2019/09/06/java排序/index.html">
+<meta property="og:title" content="Servlet学习笔记">
+<meta property="og:url" content="https://fancyninomi.github.io/2019/11/23/Servlet学习笔记/index.html">
 <meta property="og:site_name" content="Nino">
-<meta property="og:description" content="ヽ(ˋ▽ˊ)ノ">
+<meta property="og:description" content="ლ(•̀ _ •́ ლ)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-28T08:36:55.454Z">
+<meta property="og:image" content="https://fancyninomi.github.io/2019/11/23/Servlet学习笔记/Servlet执行原理.bmp">
+<meta property="og:updated_time" content="2019-11-23T04:03:57.201Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java排序">
-<meta name="twitter:description" content="ヽ(ˋ▽ˊ)ノ">
+<meta name="twitter:title" content="Servlet学习笔记">
+<meta name="twitter:description" content="ლ(•̀ _ •́ ლ)">
+<meta name="twitter:image" content="https://fancyninomi.github.io/2019/11/23/Servlet学习笔记/Servlet执行原理.bmp">
 
 
 
@@ -126,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://fancyninomi.github.io/2019/09/06/java排序/">
+  <link rel="canonical" href="https://fancyninomi.github.io/2019/11/23/Servlet学习笔记/">
 
 
 
 
 
-  <title>java排序 | Nino</title>
+  <title>Servlet学习笔记 | Nino</title>
   
 
 
@@ -289,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fancyninomi.github.io/2019/09/06/java排序/">
+    <link itemprop="mainEntityOfPage" href="https://fancyninomi.github.io/2019/11/23/Servlet学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ninomi">
@@ -306,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java排序</h1>
+          <h1 class="post-title" itemprop="name headline">Servlet学习笔记</h1>
         
 
         <div class="post-meta">
@@ -318,8 +321,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-06T22:09:08+08:00">
-                2019-09-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-23T11:36:17+08:00">
+                2019-11-23
               </time>
             
 
@@ -341,8 +344,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/Javaweb/" itemprop="url" rel="index">
+                    <span itemprop="name">Javaweb</span>
                   </a>
                 </span>
 
@@ -379,7 +382,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  525
+                  467
                 </span>
               
 
@@ -395,7 +398,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  1
                 </span>
               
             </div>
@@ -416,16 +419,45 @@
       
 
       
-        <p>ヽ(ˋ▽ˊ)ノ</p>
+        <p>ლ(•̀ _ •́ ლ)</p>
 <a id="more"></a>
-<h3 id="sort排序"><a href="#sort排序" class="headerlink" title="sort排序"></a>sort排序</h3><p>常用于普通数组的排序<br>直接使用Arrays.sort(array)方法对数组array排序</p>
-<h3 id="按照对象属性排序"><a href="#按照对象属性排序" class="headerlink" title="按照对象属性排序"></a>按照对象属性排序</h3><h4 id="一、实现comparable-lt-gt-接口"><a href="#一、实现comparable-lt-gt-接口" class="headerlink" title="一、实现comparable&lt;&gt;接口"></a>一、实现comparable&lt;&gt;接口</h4><p>对学生类的成绩进行升序排序</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//学生类</span></span><br><span class="line">class Student implements Comparable&lt;Student&gt; &#123;</span><br><span class="line">	<span class="keyword">String</span> _name;	<span class="comment">//姓名</span></span><br><span class="line">	<span class="keyword">String</span> _sno;	<span class="comment">//学号</span></span><br><span class="line">	<span class="keyword">int</span> _grades;	<span class="comment">//成绩</span></span><br><span class="line">	Student(<span class="keyword">String</span> name, <span class="keyword">String</span> sno, <span class="keyword">int</span> grades) &#123;</span><br><span class="line">		_name = name;</span><br><span class="line">		_sno = sno;</span><br><span class="line">		_grades = grades;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> compareTo(Student o) &#123;</span><br><span class="line">		<span class="built_in">return</span> <span class="keyword">this</span>._grades - o._grades;	<span class="comment">//升序</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> class Main &#123;	<span class="comment">//主函数</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">		Scanner s = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		ArrayList&lt;Student&gt; students = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> n = s.nextInt();</span><br><span class="line">		s.nextLine();</span><br><span class="line">		<span class="built_in">while</span>(n&gt;<span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">String</span> <span class="keyword">string</span> = s.nextLine();</span><br><span class="line">			<span class="keyword">String</span>[] strs = <span class="keyword">string</span>.split(<span class="string">" "</span>);</span><br><span class="line">			Student sts = <span class="keyword">new</span> Student(strs[<span class="number">0</span>], strs[<span class="number">1</span>], Integer.<span class="built_in">parseInt</span>(strs[<span class="number">2</span>]));</span><br><span class="line">			students.add(sts);</span><br><span class="line">			--n;</span><br><span class="line">			++i;</span><br><span class="line">		&#125;</span><br><span class="line">		Collections.sort(students);	<span class="comment">//排序</span></span><br><span class="line">		System.out.<span class="built_in">println</span>(students.<span class="built_in">get</span>(students.<span class="built_in">size</span>()<span class="number">-1</span>));</span><br><span class="line">		System.out.<span class="built_in">println</span>(students.<span class="built_in">get</span>(<span class="number">0</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h2><img src="/2019/11/23/Servlet学习笔记/Servlet执行原理.bmp">
 
-<p><strong>比较器升降排序的问题：</strong><br>上例中<code>return this._grades - o._grades;</code>若return 1，true表示执行交换，则序列变为o this，o的成绩小于this，所以是升序排序<br>综上：<br>A&gt;B，renturn 1，true表示执行交换，所以序列变成B A，因为B小于A，所以升序。<br>A&gt;B，return -1，false表示不执行交换，所以序列不变A B，因为A大于B，所以降序。</p>
-<h4 id="二、使用Comparator匿名内部类实现"><a href="#二、使用Comparator匿名内部类实现" class="headerlink" title="二、使用Comparator匿名内部类实现"></a>二、使用Comparator匿名内部类实现</h4><p>有时候对于一个类，对于不同的属性需要不同的排序，这时候实现接口的方法就不太灵活，而匿名内部类可以很好的帮助我们解决排序问题<br>同上例：</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//学生类</span></span><br><span class="line">class Student &#123;</span><br><span class="line">	<span class="keyword">String</span> _name;	<span class="comment">//姓名</span></span><br><span class="line">	<span class="keyword">String</span> _sno;	<span class="comment">//学号</span></span><br><span class="line">	<span class="keyword">int</span> _grades;	<span class="comment">//成绩</span></span><br><span class="line">	Student(<span class="keyword">String</span> name, <span class="keyword">String</span> sno, <span class="keyword">int</span> grades) &#123;</span><br><span class="line">		_name = name;</span><br><span class="line">		_sno = sno;</span><br><span class="line">		_grades = grades;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> class Main &#123;	<span class="comment">//主函数</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">		Scanner s = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		ArrayList&lt;Student&gt; students = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> n = s.nextInt();</span><br><span class="line">		s.nextLine();</span><br><span class="line">		<span class="built_in">while</span>(n&gt;<span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">String</span> <span class="keyword">string</span> = s.nextLine();</span><br><span class="line">			<span class="keyword">String</span>[] strs = <span class="keyword">string</span>.split(<span class="string">" "</span>);</span><br><span class="line">			Student sts = <span class="keyword">new</span> Student(strs[<span class="number">0</span>], strs[<span class="number">1</span>], Integer.<span class="built_in">parseInt</span>(strs[<span class="number">2</span>]));</span><br><span class="line">			students.add(sts);</span><br><span class="line">			--n;</span><br><span class="line">			++i;</span><br><span class="line">		&#125;</span><br><span class="line">		Collections.sort(students, <span class="keyword">new</span> Comparator&lt;Student&gt;() &#123;</span><br><span class="line">			<span class="keyword">public</span> <span class="keyword">int</span> compare(Student o1, Student o2) &#123;</span><br><span class="line">				<span class="built_in">return</span> o1.grades - o2.grades;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		System.out.<span class="built_in">println</span>(students.<span class="built_in">get</span>(students.<span class="built_in">size</span>()<span class="number">-1</span>));</span><br><span class="line">		System.out.<span class="built_in">println</span>(students.<span class="built_in">get</span>(<span class="number">0</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="Servlet中的生命周期方法"><a href="#Servlet中的生命周期方法" class="headerlink" title="Servlet中的生命周期方法"></a>Servlet中的生命周期方法</h2><p>1.被创建：执行init方法，只执行一次<br><strong>问题：</strong>Servlet什么时候被创建？<br>默认情况下，第一次被访问时，Servlet被创建,可以配置执行Servlet的创建时机。在<code>&lt;servlet&gt;</code>标签下配置</p>
+<ol>
+<li>第一次被访问时，创建<br><code>&lt;load-on-startup&gt;</code>的值为负数</li>
+<li>在服务器启动时，创建<br><code>&lt;load-on-startup&gt;</code>的值为0或正整数</li>
+</ol>
+<p>2.Servlet的init方法，只执行一次，说明一个Servlet在内存中只存在一个对象，Servlet是单例的<br>    * 多个用户同时访问时，可能存在线程安全问题。<br>    * 解决：尽量不要在Servlet中定义成员变量。即使定义了成员变量，也不要对修改值</p>
+<h2 id="Servlet3-0后的好处："><a href="#Servlet3-0后的好处：" class="headerlink" title="Servlet3.0后的好处："></a>Servlet3.0后的好处：</h2><ol>
+<li>支持注解配置。可以不需要web.xml了。</li>
+<li>步骤：<ol>
+<li>创建JavaEE项目，选择Servlet的版本3.0以上，可以不创建web.xml</li>
+<li>定义一个类，实现Servlet接口</li>
+<li>复写方法</li>
+<li>在类上使用@WebServlet注解，进行配置<ul>
+<li>@WebServlet(“资源路径”)</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>注意</strong>：WEB-INF目录下的资源不能被浏览器直接访问。</p>
+<h2 id="Servlet体系结构"><a href="#Servlet体系结构" class="headerlink" title="Servlet体系结构"></a>Servlet体系结构</h2><p>Servlet – 接口<br>    |<br>GenericServlet – 抽象类<br>    |<br>HttpServlet  – 抽象类</p>
+<p>1.GenericServlet：将Servlet接口中其他的方法做了默认空实现，只将service()方法作为抽象<br>    * 将来定义Servlet类时，可以继承GenericServlet，实现service()方法即可<br>    * 一般开发不用hahaha</p>
+<p>2.HttpServlet：对http协议的一种封装，简化操作(<strong>推荐</strong>)<br>    * 定义类–&gt;继承HttpServlet<br>    * 复写doGet/doPost方法</p>
+<h2 id="Servlet配置"><a href="#Servlet配置" class="headerlink" title="Servlet配置"></a>Servlet配置</h2><p>urlpartten:Servlet访问路径</p>
+<ol>
+<li>一个Servlet可以定义多个访问路径 ： @WebServlet({“/d4”,”/dd4”,”/ddd4”})</li>
+<li>路径定义规则：<ol>
+<li>/xxx：路径匹配</li>
+<li>/xxx/xxx:多层路径，目录结构</li>
+<li>/*: 通配符(访问级别比较低，如果有别的路径就不会访问) </li>
+<li>*.do：扩展名匹配(前面不要加 / )</li>
+</ol>
+</li>
+</ol>
 
       
     </div>
@@ -475,7 +507,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://fancyninomi.github.io/2019/09/06/java排序/" title="java排序">https://fancyninomi.github.io/2019/09/06/java排序/</a>
+    <a href="https://fancyninomi.github.io/2019/11/23/Servlet学习笔记/" title="Servlet学习笔记">https://fancyninomi.github.io/2019/11/23/Servlet学习笔记/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -500,6 +532,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Servlet/" rel="tag"><i class="fa fa-tag"></i> Servlet</a>
+          
+        </div>
+      
 
       
       
@@ -509,8 +547,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/05/正则表达式/" rel="next" title="正则表达式">
-                <i class="fa fa-chevron-left"></i> 正则表达式
+              <a href="/2019/11/13/java静态代码块static/" rel="next" title="java静态代码块static">
+                <i class="fa fa-chevron-left"></i> java静态代码块static
               </a>
             
           </div>
@@ -518,10 +556,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/09/Set-Map/" rel="prev" title="Set & Map">
-                Set & Map <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -660,7 +694,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#sort排序"><span class="nav-number">1.</span> <span class="nav-text">sort排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按照对象属性排序"><span class="nav-number">2.</span> <span class="nav-text">按照对象属性排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、实现comparable-lt-gt-接口"><span class="nav-number">2.1.</span> <span class="nav-text">一、实现comparable&lt;&gt;接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、使用Comparator匿名内部类实现"><span class="nav-number">2.2.</span> <span class="nav-text">二、使用Comparator匿名内部类实现</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理图"><span class="nav-number">1.</span> <span class="nav-text">原理图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet中的生命周期方法"><span class="nav-number">2.</span> <span class="nav-text">Servlet中的生命周期方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet3-0后的好处："><span class="nav-number">3.</span> <span class="nav-text">Servlet3.0后的好处：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet体系结构"><span class="nav-number">4.</span> <span class="nav-text">Servlet体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet配置"><span class="nav-number">5.</span> <span class="nav-text">Servlet配置</span></a></li></ol></div>
             
 
           </div>

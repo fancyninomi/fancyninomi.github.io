@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Servlet学习笔记]]></title>
+    <url>%2F2019%2F11%2F23%2FServlet%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[ლ(•̀ _ •́ ლ) 原理图 Servlet中的生命周期方法1.被创建：执行init方法，只执行一次问题：Servlet什么时候被创建？默认情况下，第一次被访问时，Servlet被创建,可以配置执行Servlet的创建时机。在&lt;servlet&gt;标签下配置 第一次被访问时，创建&lt;load-on-startup&gt;的值为负数 在服务器启动时，创建&lt;load-on-startup&gt;的值为0或正整数 2.Servlet的init方法，只执行一次，说明一个Servlet在内存中只存在一个对象，Servlet是单例的 * 多个用户同时访问时，可能存在线程安全问题。 * 解决：尽量不要在Servlet中定义成员变量。即使定义了成员变量，也不要对修改值 Servlet3.0后的好处： 支持注解配置。可以不需要web.xml了。 步骤： 创建JavaEE项目，选择Servlet的版本3.0以上，可以不创建web.xml 定义一个类，实现Servlet接口 复写方法 在类上使用@WebServlet注解，进行配置 @WebServlet(“资源路径”) 注意：WEB-INF目录下的资源不能被浏览器直接访问。 Servlet体系结构Servlet – 接口 |GenericServlet – 抽象类 |HttpServlet – 抽象类 1.GenericServlet：将Servlet接口中其他的方法做了默认空实现，只将service()方法作为抽象 * 将来定义Servlet类时，可以继承GenericServlet，实现service()方法即可 * 一般开发不用hahaha 2.HttpServlet：对http协议的一种封装，简化操作(推荐) * 定义类–&gt;继承HttpServlet * 复写doGet/doPost方法 Servlet配置urlpartten:Servlet访问路径 一个Servlet可以定义多个访问路径 ： @WebServlet({“/d4”,”/dd4”,”/ddd4”}) 路径定义规则： /xxx：路径匹配 /xxx/xxx:多层路径，目录结构 /*: 通配符(访问级别比较低，如果有别的路径就不会访问) *.do：扩展名匹配(前面不要加 / )]]></content>
+      <categories>
+        <category>Javaweb</category>
+      </categories>
+      <tags>
+        <tag>Servlet</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[java静态代码块static]]></title>
     <url>%2F2019%2F11%2F13%2Fjava%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%9D%97static%2F</url>
     <content type="text"><![CDATA[(′▽`〃) 静态代码块与静态方法的区别一般情况下,如果有些代码必须在项目启动的时候就执行的时候,需要使用静态代码块,这种代码是主动执行的;需要在项目启动的时候就初始化,在不创建对象的情况下,其他程序来调用的时候,需要使用静态方法,这种代码是被动执行的. 静态方法在类加载的时候就已经加载，可以用类名直接调用。 比如：main方法就必须是静态的 这是程序入口 区别：静态代码块是自动执行的；静态方法是被调用时才执行的。 静态方法在Java里，可以定义一个不需要创建对象的方法，这种方法就是静态方法。要实现这样的效果，只需要在类中定义的方法前加上static关键字public static int minimum(int n1,int n2) 使用类的静态方法时，注意： 1.在静态方法里只能直接调用同类中其他的静态成员（包括变量和方法），而不能直接访问类中的非静态成员。这是因为，对于非静态的方法和变量，需要先创建类的实例对象后才可使用，而静态方法在使用前不用创建任何对象。2.静态方法不能以任何方式引用this和super关键字，因为静态方法在使用前不用创建任何实例对象，当静态方法调用时，this所引用的对象根本没有产生。3.静态变量是属于整个类的变量而不是属于某个对象的，注意不能把任何方法体内的变量声明为静态。4.一个类可以使用不包含在任何方法体中的静态代码块，当类被载入时，静态代码块被执行，且只被执行一次，静态块常用来执行类属性的初始化。 对象的初始化顺序: 首先执行父类静态的内容，父类静态的内容执行完毕后，接着去执行子类的静态的内容，当子类的静态内容执行完毕之后，再去看父类有没有非静态代码块，如果有就执行父类的非静态代码块，父类的非静态代码块执行完毕，接着执行父类的构造方法；父类的构造方法执行完毕之后，它接着去看子类有没有非静态代码块，如果有就执行子类的非静态代码块。子类的非静态代码块执行完毕再去执行子类的构造方法。总之一句话，静态代码块内容先执行，接着执行父类非静态代码块和构造方法，然后执行子类非静态代码块和构造方法。 注意:子类的构造方法，不管这个构造方法带不带参数，默认的它都会先去寻找父类的不带参数的构造方法。如果父类没有不带参数的构造方法，那么子类必须用supper关键子来调用父类带参数的构造方法，否则编译不能通过。 静态变量基于一个类创建多个该类的对象，每个对象都拥有自己的属性值，互相独立。Java 中被 static 修饰的成员称为静态成员或类成员，它属于整个类所有，而不是某个对象所有，即被类的所有对象所共享。静态成员可以使用类名直接访问，也可以使用对象名进行访问。当然，鉴于他作用的特殊性更推荐用类名访问。注意：静态成员属于整个类，当系统第一次使用该类时，就会为其分配内存空间直到该类被卸载才会进行资源回收。优点：1.静态对象的数据在全局是唯一的，一改都改。如果你想要处理的东西是整个程序中唯一的，弄成静态是个好方法。 非静态的东西你修改以后只是修改了他自己的数据，但是不会影响其他同类对象的数据。2.引用方便。直接用 类名.静态方法名 或者 类名.静态变量名就可引用并且直接可以修改其属性值，不用get和set方法。3.保持数据的唯一性。此数据全局都是唯一的，修改他的任何一处地方，在程序所有使用到的地方都将会体现到这些数据的修改，有效减少多余的浪费。4.static final用来修饰成员变量和成员方法，可简单理解为“全局常量”。对于变量，表示一旦给值就不可修改；对于方法，表示不可覆盖。]]></content>
@@ -22,7 +33,7 @@
     <url>%2F2019%2F10%2F31%2FJDBC%2F</url>
     <content type="text"><![CDATA[(*￣(エ)￣) 加载数据库驱动1Class.forName("com.mysql.cj.jdbc.Driver"); 建立连接连接时需要提供：1.数据库端口号：3306数据库名称：nino时区设置：serverTimezone=UTC账号：root密码：admin 1Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/nino?serverTimezone=UTC", "root", "admin"); Statement方法execute用于执行任何SQL语句，返回一个 boolean 值，表明执行该语句是否返回了 ResultSet，但它执行 SQL 语句时比较麻烦，通常我们没有必要使用 execute 方法来执行 SQL 语句，而是使用 executeQuery 或 executeUpdate 更适合 executeQuery这个方法被用来执行 SELECT 语句，它几乎是使用最多的 SQL 语句。但也只能执行查询语句，执行后返回代表查询结果的ResultSet对象。 executeUpdate用于执行 insert、update 或 delete 语句以及 SQL DDL（数据定义语言）语句，返回值是一个整数（int），指示受影响的行数（即更新计数）。对于 CREATE TABLE 或 DROP TABLE 等不操作行的语句，executeUpdate 的返回值总为零。 ORM对象和关系数据库的映射]]></content>
       <categories>
-        <category>Java</category>
+        <category>数据库</category>
       </categories>
   </entry>
   <entry>
