@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JavaScript,">
 
 
 
@@ -86,17 +86,18 @@
 
 
 
-<meta name="description" content="性能：二叉树排序&amp;gt;选择排序&amp;gt;冒泡排序">
+<meta name="description" content="超链接的功能：点击后跳转到href指定页面保留点击功能但是不跳转的方法：href = &amp;quot;javascript:void(0)&amp;quot;;">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二叉树排序">
-<meta property="og:url" content="https://fancyninomi.github.io/2019/08/17/二叉树排序/index.html">
+<meta property="og:title" content="BOM &amp; DOM">
+<meta property="og:url" content="https://fancyninomi.github.io/2019/12/31/BOM-DOM/index.html">
 <meta property="og:site_name" content="Nino">
-<meta property="og:description" content="性能：二叉树排序&amp;gt;选择排序&amp;gt;冒泡排序">
+<meta property="og:description" content="超链接的功能：点击后跳转到href指定页面保留点击功能但是不跳转的方法：href = &amp;quot;javascript:void(0)&amp;quot;;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-17T00:59:25.474Z">
+<meta property="og:updated_time" content="2020-01-04T13:17:42.819Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="二叉树排序">
-<meta name="twitter:description" content="性能：二叉树排序&amp;gt;选择排序&amp;gt;冒泡排序">
+<meta name="twitter:title" content="BOM &amp; DOM">
+<meta name="twitter:description" content="超链接的功能：点击后跳转到href指定页面保留点击功能但是不跳转的方法：href = &amp;quot;javascript:void(0)&amp;quot;;">
 
 
 
@@ -126,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://fancyninomi.github.io/2019/08/17/二叉树排序/">
+  <link rel="canonical" href="https://fancyninomi.github.io/2019/12/31/BOM-DOM/">
 
 
 
 
 
-  <title>二叉树排序 | Nino</title>
+  <title>BOM & DOM | Nino</title>
   
 
 
@@ -289,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fancyninomi.github.io/2019/08/17/二叉树排序/">
+    <link itemprop="mainEntityOfPage" href="https://fancyninomi.github.io/2019/12/31/BOM-DOM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ninomi">
@@ -306,7 +307,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">二叉树排序</h1>
+          <h1 class="post-title" itemprop="name headline">BOM & DOM</h1>
         
 
         <div class="post-meta">
@@ -318,8 +319,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-17T08:27:26+08:00">
-                2019-08-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-31T14:57:34+08:00">
+                2019-12-31
               </time>
             
 
@@ -341,8 +342,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/JavaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaWeb</span>
                   </a>
                 </span>
 
@@ -379,7 +380,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  320
+                  1.4k
                 </span>
               
 
@@ -395,7 +396,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  5
                 </span>
               
             </div>
@@ -416,10 +417,238 @@
       
 
       
-        <p><strong>性能：</strong><br>二叉树排序&gt;选择排序&gt;冒泡排序</p>
+        <p>超链接的功能：点击后跳转到href指定页面<br>保留点击功能但是不跳转的方法：<code>href = &quot;javascript:void(0)&quot;;</code></p>
 <a id="more"></a>
-<p>向英雄二叉树中插入不同的Hero对象，按照Hero的血量排序。</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">package Hello;</span><br><span class="line"></span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Hero</span> &#123;</span><br><span class="line">	<span class="keyword">double</span> _hp;		<span class="comment">//英雄血量</span></span><br><span class="line">	String _name;			<span class="comment">//英雄名称</span></span><br><span class="line">	Hero(String name, <span class="keyword">double</span> hp) &#123;</span><br><span class="line">		_name = name;</span><br><span class="line">		_hp = hp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"名称："</span>+_name+<span class="string">"血量："</span>+_hp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">HeroNode</span> &#123;</span><br><span class="line">	HeroNode _leftNode;		<span class="comment">//左节点</span></span><br><span class="line">	HeroNode _rightNode;	<span class="comment">//右节点</span></span><br><span class="line">	Hero hero;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">add</span>(<span class="params">Hero v</span>)</span> &#123;		<span class="comment">//加入结点</span></span><br><span class="line">		<span class="keyword">if</span>(hero == <span class="literal">null</span>) &#123;</span><br><span class="line">			hero = v;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">if</span>(hero._hp&gt;=v._hp) &#123;</span><br><span class="line">				<span class="keyword">if</span>(_leftNode == <span class="literal">null</span>) &#123;</span><br><span class="line">					_leftNode = <span class="keyword">new</span> HeroNode();</span><br><span class="line">				&#125;</span><br><span class="line">				_leftNode.<span class="keyword">add</span>(v);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">if</span>(_rightNode == <span class="literal">null</span>) &#123;</span><br><span class="line">					_rightNode = <span class="keyword">new</span> HeroNode();</span><br><span class="line">				&#125;</span><br><span class="line">				_rightNode.<span class="keyword">add</span>(v);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function">ArrayList&lt;Hero&gt; <span class="title">values</span>(<span class="params"></span>)</span> &#123;		<span class="comment">//中序遍历二叉树</span></span><br><span class="line">		ArrayList&lt;Hero&gt; hs = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		<span class="keyword">if</span>(_leftNode != <span class="literal">null</span>) &#123;		<span class="comment">//若左子树不为空</span></span><br><span class="line">			hs.addAll(_leftNode.values());	<span class="comment">//中序遍历左子树，遍历过的结点加入hs数组中</span></span><br><span class="line">		&#125;</span><br><span class="line">		hs.<span class="keyword">add</span>(hero);		<span class="comment">//遍历根结点</span></span><br><span class="line">		<span class="keyword">if</span>(_rightNode != <span class="literal">null</span>) &#123;	<span class="comment">//若右子树不为空</span></span><br><span class="line">			hs.addAll(_rightNode.values());	<span class="comment">//中序遍历右子树</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> hs;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">HelloWorld</span> &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>)</span> &#123;</span><br><span class="line">		ArrayList&lt;Hero&gt; heros = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; ++i) &#123;	<span class="comment">//初始化10个Hero对象</span></span><br><span class="line">			heros.<span class="keyword">add</span>(<span class="keyword">new</span> Hero(<span class="string">"hero "</span>+i, (<span class="keyword">double</span>)(Math.random()*<span class="number">1000</span>)));</span><br><span class="line">		&#125;</span><br><span class="line">		HeroNode h = <span class="keyword">new</span> HeroNode();</span><br><span class="line">		<span class="keyword">for</span>(Hero o : heros) &#123;	<span class="comment">//调用add方法插入Hero对象</span></span><br><span class="line">			h.<span class="keyword">add</span>(o);</span><br><span class="line">		&#125;</span><br><span class="line">		System.<span class="keyword">out</span>.println(h.values());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="DOM-Document-Object-Model"><a href="#DOM-Document-Object-Model" class="headerlink" title="DOM (Document Object Model)"></a>DOM (Document Object Model)</h2><h3 id="核心DOM模型"><a href="#核心DOM模型" class="headerlink" title="核心DOM模型"></a>核心DOM模型</h3><h4 id="Document：文档对象"><a href="#Document：文档对象" class="headerlink" title="Document：文档对象"></a>Document：文档对象</h4><ol>
+<li>创建(获取)：在 html dom 模型中可以使用 window 对象来获取<ol>
+<li><code>window.document</code></li>
+<li><code>document</code></li>
+</ol>
+</li>
+<li>方法：<ol>
+<li>获取Element对象：<ol>
+<li><code>getElementById()</code>： 根据id属性值获取元素对象。id属性值一般唯一</li>
+<li><code>getElementsByTagName()</code>：根据元素名称获取元素对象们。返回值是一个数组</li>
+<li><code>getElementsByClassName()</code>:根据Class属性值获取元素对象们。返回值是一个数组</li>
+<li><code>getElementsByName()</code>: 根据name属性值获取元素对象们。返回值是一个数组</li>
+</ol>
+</li>
+<li>创建其他DOM对象：<ul>
+<li><code>createAttribute(name)</code>：创建一个属性节点</li>
+<li><code>createComment()</code>：创建注释节点</li>
+<li><code>createElement()</code>：创建元素节点</li>
+<li><code>createTextNode()</code>：创建一个文本节点</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="Element：元素对象"><a href="#Element：元素对象" class="headerlink" title="Element：元素对象"></a>Element：元素对象</h4><ol>
+<li>获取/创建：通过document来获取和创建</li>
+<li>方法：<ol>
+<li><code>removeAttribute()</code>：删除属性</li>
+<li><code>setAttribute()</code>：设置属性</li>
+</ol>
+</li>
+</ol>
+<h4 id="Node：节点对象，其他5个的父对象"><a href="#Node：节点对象，其他5个的父对象" class="headerlink" title="Node：节点对象，其他5个的父对象"></a>Node：节点对象，其他5个的父对象</h4><ul>
+<li>特点：所有dom对象都可以被认为是一个节点</li>
+<li>方法：<ul>
+<li>CRUD dom树：<ul>
+<li>appendChild()：向节点的子节点列表的结尾添加新的子节点。</li>
+<li>removeChild()    ：删除（并返回）当前节点的指定子节点。</li>
+<li>replaceChild()：用新节点替换一个子节点。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>属性：<ul>
+<li>parentNode 返回节点的父节点。        </li>
+</ul>
+</li>
+</ul>
+<h3 id="HTML-DOM"><a href="#HTML-DOM" class="headerlink" title="HTML DOM"></a>HTML DOM</h3><ol>
+<li><p>标签体的设置和获取：innerHTML</p>
+</li>
+<li><p>使用html元素对象的属性</p>
+</li>
+<li><p>控制元素样式</p>
+<ol>
+<li><p>使用元素的style属性来设置<br> 如：</p>
+ <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//修改样式方式<span class="number">1</span></span><br><span class="line">div1.<span class="built_in">style</span>.<span class="built_in">border</span> = <span class="string">"1px solid red"</span>;</span><br><span class="line">div1.<span class="built_in">style</span>.<span class="built_in">width</span> = <span class="string">"200px"</span>;</span><br><span class="line">//<span class="built_in">font</span>-size--&gt; fontSize</span><br><span class="line">div1.<span class="built_in">style</span>.fontSize = <span class="string">"20px"</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提前定义好类选择器的样式，通过元素的className属性来设置其class属性值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.over&#123;</span><br><span class="line">	background: hotpink;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> trs = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"tr"</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;trs.length; ++i) &#123;</span><br><span class="line">	<span class="comment">//移到元素之上</span></span><br><span class="line">	trs[i].onmouseover = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.className = <span class="string">"over"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="事件简单学习"><a href="#事件简单学习" class="headerlink" title="事件简单学习"></a>事件简单学习</h2><p><strong>功能</strong>： 某些组件被执行了某些操作后，触发某些代码的执行。<br><strong>如何绑定事件</strong></p>
+<ol>
+<li><p>直接在html标签上，指定事件的属性(操作)，属性值就是js代码</p>
+<ol>
+<li>事件：onclick— 单击事件</li>
+</ol>
+</li>
+<li><p>通过js获取元素对象，指定事件属性，设置一个函数 function( ){…}</p>
+</li>
+</ol>
+<p><strong>常见的事件</strong></p>
+<ol>
+<li><p>点击事件：</p>
+<ol>
+<li>onclick：单击事件</li>
+<li>ondblclick：双击事件</li>
+</ol>
+</li>
+<li><p>焦点事件</p>
+<ol>
+<li>onblur：失去焦点(一般用于表单验证)</li>
+<li>onfocus:元素获得焦点。</li>
+</ol>
+</li>
+<li><p>加载事件：</p>
+<ol>
+<li>onload：一张页面或一幅图像完成加载。<br><code>window.onload</code>…保证所有页面资源加载完毕触发script代码</li>
+</ol>
+</li>
+<li><p>鼠标事件：</p>
+<ol>
+<li>onmousedown    鼠标按键被按下。</li>
+<li>onmouseup    鼠标按键被松开。</li>
+<li>onmousemove    鼠标被移动。</li>
+<li>onmouseover    鼠标移到某元素之上。</li>
+<li>onmouseout    鼠标从某元素移开。</li>
+</ol>
+</li>
+<li><p>键盘事件：</p>
+<ol>
+<li>onkeydown    某个键盘按键被按下。    </li>
+<li>onkeyup        某个键盘按键被松开。</li>
+<li>onkeypress    某个键盘按键被按下并松开。</li>
+</ol>
+</li>
+<li><p>选择和改变</p>
+<ol>
+<li>onchange    域的内容被改变。</li>
+<li>onselect    文本被选中。</li>
+</ol>
+</li>
+<li><p>表单事件：</p>
+<ol>
+<li>onsubmit    确认按钮被点击。<ul>
+<li>可以阻止表单的提交(方法返回false)</li>
+</ul>
+</li>
+<li>onreset    重置按钮被点击。</li>
+</ol>
+</li>
+</ol>
+<h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><p><strong>概念</strong>：Browser Object Model 浏览器对象模型</p>
+<ul>
+<li>将浏览器的各个组成部分封装成对象。</li>
+</ul>
+<p><strong>组成：</strong></p>
+<ul>
+<li>Window：窗口对象</li>
+<li>Navigator：浏览器对象</li>
+<li>Screen：显示器屏幕对象</li>
+<li>History：历史记录对象</li>
+<li>Location：地址栏对象</li>
+</ul>
+<h3 id="Window：窗口对象"><a href="#Window：窗口对象" class="headerlink" title="Window：窗口对象"></a>Window：窗口对象</h3><ol>
+<li><p>创建</p>
+</li>
+<li><p>方法</p>
+<ol>
+<li><p>与弹出框有关的方法：<br>alert()    显示带有一段消息和一个确认按钮的警告框。<br>confirm()    显示带有一段消息以及确认按钮和取消按钮的对话框。</p>
+<ul>
+<li>如果用户点击确定按钮，则方法返回true</li>
+<li>如果用户点击取消按钮，则方法返回false<br>prompt()    显示可提示用户输入的对话框。</li>
+<li>返回值：获取用户输入的值</li>
+</ul>
+</li>
+<li><p>与打开关闭有关的方法：<br>close()    关闭浏览器窗口。</p>
+<ul>
+<li>谁调用我 ，我关谁<br>open()    打开一个新的浏览器窗口</li>
+<li>返回新的Window对象</li>
+</ul>
+</li>
+<li><p>与定时器有关的方式<br>setTimeout()    在指定的毫秒数后调用函数或计算表达式。</p>
+<ul>
+<li>参数：<ol>
+<li>js代码或者方法对象</li>
+<li>毫秒值</li>
+</ol>
+</li>
+<li>返回值：唯一标识，用于取消定时器<br>clearTimeout()    取消由 setTimeout() 方法设置的 timeout。</li>
+</ul>
+<p>setInterval()    按照指定的周期（以毫秒计）来调用函数或计算表达式。<br>clearInterval()    取消由 setInterval() 设置的 timeout。</p>
+</li>
+</ol>
+</li>
+<li><p>属性：</p>
+<ol>
+<li>获取其他BOM对象：<br> history<br> location<br> Navigator<br> Screen:</li>
+<li>获取DOM对象<br> document</li>
+</ol>
+</li>
+<li><p>特点</p>
+<ul>
+<li>Window对象不需要创建可以直接使用。 window.方法名();</li>
+<li>window引用可以省略。  方法名();</li>
+</ul>
+</li>
+</ol>
+<h3 id="Location：地址栏对象"><a href="#Location：地址栏对象" class="headerlink" title="Location：地址栏对象"></a>Location：地址栏对象</h3><ol>
+<li><p>创建(获取)：</p>
+<ol>
+<li>window.location</li>
+<li>location</li>
+</ol>
+</li>
+<li><p>方法：</p>
+<ul>
+<li>reload()    重新加载当前文档。刷新</li>
+</ul>
+</li>
+<li><p>属性</p>
+<ul>
+<li>href    设置或返回完整的 URL。</li>
+</ul>
+</li>
+</ol>
+<h3 id="History：历史记录对象"><a href="#History：历史记录对象" class="headerlink" title="History：历史记录对象"></a>History：历史记录对象</h3><ol>
+<li><p>创建(获取)：</p>
+<ol>
+<li>window.history</li>
+<li>history</li>
+</ol>
+</li>
+<li><p>方法：</p>
+<ul>
+<li>back()    加载 history 列表中的前一个 URL。</li>
+<li>forward()    加载 history 列表中的下一个 URL。</li>
+<li>go(参数)    加载 history 列表中的某个具体页面。<ul>
+<li>参数：<ul>
+<li>正数：前进几个历史记录</li>
+<li>负数：后退几个历史记录</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>属性：</p>
+<ul>
+<li>length    返回当前窗口历史列表中的 URL 数量。</li>
+</ul>
+</li>
+</ol>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h3 id="实现自动跳转"><a href="#实现自动跳转" class="headerlink" title="实现自动跳转"></a>实现自动跳转</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>自动跳转<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">        p&#123;</span><br><span class="line">            text-align: center;</span><br><span class="line">        &#125;</span><br><span class="line">        span&#123;</span><br><span class="line">            color: cornflowerblue;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"time"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">span</span>&gt;</span>秒之后，自动跳转到首页...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> second = <span class="number">5</span>;</span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> time = <span class="built_in">document</span>.getElementById(<span class="string">"time"</span>);</span></span><br><span class="line"><span class="actionscript">        <span class="function"><span class="keyword">function</span> <span class="title">showTime</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line">            second --;</span><br><span class="line"><span class="actionscript">            <span class="keyword">if</span>(second &lt;= <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="actionscript">                location.href = <span class="string">"http://www.baidu.com"</span>;</span></span><br><span class="line">            &#125;</span><br><span class="line"><span class="actionscript">            time.innerHTML = second +<span class="string">""</span>;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="comment">//设置定时器，一秒执行一次</span></span></span><br><span class="line">        setInterval(showTime, 1000);</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
       
     </div>
     
@@ -468,7 +697,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://fancyninomi.github.io/2019/08/17/二叉树排序/" title="二叉树排序">https://fancyninomi.github.io/2019/08/17/二叉树排序/</a>
+    <a href="https://fancyninomi.github.io/2019/12/31/BOM-DOM/" title="BOM & DOM">https://fancyninomi.github.io/2019/12/31/BOM-DOM/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -493,6 +722,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          
+        </div>
+      
 
       
       
@@ -502,8 +737,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/16/Java-ConcurrentModificationException异常/" rel="next" title="Java ConcurrentModificationException异常">
-                <i class="fa fa-chevron-left"></i> Java ConcurrentModificationException异常
+              <a href="/2019/12/11/HTTP协议/" rel="next" title="HTTP协议">
+                <i class="fa fa-chevron-left"></i> HTTP协议
               </a>
             
           </div>
@@ -511,10 +746,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/05/String & StringBuilder/" rel="prev" title="String & StirngBuilder">
-                String & StirngBuilder <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -571,8 +802,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -634,6 +874,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM-Document-Object-Model"><span class="nav-number">1.</span> <span class="nav-text">DOM (Document Object Model)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#核心DOM模型"><span class="nav-number">1.1.</span> <span class="nav-text">核心DOM模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Document：文档对象"><span class="nav-number">1.1.1.</span> <span class="nav-text">Document：文档对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Element：元素对象"><span class="nav-number">1.1.2.</span> <span class="nav-text">Element：元素对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Node：节点对象，其他5个的父对象"><span class="nav-number">1.1.3.</span> <span class="nav-text">Node：节点对象，其他5个的父对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-DOM"><span class="nav-number">1.2.</span> <span class="nav-text">HTML DOM</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件简单学习"><span class="nav-number">2.</span> <span class="nav-text">事件简单学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM"><span class="nav-number">3.</span> <span class="nav-text">BOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Window：窗口对象"><span class="nav-number">3.1.</span> <span class="nav-text">Window：窗口对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Location：地址栏对象"><span class="nav-number">3.2.</span> <span class="nav-text">Location：地址栏对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#History：历史记录对象"><span class="nav-number">3.3.</span> <span class="nav-text">History：历史记录对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-number">4.</span> <span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现自动跳转"><span class="nav-number">4.1.</span> <span class="nav-text">实现自动跳转</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
