@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="LeetCode,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -86,18 +86,17 @@
 
 
 
-<meta name="description" content="Σ( ° △ °|||)︴">
-<meta name="keywords" content="LeetCode">
+<meta name="description" content="┭┮﹏┭┮">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode301 删除无效的括号">
-<meta property="og:url" content="https://fancyninomi.github.io/2019/10/23/LeetCode301-删除无效的括号/index.html">
+<meta property="og:title" content="CSS &amp; Bootstrap">
+<meta property="og:url" content="https://fancyninomi.github.io/2020/01/30/CSS-Bootstrap/index.html">
 <meta property="og:site_name" content="Nino">
-<meta property="og:description" content="Σ( ° △ °|||)︴">
+<meta property="og:description" content="┭┮﹏┭┮">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-23T13:23:05.765Z">
+<meta property="og:updated_time" content="2020-01-30T09:47:36.279Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode301 删除无效的括号">
-<meta name="twitter:description" content="Σ( ° △ °|||)︴">
+<meta name="twitter:title" content="CSS &amp; Bootstrap">
+<meta name="twitter:description" content="┭┮﹏┭┮">
 
 
 
@@ -127,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://fancyninomi.github.io/2019/10/23/LeetCode301-删除无效的括号/">
+  <link rel="canonical" href="https://fancyninomi.github.io/2020/01/30/CSS-Bootstrap/">
 
 
 
 
 
-  <title>LeetCode301 删除无效的括号 | Nino</title>
+  <title>CSS & Bootstrap | Nino</title>
   
 
 
@@ -290,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fancyninomi.github.io/2019/10/23/LeetCode301-删除无效的括号/">
+    <link itemprop="mainEntityOfPage" href="https://fancyninomi.github.io/2020/01/30/CSS-Bootstrap/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ninomi">
@@ -307,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode301 删除无效的括号</h1>
+          <h1 class="post-title" itemprop="name headline">CSS & Bootstrap</h1>
         
 
         <div class="post-meta">
@@ -319,8 +318,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-23T17:31:54+08:00">
-                2019-10-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-30T11:37:13+08:00">
+                2020-01-30
               </time>
             
 
@@ -329,6 +328,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Javaweb/" itemprop="url" rel="index">
+                    <span itemprop="name">Javaweb</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -358,7 +379,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  406
+                  1.2k
                 </span>
               
 
@@ -374,7 +395,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -395,12 +416,223 @@
       
 
       
-        <p>Σ( ° △ °|||)︴</p>
+        <p>┭┮﹏┭┮</p>
 <a id="more"></a>
-<p><a href="https://leetcode-cn.com/problems/remove-invalid-parentheses/" target="_blank" rel="noopener">题目在这里</a></p>
-<span class="label info">分析：</span>
-<p>1.首先从左往右扫描字符串，每找到一个多余的右括号就删掉它，然后继续往后扫描<br>2.从左往右扫描完后，将字符串反转，依然从左往右找多余的左括号并删掉<br>3.删除的时候，记录删除的位置last，为了保证删除括号后的结果集不重复，需要检查当前位置<code>j==last</code>或者<code>s.charAt(j-1) != p[1]</code>。例如 ()())() 这组括号的第4、5个位置上的右括号删除任一个结果都是一样的。<br>4.为了记录不同的结果集设置了<code>for(int j=last; j&lt;=i; ++j)</code>循环，找到一次正确的结果后回溯，寻找另一种可能的结果</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">     <span class="keyword">public</span> List&lt;<span class="keyword">String</span>&gt; removeInvalidParentheses(<span class="keyword">String</span> s) &#123;</span><br><span class="line">         ArrayList&lt;<span class="keyword">String</span>&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();     <span class="comment">//存放结果集</span></span><br><span class="line">         <span class="built_in">char</span>[] p = <span class="keyword">new</span> <span class="built_in">char</span>[]&#123;<span class="string">'('</span>, <span class="string">')'</span>&#125;;</span><br><span class="line">         remove(s, ans, <span class="number">0</span>, <span class="number">0</span>, p);</span><br><span class="line">         <span class="keyword">return</span> ans;</span><br><span class="line">     &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> remove(<span class="keyword">String</span> s, ArrayList&lt;<span class="keyword">String</span>&gt; ans, <span class="built_in">int</span> start, <span class="built_in">int</span> last, <span class="built_in">char</span>[] p) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> left=<span class="number">0</span>, i=start; i&lt;s.length(); ++i) &#123;         <span class="comment">//删除多余的右括号</span></span><br><span class="line">            <span class="keyword">if</span>(s.charAt(i) == p[<span class="number">0</span>]) left++;</span><br><span class="line">            <span class="keyword">if</span>(s.charAt(i) == p[<span class="number">1</span>]) left--;</span><br><span class="line">            <span class="keyword">if</span>(left&gt;=<span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="built_in">int</span> j=last; j&lt;=i; ++j) &#123;	<span class="comment">//为了记录不同的结果集</span></span><br><span class="line">                <span class="keyword">if</span>(s.charAt(j) == p[<span class="number">1</span>] &amp;&amp; (j==last || s.charAt(j<span class="number">-1</span>) != p[<span class="number">1</span>]))</span><br><span class="line">                    remove(s.substring(<span class="number">0</span>, j)+s.substring(j+<span class="number">1</span>, s.length()), ans, i, j, p);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">String</span> <span class="built_in">reverse</span> = <span class="keyword">new</span> StringBuilder(s).<span class="built_in">reverse</span>().toString();</span><br><span class="line">        <span class="keyword">if</span>(p[<span class="number">1</span>] == <span class="string">')'</span>)      <span class="comment">//如果第一遍从左到右删除完毕，翻转s删除多余的左括号</span></span><br><span class="line">            remove(<span class="built_in">reverse</span>, ans, <span class="number">0</span>, <span class="number">0</span>, <span class="keyword">new</span> <span class="built_in">char</span>[]&#123;<span class="string">')'</span>, <span class="string">'('</span>&#125;);</span><br><span class="line">        <span class="keyword">else</span>                <span class="comment">//左右括号都删除完毕了</span></span><br><span class="line">            ans.<span class="built_in">add</span>(<span class="built_in">reverse</span>);    </span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h3 id="CSS的使用：CSS与html结合方式"><a href="#CSS的使用：CSS与html结合方式" class="headerlink" title="CSS的使用：CSS与html结合方式"></a>CSS的使用：CSS与html结合方式</h3><ol>
+<li><p><strong>内联样式</strong></p>
+<p> 在标签内使用style属性指定css代码，如：<code>&lt;div style=&quot;color:red;&quot;&gt;hello css&lt;/div&gt;</code></p>
+</li>
+<li><p><strong>内部样式</strong></p>
+<ul>
+<li><p>在head标签内，定义style标签，style标签的标签体内容就是css代码</p>
+</li>
+<li><p>如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">      div&#123;</span><br><span class="line">        color:blue;</span><br><span class="line">      &#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+ <div>hello css</div>
+ <figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">3</span>. **外部样式**</span><br><span class="line"></span><br><span class="line">  <span class="number">1</span>. 定义css资源文件。</span><br><span class="line">  <span class="number">2</span>. 在head标签内，定义link标签，引入外部的资源文件</span><br><span class="line">  * 如：a.css文件：</span><br><span class="line"></span><br><span class="line">    <span class="string">```</span>html</span><br><span class="line">    <span class="keyword">div</span>&#123;</span><br><span class="line"><span class="symbol">    	color:</span>green<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line">    &lt;link <span class="built_in">rel</span>=<span class="string">"stylesheet"</span> href=<span class="string">"css/a.css"</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span>&gt;hello css&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span>&gt;hello css&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>注意</strong>：</p>
+<ul>
+<li><p>1,2,3种方式 css作用范围越来越大</p>
+</li>
+<li><p>1方式不常用，后期常用2,3</p>
+</li>
+<li><p>3种格式可以写为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">      @<span class="keyword">import</span> <span class="string">"css/a.css"</span>;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="CSS语法"><a href="#CSS语法" class="headerlink" title="CSS语法"></a>CSS语法</h3><ul>
+<li><p><strong>格式</strong>：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">选择器 &#123;</span><br><span class="line">    属性名1:属性值1;</span><br><span class="line">    属性名2:属性值2;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>选择器：筛选具有相似特征的元素</li>
+<li>每一对属性用<code>；</code>隔开，最后一对属性可以不加<code>；</code></li>
+</ul>
+</li>
+<li><p><strong>选择器分类</strong>：</p>
+<ul>
+<li><p>基础选择器</p>
+<ul>
+<li>id选择器：选择具体的id属性值的元素.建议在一个html页面中id值唯一<ul>
+<li>语法：<code>#id属性值{}</code></li>
+</ul>
+</li>
+<li>元素选择器：选择具有相同标签名称的元素<ul>
+<li>语法： <code>标签名称{}</code></li>
+<li>注意：id选择器优先级高于元素选择器</li>
+</ul>
+</li>
+<li>类选择器：选择具有相同的class属性值的元素。<ul>
+<li>语法：<code>.class属性值{}</code></li>
+<li>注意：类选择器选择器优先级高于元素选择器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>扩展选择器</p>
+<ul>
+<li><p>选择所有元素</p>
+<ul>
+<li>语法：<code>*{}</code></li>
+</ul>
+</li>
+<li><p>并集选择器：<code>选择器1,选择器2{}</code></p>
+</li>
+<li><p>子选择器：筛选选择器1元素下的选择器2元素</p>
+<ul>
+<li><code>选择器1 选择器2{}</code></li>
+</ul>
+</li>
+<li><p>父选择器：筛选选择器2的父元素选择器1</p>
+<ul>
+<li><code>选择器1 &gt; 选择器2{}</code></li>
+</ul>
+</li>
+<li><p>属性选择器：选择元素名称，属性名=属性值的元素</p>
+<ul>
+<li><code>元素名称[属性名=&quot;属性值&quot;]{}</code></li>
+</ul>
+</li>
+<li><p>伪类选择器：选择一些元素具有的状态</p>
+<ul>
+<li><p><code>元素:状态{}</code></p>
+</li>
+<li><p>例如：<code>&lt;a&gt;</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">link：初始化的状态</span><br><span class="line">visited：被访问过的状态</span><br><span class="line">active：正在访问状态</span><br><span class="line">hover：鼠标悬浮状态</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>属性</strong>：</p>
+<ul>
+<li>字体、文本<ul>
+<li>font-size：字体大小<ul>
+<li>color：文本颜色</li>
+<li>text-align：对其方式</li>
+<li>line-height：行高 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>背景<ul>
+<li>background：</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>边框</p>
+<ul>
+<li>border：设置边框，符合属性</li>
+</ul>
+</li>
+<li><p>尺寸</p>
+<ul>
+<li>width：宽度</li>
+<li>height：高度</li>
+</ul>
+</li>
+<li><p>盒子模型：控制布局</p>
+<ul>
+<li><p>margin：外边距</p>
+</li>
+<li><p>padding：内边距</p>
+<ul>
+<li>默认情况下内边距会影响整个盒子的大小</li>
+<li>box-sizing: border-box;  设置盒子的属性，让width和height就是最终盒子的大小</li>
+</ul>
+</li>
+<li><p>float：浮动</p>
+<ul>
+<li>left</li>
+<li>right</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Bootstrap"><a href="#Bootstrap" class="headerlink" title="Bootstrap"></a>Bootstrap</h1><p><strong>概念</strong>：一个前端开发的框架</p>
+<p><strong>框架</strong>：一个半成品软件，开发人员可以在框架基础上，在进行开发，简化编码</p>
+<p><strong>好处</strong>：定义了很多的css样式和js插件。我们开发人员直接可以使用这些样式和插件得到丰富的页面效果；响应式布局，同一套页面可以兼容不同分辨率的设备</p>
+<h3 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h3><p><strong>概念</strong>：同一套页面可以兼容不同分辨率的设备。</p>
+<p><strong>实现</strong>：依赖于栅格系统：将一行平均分成12个格子，可以指定元素占几个格子</p>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li><p>定义容器。相当于之前的table</p>
+<ul>
+<li>容器分类：<ul>
+<li><code>container</code>：两边留白</li>
+<li><code>container-fluid</code>：每一种设备都是100%宽度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>定义行。相当于之前的tr   样式：row</p>
+</li>
+<li><p>定义元素。指定该元素在不同的设备上，所占的格子数目。样式：col-设备代号-格子数目</p>
+<ul>
+<li><p>设备代号：</p>
+<ul>
+<li>xs：超小屏幕 手机 (&lt;768px)：col-xs-12</li>
+<li>sm：小屏幕 平板 (≥768px)</li>
+<li>md：中等屏幕 桌面显示器 (≥992px)</li>
+<li>lg：大屏幕 大桌面显示器 (≥1200px)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>注意：</p>
+<ul>
+<li><p>一行中如果格子数目超过12，则超出部分自动换行。</p>
+</li>
+<li><p>栅格类属性可以向上兼容。栅格类适用于与屏幕宽度大于或等于分界点大小的设备。</p>
+</li>
+<li><p>如果真实设备宽度小于了设置栅格类属性的设备代码的最小值，会一个元素沾满一整行。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="CSS样式和JS插件"><a href="#CSS样式和JS插件" class="headerlink" title="CSS样式和JS插件"></a>CSS样式和JS插件</h3><p><strong>全局CSS样式</strong>：（具体的可以查看<a href="https://v3.bootcss.com/css/" target="_blank" rel="noopener">全局CSS样式</a>）</p>
+<ul>
+<li>按钮：<code>class=&quot;btn btn-default&quot;</code></li>
+<li>图片：<code>class=&quot;img-responsive&quot;</code>图片在任意尺寸都占100%<ul>
+<li>图片形状：<code>&lt;img src=&quot;...&quot; alt=&quot;...&quot; class=&quot;img-rounded&quot;&gt;</code>方形</li>
+<li><code>&lt;img src=&quot;...&quot; alt=&quot;...&quot; class=&quot;img-circle&quot;&gt;</code>圆形</li>
+<li><code>&lt;img src=&quot;...&quot; alt=&quot;...&quot; class=&quot;img-thumbnail&quot;&gt;</code>相框</li>
+</ul>
+</li>
+<li>表格：<ul>
+<li><code>table</code></li>
+<li><code>table-bordered</code></li>
+<li><code>ble-hover</code></li>
+</ul>
+</li>
+<li>表单：</li>
+</ul>
+<p><strong>组件</strong>：（查看<a href="https://v3.bootcss.com/components/" target="_blank" rel="noopener">Bootstrap组件</a>）</p>
+<ul>
+<li>导航条</li>
+<li>分页条</li>
+</ul>
+<p><strong>插件</strong>：</p>
+<ul>
+<li>轮播图</li>
+</ul>
+
       
     </div>
     
@@ -449,7 +681,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://fancyninomi.github.io/2019/10/23/LeetCode301-删除无效的括号/" title="LeetCode301 删除无效的括号">https://fancyninomi.github.io/2019/10/23/LeetCode301-删除无效的括号/</a>
+    <a href="https://fancyninomi.github.io/2020/01/30/CSS-Bootstrap/" title="CSS & Bootstrap">https://fancyninomi.github.io/2020/01/30/CSS-Bootstrap/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -474,12 +706,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/LeetCode/" rel="tag"><i class="fa fa-tag"></i> LeetCode</a>
-          
-        </div>
-      
 
       
       
@@ -489,8 +715,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/22/ArrayList-LinkedList/" rel="next" title="ArrayList & LinkedList">
-                <i class="fa fa-chevron-left"></i> ArrayList & LinkedList
+              <a href="/2020/01/09/数据库连接池/" rel="next" title="数据库连接池 & DBUtils">
+                <i class="fa fa-chevron-left"></i> 数据库连接池 & DBUtils
               </a>
             
           </div>
@@ -498,10 +724,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/27/LeetCode329-矩阵中最长递增路径/" rel="prev" title="LeetCode329 矩阵中最长递增路径">
-                LeetCode329 矩阵中最长递增路径 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -558,8 +780,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -621,6 +852,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS"><span class="nav-number">1.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS的使用：CSS与html结合方式"><span class="nav-number">1.0.1.</span> <span class="nav-text">CSS的使用：CSS与html结合方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS语法"><span class="nav-number">1.0.2.</span> <span class="nav-text">CSS语法</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Bootstrap"><span class="nav-number">2.</span> <span class="nav-text">Bootstrap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#响应式布局"><span class="nav-number">2.0.1.</span> <span class="nav-text">响应式布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS样式和JS插件"><span class="nav-number">2.0.2.</span> <span class="nav-text">CSS样式和JS插件</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
